@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Quicksand, sans-serif;
+}
+
+header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 120px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightslategray;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    font-family: Lilita One, cursive;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    margin-left: 25px;
+}
