@@ -112,7 +112,7 @@ def load_table_Q_helper(sheet_name: str, cols: str, number_of_notes_rows: int):
 	# Convert all the numeric values from million cubic metres to petajoules
 	for column in df.columns:
 		if column != "Financial Year":
-			df[column] *= MCM_TO_PJ_CONVERSION_FACTOR
+			df[column] = df[column].map(lambda value: round(value * MCM_TO_PJ_CONVERSION_FACTOR, 3))
 	
 	return start_year_and_filter(df)
 
