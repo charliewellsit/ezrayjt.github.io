@@ -5,3 +5,14 @@
     font-family: Quicksand, sans-serif;
     scroll-behavior: smooth;
 }
+
+p2{
+    color:  #6c757d;
+}
+
+h3{
+    font-weight: 600;
+    font-size: 20px;
+    white-space: nowrap;
+    padding: 5px;
+}
