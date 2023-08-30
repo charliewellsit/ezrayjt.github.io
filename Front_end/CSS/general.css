@@ -6,6 +6,11 @@
   scroll-behavior: smooth;
 }
 
+/* combine with js file to display the page after everything is loaded */
+body{
+  display: none;
+}
+
 p2 {
   color: #6c757d;
 }
