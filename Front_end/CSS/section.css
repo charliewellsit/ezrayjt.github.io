@@ -2,7 +2,10 @@ section {
   min-height: 80vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* elements are vertically centred. 
+  When you use flexBox, elements resizing with window size. 
+  When the elements get smaller, it taks less space vertically. 
+  All elements will move to maintain it to be centered.*/
   background: #e9ecef;
   padding: 50px;
 }
@@ -23,7 +26,6 @@ section:nth-child(odd) {
 
 .issue-box {
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   justify-content: space-between;
   height: 800px;
@@ -84,24 +86,4 @@ section:nth-child(odd) {
   transform: translateY(-50%);
   padding: 20px;
   width: 500px;
-}
-
-#map {
-  flex-direction: column;
-}
-
-.map-box {
-  display: flex;
-  padding-top: 70px;
-}
-
-.aus-map {
-  width: 1fr;
-  background-color: aqua;
-}
-
-.statistic {
-  width: 800px;
-  height: 800px;
-  background-color: white;
 }

@@ -1,4 +1,98 @@
-<?xml version="1.0"?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- googlefonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,800&family=Lilita+One&family=Quicksand:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css files to stylise the page -->
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/section.css" />
+    <link rel="stylesheet" href="../css/button.css" />
+    <link rel="stylesheet" href="../css/map.css" />
+    <title>Home</title>
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <header>
+      <a href="#" class="logo">TA21</a>
+
+      <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#article">Issues</a>
+        <a href="#interactive-map">Map</a>
+        <a href="#furniture">Lighting</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <!-- home section which comes first when open the page-->
+    <section id="home">
+      <h1>SustainUrban</h1>
+      <p>Build your Green home</p>
+      <a href="#article">Get Started</a>
+    </section>
+
+    <!-- article section which provide issues going on related to sustainable city-->
+    <section id="article">
+      <h2>Issues</h2>
+      <p2>Constraction impacted environment widely</p2>
+      <!-- Use nested flexbox to do the layout -->
+      <div class="issues">
+        <div class="issue-box">
+          <div class="issue" id="img1">
+            <div class="issue-text1">
+              <h3>Building a House Impacts Wildlife</h3>
+              <p2
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sapiente quis facilis rem iste culpa esse rerum in repudiandae
+                aliquid repellendus!</p2
+              >
+            </div>
+            <img src="../images/excavator.jpeg" />
+          </div>
+
+          <div class="issue" id="img2">
+            <img src="../images/kangaroo.jpeg" />
+            <div class="issue-text2">
+              <h3>Building a House Impacts Wildlife</h3>
+              <p2
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sapiente quis facilis rem iste culpa esse rerum in repudiandae
+                aliquid repellendus!</p2
+              >
+            </div>
+          </div>
+
+          <div class="issue" id="img3">
+            <div class="issue-text3">
+              <h3>Building a House Impacts Wildlife</h3>
+              <p2
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sapiente quis facilis rem iste culpa esse rerum in repudiandae
+                aliquid repellendus!</p2
+              >
+            </div>
+            <img src="../images/building.jpeg" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- interactive map here-->
+    <section id="interactive-map">
+      <h2>map</h2>
+      <p2>Sustainability situation in Australia</p2>
+      <div class="map-box">
+        <div class="aus-map">
+          <?xml version="1.0"?>
 <!--
 ************* Copyright (c) 2017 Pareto Softare, LLC DBA Simplemaps.com *******************		
 ************* Free for Commercial Use, full terms at  http://simplemaps.com/resources/svg-license ************
@@ -34,3 +128,18 @@
  <circle cx="774.2" cy="636.8" id="2">
  </circle>
 </svg>
+        </div>
+
+        <div class="statistic">
+          <div class="statistic1"></div>
+          <div class="statistic2"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="furniture">Lighting</section>
+    <section id="about">about</section>
+    <script src="../javascript/navbar.js"></script>
+    <script src="../javascript/general.js"></script>
+  </body>
+</html>
