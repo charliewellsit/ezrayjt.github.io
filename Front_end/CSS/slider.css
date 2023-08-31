@@ -1,0 +1,55 @@
+#furniture {
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+
+.lighting-option {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+/* .lighting-option label,
+  .lighting-option select,
+  .lighting-option input[type="number"],
+  .lighting-option button {
+    font-size: 20px;
+  } */
+
+#textField{
+  font-size: 20px;
+  /* justify-content: center; */
+  text-align: center;
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center; */
+}
+
+p {
+  font-size: 16px;
+  color: black;
+}
+
+.lighting-selection,
+button{
+    margin-bottom: 10px;
+    padding:10px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container label {
+  margin-right: 10px;
+}

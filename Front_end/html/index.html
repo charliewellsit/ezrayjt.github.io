@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../CSS/section.css" />
   <link rel="stylesheet" href="../CSS/button.css" />
   <link rel="stylesheet" href="../CSS/map.css" />
+  <link rel="stylesheet" href="../CSS/slider.css" />
 
     <!--use chart.js to plot data-->
     <script src="
@@ -158,7 +159,60 @@
     </div>
   </section>
 
-  <section id="furniture">Lighting</section>
+  <section id="furniture">
+    <h2>Assess Your Lighting's Option</h2>
+    <br>
+    <!-- <p>Have you decided on the correct light bulb options for your room? Give this a go so you know if you are designing a sustainable room!</p> -->
+    <h3>Make Informed Light Bulb Choices for Your Space!</h3>
+    <br>
+    <h3>Take this Opportunity to Ensure Your Room's Design Aligns with Sustainability Principles and Creates a Harmonious Atmosphere.</h3> 
+    
+    <div class="lighting-option">
+      <div class="lighting-selection">
+      <label for="light-bulb">Choose your light bulb type:</label>
+        <select name="light-bulb-names" id="light-bulb-names">
+          <option value="none" selected disabled hidden>Select</option>
+          <option value="Halogen">Halogen</option> 
+          <option value="Compact Fluorescent">Compact Fluorescent</option> 
+          <option value="LED">LED</option>
+        </select>
+      </div>
+
+      <div class="lighting-selection">
+        <!-- https://www.homelectrical.com/cfls-vs-halogen-vs-fluorescent-vs-incandescent-vs-led.6.html -->
+        <label for="quantity">How many Watts is your light bulb?</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="100">
+      </div>
+          
+      <div class="lighting-selection">
+        <label for="area-name">Choose an area:</label> 
+          <select name="area-names" id="area-names">
+              <option value="none" selected disabled hidden>Select</option>
+              <option value="Bedroom">Bedroom</option> 
+              <option value="Corridor/Walkways">Corridor/Walkways</option> 
+              <option value="Kitchen">Kitchen</option>
+              <option value="Toilet">Toilet</option> 
+          </select>
+      </div>
+  
+      <div class="lighting-selection">
+        <label for="lightSlider">How many lights do you want for this area?</label>
+        <div class="slider">
+          <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
+          <p id="rangeValue">0</p>
+        </div> 
+      </div>
+
+      <button type="button" onclick="calculate()">Check</button>
+
+      <div id="textField"></div>
+   
+      </div>
+
+    </div>
+  </section>
+
+
   <section id="about">about</section>
 
   <!--import scrips -->
@@ -166,6 +220,7 @@
   <script src="../javascript/general.js"></script>
   <script src="../javascript/map.js"></script>
   <script src="../javascript/chart.js"></script>
+  <script src="../javascript/lights.js"></script>
 </body>
 
 </html>
