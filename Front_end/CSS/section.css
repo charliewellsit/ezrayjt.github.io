@@ -29,6 +29,7 @@ section:nth-child(odd) {
   flex-direction: column;
   justify-content: space-between;
   height: 800px;
+  text-align: center;
 }
 
 .issue-box::before {
