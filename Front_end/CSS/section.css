@@ -87,3 +87,7 @@ section:nth-child(odd) {
   padding: 20px;
   width: 500px;
 }
+
+#about{
+  height: 100vh;
+}
