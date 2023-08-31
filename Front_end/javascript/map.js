@@ -71,7 +71,12 @@ data: {
 options: {
     scales: {
     y: {
-        beginAtZero: false
+        beginAtZero: false,
+        ticks: {
+          callback: function(value, index, values) {
+            return value + ' kWh';
+          }
+        }
     }
     }
 }
