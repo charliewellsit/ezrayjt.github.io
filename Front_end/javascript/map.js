@@ -30,6 +30,7 @@ async function getData(){
     
     const xs = [];
     const ys = [];
+    const pieData = [];
 
     const aus_url='../json/aus_data.json'
     const response = await fetch(aus_url);
@@ -42,27 +43,73 @@ async function getData(){
     const financialYears = regionData.map(entry => entry["financial year"]);
     xs.push(...financialYears);
 
+    const electricityGenerated = regionData.map(entry => entry["total_electricity_generated"]);
+    pieData.push(...electricityGenerated);
+
     const electricityUsage = regionData.map(entry => entry["electricity_usage"]);
     ys.push(...electricityUsage);
 
-    return {xs, ys};
+    return {xs, ys, pieData};
 }
 
 
-// async function chartIt(){
-//   const ausData = await getData();
-//   const ctx = document.getElementById('chart1');
+const ctx = document.getElementById('chart1');
 
-//   mychart = new Chart(ctx, {
+const myChart = new Chart(ctx, {
+type: 'line',
+data: {
+    labels: [],
+    datasets: [{
+    label: 'electricity usage',
+    data: [],
+    fill: false,
+    bordercolor: 'lightskyblue',
+    tension: 0.1
+    }]
+},
+options: {
+    scales: {
+    y: {
+        beginAtZero: false
+    }
+    }
+}
+});
+
+
+const ctx2 = document.getElementById('chart2');
+
+const myChart2 = new Chart(ctx2, {
+type: 'doughnut',
+data :{
+  labels: [
+    'electricity usage',
+    'electricity generated'
+  ],
+  datasets: [{
+    label: '',
+    data: [300, 50],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)'
+    ],
+    hoverOffset: 4
+  }]
+}
+});
+
+// let data = {
+//   labels: [],
+//     datasets: [{
+//     label: state_name,
+//     data: [],
+//     borderWidth: 1
+//     }]
+// };
+
+// let config = {
 //   type: 'bar',
-//   data: {
-//       labels: ausData.xs,
-//       datasets: [{
-//       label: state_name,
-//       data: ausData.ys,
-//       borderWidth: 1
-//       }]
-//   },
+//   data,
 //   options: {
 //       scales: {
 //       y: {
@@ -70,34 +117,12 @@ async function getData(){
 //       }
 //       }
 //   }
-//   });
-// }
+// };
 
-let data = {
-  labels: [],
-    datasets: [{
-    label: state_name,
-    data: [],
-    borderWidth: 1
-    }]
-};
-
-let config = {
-  type: 'bar',
-  data,
-  options: {
-      scales: {
-      y: {
-          beginAtZero: true
-      }
-      }
-  }
-};
-
-const myChart= new Chart(
-  document.getElementById('chart1'),
-  config
-);
+// const myChart= new Chart(
+//   document.getElementById('chart1'),
+//   config
+// );
 
 
 async function updateChart(){
@@ -106,4 +131,8 @@ async function updateChart(){
   myChart.config.data.datasets[0].data = ausData.ys;
   myChart.config.data.labels = ausData.xs;
   myChart.update();
+
+  myChart2.config.data.datasets[0].data = [ausData.ys[10], ausData.pieData[10]];
+  console.log(ausData.pieData[10], ausData.ys[10]);
+  myChart2.update();
 }
