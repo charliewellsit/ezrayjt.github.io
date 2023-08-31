@@ -22,6 +22,7 @@ document.querySelectorAll(".paths").forEach((path) => {
   path.addEventListener("click", function () {
     state_name = path.id;
     updateChart();
+    document.getElementById("suggestion").style.opacity = 0;
   });
   });
 
@@ -88,7 +89,7 @@ data :{
   ],
   datasets: [{
     label: '',
-    data: [300, 50],
+    data: [],
     backgroundColor: [
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)'
