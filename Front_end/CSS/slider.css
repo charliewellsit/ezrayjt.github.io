@@ -1,6 +1,15 @@
 #furniture {
+    display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    align-items: center;
+    background-image: url('../images/lights2.jpg'); /* Replace with the actual image file path */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #f2f2f2; /* Optional background color */
+    color: rgb(232, 232, 232); /* Text color for content */
+    padding: 20px; /* Padding for content */
+    position: relative;
   }
 
 .lighting-option {
@@ -9,8 +18,10 @@
     padding-top: 20px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
+
+
 
 /* .lighting-option label,
   .lighting-option select,
@@ -30,13 +41,72 @@
 
 p5 {
   font-size: 16px;
-  color: black;
+  color: rgb(222, 222, 222);
 }
 
-.lighting-selection,
+ul {
+  list-style-position: inside; /* Place the bullet points inside the list item */
+  padding-left: 0; /* Remove the default left padding on the list */
+}
+
+h3{
+  padding: 0px;
+}
+
+p, ul, li {
+  font-size: 14px;
+  color: rgb(218, 218, 218);
+  /* text-align: center; */
+  /* margin: 0; Remove margin to ensure elements are closer together */
+}
+
 button{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     padding:10px;
+    margin: 10px;
+}
+
+.lighting-selection{
+  /* flex: 1; */
+  /* margin-bottom: 10px; */
+  /* display:contents; */
+  flex-direction: column;
+  display: flex;
+  padding:10px;
+}
+
+.seperator {
+  display: flex;
+  flex-direction: row; /* Set to row to create a two-column layout */
+  justify-content: space-between; /* Add space between the two columns */
+  align-items: center; /* Vertically center align content */
+  padding:10px;
+}
+
+.bulb-choice {
+  flex: 1; /* Allow the left column to grow and take available space */
+  margin-right: 20px; /* Add space between the two columns */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+label {
+  margin-bottom: 10px; /* Add spacing below the label */
+}
+
+.image-container{
+  /* display: flex;
+  align-items: center; */
+  flex: 1;
+}
+
+img {
+  /* float: right; */
+  width:  100px;
+  height: 100px;
+  object-fit: contain;
 }
 
 .slider {
@@ -52,4 +122,34 @@ button{
 
 .input-container label {
   margin-right: 10px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 12px;
+  /* transition: opacity 0ms; */
+}
+
+button {
+  background-color: rgb(0, 89, 255); /* Blue background color */
+  color: white; /* White font color */
+  border: none; /* Remove border */
+  border-radius: 24px; /* Rounded corners */
+  padding:10px;
+  cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+/* Optional: Style hover effect */
+button:hover {
+  background-color: darkblue; /* Darker blue on hover */
+}
+
+#recommendation{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: black;
+  opacity: 90%;
 }
