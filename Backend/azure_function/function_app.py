@@ -57,11 +57,7 @@ def get_data(req: func.HttpRequest) -> func.HttpResponse:
     result = db_manager.execute_query(query)
 
     # Process the query result and format it as JSON
-    data = []
-    for each in result:
-        region, year, electricity_usage, gas_usage, elect_non_renewable_generated, elect_renewable_generated, total_elect_generated, total_gas_generated = each
-
-        data.append({
+    data = [{
             'region': region,
             'financial year': year,
             'electricity_usage': electricity_usage,
@@ -70,7 +66,7 @@ def get_data(req: func.HttpRequest) -> func.HttpResponse:
             'renewable_source_electricity_generated': elect_renewable_generated,
             'total_electricity_generated': total_elect_generated,
             'total_gas_generated': total_gas_generated
-        })
+        } for region, year, electricity_usage, gas_usage, elect_non_renewable_generated, elect_renewable_generated, total_elect_generated, total_gas_generated in result]
 
     db_manager.close()
     result_json = json.dumps(data)
