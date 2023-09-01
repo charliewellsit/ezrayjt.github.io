@@ -38,6 +38,10 @@ header.sticky nav a.active {
   font-family: Lilita One, cursive;
 }
 
+.logo img {
+  width: 120px;
+}
+
 nav a {
   text-decoration: none;
   color: black;

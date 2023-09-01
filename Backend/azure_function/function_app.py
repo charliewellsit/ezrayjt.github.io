@@ -1,7 +1,5 @@
 import azure.functions as func
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
-import mysql.connector, json
+import mysql.connector, json, os
 
 class DatabaseManager:
     def __init__(self, host, user, password, database):
@@ -31,17 +29,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 @app.route(route="get_data")
 def get_data(req: func.HttpRequest) -> func.HttpResponse:
-    # Key Vault URL
-    KEY_VAULT_URL = "https://ta21-fit5120.vault.azure.net/"
-
-    # Initialize the managed identity credentials
-    credential = DefaultAzureCredential()
-    # Initialize the Secret Client
-    secret_client = SecretClient(vault_url=KEY_VAULT_URL, credential=credential)
-
-    # Get the connection string from Azure Key Vault
-    db_secret = secret_client.get_secret("mysql-database")
-    db_password = db_secret.value
+    db_password = os.environ["mysql_database"]
 
     db_manager = DatabaseManager(
     host="ta21-2023s2.mysql.database.azure.com",
@@ -51,24 +39,13 @@ def get_data(req: func.HttpRequest) -> func.HttpResponse:
     )
 
     # SQL query to get data from the database
-    query = "SELECT r.region_name, c.financial_start_year, c.electricity_usage, c.gas_usage, g.non_renewable_electricity_total, g.renewable_electricity_total, g.total_electricity_generation, g.total_gas_generation FROM regions r LEFT JOIN energy_consumption c ON r.region_id = c.region_id RIGHT JOIN energy_generation g ON r.region_id = g.region_id AND c.financial_start_year = g.financial_start_year"
+    query = "SELECT region_name, financial_start_year + 1, ROUND(electricity_usage), ROUND(gas_usage), ROUND(non_renewable_electricity_total), ROUND(renewable_electricity_total), ROUND(total_electricity_generation), ROUND(total_gas_generation) FROM regions JOIN energy_consumption USING (region_id) JOIN energy_generation USING (region_id, financial_start_year)"
 
     # Execute the query using the DatabaseManager
     result = db_manager.execute_query(query)
 
     # Process the query result and format it as JSON
-    data = []
-    for each in result:
-        region = each[0]
-        year = each[1] + 1
-        electricity_usage = round(each[2])
-        gas_usage = round(each[3])
-        elect_non_renewable_generated = round(each[4])
-        elect_renewable_generated = round(each[5])
-        total_elect_generated = round(each[6])
-        total_gas_generated = round(each[7])
-
-        data.append({
+    data = [{
             'region': region,
             'financial year': year,
             'electricity_usage': electricity_usage,
@@ -77,7 +54,7 @@ def get_data(req: func.HttpRequest) -> func.HttpResponse:
             'renewable_source_electricity_generated': elect_renewable_generated,
             'total_electricity_generated': total_elect_generated,
             'total_gas_generated': total_gas_generated
-        })
+        } for region, year, electricity_usage, gas_usage, elect_non_renewable_generated, elect_renewable_generated, total_elect_generated, total_gas_generated in result]
 
     db_manager.close()
     result_json = json.dumps(data)
