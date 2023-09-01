@@ -16,7 +16,7 @@ function updateAmount() {
 
     if (lightBulb === "Halogen"){
       totalWatt *= 25;
-    } else if (lightBulb == "Compact Fluorescent"){
+    } else if (lightBulb == "Compact Fluorescent Lamp"){
       totalWatt *= 60;
     } else {
       totalWatt *= 72;
@@ -46,3 +46,21 @@ function updateAmount() {
     textField.innerHTML = resultText;
 
   }
+
+  
+const bulbSelect = document.getElementById("light-bulb-names");
+const bulbImage = document.getElementById("bulb-image");
+
+bulbSelect.addEventListener("change", function() {
+  const selectedBulb = bulbSelect.value;
+  if (selectedBulb === "Halogen") {
+    bulbImage.src = "../images/halogen.png"; // Replace with the correct image path for Halogen
+  } else if (selectedBulb === "Compact Fluorescent Lamp") {
+    bulbImage.src = "../images/CFL.jpg"; // Replace with the correct image path for CFL
+  } else if (selectedBulb === "LED") {
+    bulbImage.src = "../images/LED.jpg"; // Replace with the correct image path for LED
+  } else {
+    bulbImage.src = ""; // Clear the image if no option is selected
+  }
+});
+
