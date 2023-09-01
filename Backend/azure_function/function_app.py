@@ -39,7 +39,7 @@ def get_data(req: func.HttpRequest) -> func.HttpResponse:
     )
 
     # SQL query to get data from the database
-    query = "SELECT r.region_name, c.financial_start_year + 1, ROUND(c.electricity_usage), ROUND(c.gas_usage), ROUND(g.non_renewable_electricity_total), ROUND(g.renewable_electricity_total), ROUND(g.total_electricity_generation), ROUND(g.total_gas_generation) FROM regions r LEFT JOIN energy_consumption c ON r.region_id = c.region_id RIGHT JOIN energy_generation g ON r.region_id = g.region_id AND c.financial_start_year = g.financial_start_year"
+    query = "SELECT region_name, financial_start_year + 1, ROUND(electricity_usage), ROUND(gas_usage), ROUND(non_renewable_electricity_total), ROUND(renewable_electricity_total), ROUND(total_electricity_generation), ROUND(total_gas_generation) FROM regions JOIN energy_consumption USING (region_id) JOIN energy_generation USING (region_id, financial_start_year)"
 
     # Execute the query using the DatabaseManager
     result = db_manager.execute_query(query)
