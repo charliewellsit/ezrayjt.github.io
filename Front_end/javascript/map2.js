@@ -33,7 +33,7 @@ async function getData(){
     const ys = [];
     const pieData = [];
 
-    const aus_url='../data/aus_data.json'
+    const aus_url='../json/aus_data.json'
     const response = await fetch(aus_url);
     const aus_data = await response.json();
 
