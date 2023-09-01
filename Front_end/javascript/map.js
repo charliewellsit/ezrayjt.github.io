@@ -33,7 +33,7 @@ async function getData(){
     const ys = [];
     const pieData = [];
 
-    const aus_url='https://ta21-2023s2.azurewebsites.net/api/get_data'
+    const aus_url='https://ta21-2023-s2.azurewebsites.net/api/get_data'
     const response = await fetch(aus_url);
     const aus_data = await response.json();
 
