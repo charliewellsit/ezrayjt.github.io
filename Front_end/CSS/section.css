@@ -53,7 +53,7 @@ section:nth-child(odd) {
   position: relative;
 }
 
-.issue img {
+.issue img{
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -91,4 +91,42 @@ section:nth-child(odd) {
 
 #about{
   height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.about-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 50px;
+}
+
+.team-member{
+  flex-direction: column;
+  text-align: center;
+}
+
+.team-member img 
+{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 7px solid white;
+}
+
+.member-name{
+  display: flex;
+  flex-direction: column;
+}
+
+.member-name p2{
+  padding: 5px;
+}
+
+i{
+  color: #6c757d;
+  padding: 6px;
 }
