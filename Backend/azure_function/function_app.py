@@ -1,7 +1,5 @@
 import azure.functions as func
-from azure.identity import ManagedIdentityCredential
-from azure.keyvault.secrets import SecretClient
-import mysql.connector, json
+import mysql.connector, json, os
 
 class DatabaseManager:
     def __init__(self, host, user, password, database):
@@ -31,17 +29,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 @app.route(route="get_data")
 def get_data(req: func.HttpRequest) -> func.HttpResponse:
-    # Key Vault URL
-    KEY_VAULT_URL = "https://ta21-fit5120.vault.azure.net/"
-
-    # Initialize the managed identity credentials
-    credential = ManagedIdentityCredential()
-    # Initialize the Secret Client
-    secret_client = SecretClient(vault_url=KEY_VAULT_URL, credential=credential)
-
-    # Get the connection string from Azure Key Vault
-    db_secret = secret_client.get_secret("mysql-database")
-    db_password = db_secret.value
+    db_password = os.environ["mysql_database"]
 
     db_manager = DatabaseManager(
     host="ta21-2023s2.mysql.database.azure.com",
