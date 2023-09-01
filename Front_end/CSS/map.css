@@ -31,12 +31,16 @@ path:active{
 }
 
 .statistic {
-  width: 450px;
+  width: 550px;
   margin: 30px;
 }
 
 .statistic1, .statistic2 {
   padding: 20px;
+}
+
+.statistic2{
+  width: 350px;
 }
 
 .aus-map {
