@@ -61,7 +61,7 @@ type: 'line',
 data: {
     labels: [],
     datasets: [{
-    label: 'electricity usage',
+    label: 'Electricity Consumption',
     data: [],
     fill: false,
     bordercolor: 'lightskyblue',
@@ -89,8 +89,8 @@ const myChart2 = new Chart(ctx2, {
 type: 'doughnut',
 data :{
   labels: [
-    'electricity usage',
-    'electricity generated'
+    'Electricity Consumption',
+    'Electricity Generated'
   ],
   datasets: [{
     label: '',
