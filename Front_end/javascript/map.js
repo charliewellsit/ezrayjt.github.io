@@ -1,4 +1,13 @@
 let state_name;
+let aus_data;
+
+async function init(){
+  const aus_url='https://ta21-2023-s2.azurewebsites.net/api/get_data'
+  const response = await fetch(aus_url);
+  aus_data = await response.json();
+}
+
+init();
 
 document.querySelectorAll(".paths").forEach((path) => {
   path.addEventListener("mouseover", function (e) {
@@ -33,10 +42,6 @@ async function getData(){
     const ys = [];
     const pieData = [];
 
-    const aus_url='https://ta21-2023-s2.azurewebsites.net/api/get_data'
-    const response = await fetch(aus_url);
-    const aus_data = await response.json();
-
     const regionName = state_name;
     console.log(regionName);
     const regionData = aus_data.filter(entry => entry.region === regionName);
@@ -61,7 +66,7 @@ type: 'line',
 data: {
     labels: [],
     datasets: [{
-    label: 'electricity usage',
+    label: 'Electricity Consumption',
     data: [],
     fill: false,
     bordercolor: 'lightskyblue',
@@ -89,8 +94,8 @@ const myChart2 = new Chart(ctx2, {
 type: 'doughnut',
 data :{
   labels: [
-    'electricity usage',
-    'electricity generated'
+    'Electricity Consumption',
+    'Electricity Generated'
   ],
   datasets: [{
     label: '',

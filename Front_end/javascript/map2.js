@@ -3,6 +3,7 @@ let aus_data;
 
 async function init(){
   const aus_url='../json/aus_data.json'
+  // https://ta21-2023-s2.azurewebsites.net/api/get_data
   const response = await fetch(aus_url);
   aus_data = await response.json();
 }
