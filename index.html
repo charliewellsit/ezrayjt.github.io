@@ -16,6 +16,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <!-- css files to stylise the page -->
+  <!-- <link rel="stylesheet" href="../CSS/navbar.css" />
+  <link rel="stylesheet" href="../CSS/general.css" />
+  <link rel="stylesheet" href="../CSS/section.css" />
+  <link rel="stylesheet" href="../CSS/button.css" />
+  <link rel="stylesheet" href="../CSS/map.css" />
+  <link rel="stylesheet" href="../CSS/slider.css" /> -->
   <link rel="stylesheet" href="Front_end/CSS/button.css" />
   <link rel="stylesheet" href="Front_end/CSS/general.css" />
   <link rel="stylesheet" href="Front_end/CSS/map.css" />
@@ -33,27 +39,27 @@
 <body>
   <!-- navbar -->
   <header>
-    <a href="#" class="logo">TA21</a>
+    <a href="#" class="logo"><img src="../images/logo.png"></a>
 
     <nav>
       <a href="#home" class="active">Home</a>
       <a href="#article">Issues</a>
       <a href="#interactive-map">Map</a>
       <a href="#furniture">Lighting</a>
-      <a href="#about">About</a>
+      <!-- <a href="#about">About</a> -->
     </nav>
   </header>
 
   <!-- home section which comes first when open the page-->
   <section id="home">
     <h1>SustainUrban</h1>
-    <p>Build your Green home</p>
+    <p8>Build your Green home, Shaping a sustainable city</p8>
     <a href="#article">Get Started</a>
   </section>
 
   <!-- article section which provide issues going on related to sustainable city-->
   <section id="article">
-    <h2>Did you know?</h2>
+    <h2>Issues</h2>
     <p2>Navigating Challenges in Urban Sustainability</p2>
     <!-- Use nested flexbox to do the layout -->
     <div class="issues">
@@ -61,25 +67,27 @@
         <div class="issue" id="img1">
           <div class="issue-text1">
             <h3>Coal-digger</h3>
-            <p2>Australians spend almost $2.4 billion on healthcare every year, due to the health impacts of coal extraction. Australia's larger portion of  electricity generated for domestic use is from coal. Living near the mines or power plants could have diverse effects on our health. The most affected population are children who can develop conditions like asthma, and serious developmental disabilities.</p2>
+            <ul class="myUl"><li class="myUl">Australians living near coal power plants spend $2.4 billion on healthcare every year.</li><li class="myUl">Children develop conditions like asthma, and serious developmental disabilities.</li></ul>
           </div>
-          <img src="Front_end/images/kangaroo.jpeg" />
+          <img src="../images/Au coal plant.jpg" />
         </div>
 
         <div class="issue" id="img2">
-          <img src="Front_end/images/excavator.jpeg" />
+          <img src="../images/Gas cooktop.jpg" />
           <div class="issue-text2">
-            <h3>Gas-driller</h3>
-            <p2>Australia's gas generation is down by 5% in 2023. Although, almost 48% of Australians use gas stoves for cooking, which causes the air quality of their home to deteriorate. People are exposed to harmful particles like carbon monoxide and nitrogen oxide, even when the gas stoves are turned off. </p2>
+            <h3>The invisible invader</h3>
+            <ul class="myUl"><li class="myUl">50% of Australian households use gas stoves for cooking,which pollutes the quality of air inside their homes.</li>
+              <li class="myUl">People are exposed to harmful particles like carbon monoxide and nitrogen oxide, even when the gas stoves are turned off.</li></ul>
           </div>
         </div>
 
         <div class="issue" id="img3">
           <div class="issue-text3">
             <h3>'Angry Summer' & 'Weird Winter'</h3>
-            <p2>Australia has been experiencing massive climate changes every year since 2013. The reason for this is the release of greenhouse gases in the atmosphere which is a by-product of burning fossil fuels, generation of cooking gas and oil for transportation. </p2>
+            <ul class="myUl"><li class="myUl">Climate change since 2013 due to burning of fossil fuels for energy generation.</li>
+              <li class="myUl">Urbanisation is the major cause for global warming.</li></ul>
           </div>
-          <img src="Front_end/images/building.jpeg" />
+          <img src="../images/Climate change.jpg" />
         </div>
       </div>
     </div>
@@ -97,11 +105,11 @@
       <!--map is here-->
       <div id="aus-map" class="aus-map">
         <div class="suggestion">
-          <p2 id="suggestion">Try click on it!</p2>
+          <p2 id="suggestion">Click on a state or territory!</p2>
         </div>
         <!--a statename tooltip-->
         <div id="map-tip">
-          <p id="state-name"></p>
+          <p8 id="state-name"></p8>
         </div>
 
         <!--svg file for the map-->
@@ -159,88 +167,111 @@
   <section id="furniture">
     <h2>Assess Your Lighting's Option</h2>
     <br>
-    <!-- <p>Have you decided on the correct light bulb options for your room? Give this a go so you know if you are designing a sustainable room!</p> -->
-    <h3>Make Informed Light Bulb Choices for Your Space!</h3>
-    <br>
-    <h3>Take this Opportunity to Ensure Your Room's Design Aligns with Sustainability Principles and Creates a Harmonious Atmosphere.</h3> 
-    
-    <div class="lighting-option">
+    <h3>Verify Whether the Light Bulb Brightness in Your Selected Home Area Complies with Recommended Standards</h3>
+    <br><br>
+    <!-- <div class="lighting-option">
       <div class="lighting-selection">
-      <label for="light-bulb">Choose your light bulb type:</label>
-        <select name="light-bulb-names" id="light-bulb-names">
-          <option value="none" selected disabled hidden>Select</option>
-          <option value="Halogen">Halogen</option> 
-          <option value="Compact Fluorescent">Compact Fluorescent</option> 
-          <option value="LED">LED</option>
-        </select>
-      </div>
+        <div class="seperator">
+          <div class="bulb-choice">
+            <label for="light-bulb">Choose your light bulb type: </label>
+              <select name="light-bulb-names" id="light-bulb-names">
+                <option value="none" selected disabled hidden>Select</option>
+                <option value="Halogen">Halogen</option> 
+                <option value="Compact Fluorescent Lamp">Compact Fluorescent Lamp</option> 
+                <option value="LED">LED</option>
+              </select>
+          </div>
 
-      <div class="lighting-selection">
-        <!-- https://www.homelectrical.com/cfls-vs-halogen-vs-fluorescent-vs-incandescent-vs-led.6.html -->
-        <label for="quantity">How many Watts is your light bulb?</label>
-          <input type="number" id="quantity" name="quantity" min="1" max="100">
+          <div class="image-container">
+            <img id="bulb-image" src="../images/white.png" alt="Light Bulb Image">
+          </div>
+        </div>
       </div>
-          
-      <div class="lighting-selection">
-        <label for="area-name">Choose an area:</label> 
-          <select name="area-names" id="area-names">
-              <option value="none" selected disabled hidden>Select</option>
-              <option value="Bedroom">Bedroom</option> 
-              <option value="Corridor/Walkways">Corridor/Walkways</option> 
-              <option value="Kitchen">Kitchen</option>
-              <option value="Toilet">Toilet</option> 
-          </select>
-      </div>
-  
-      <div class="lighting-selection">
-        <label for="lightSlider">How many lights do you want for this area?</label>
-        <div class="slider">
-          <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
-          <p5 id="rangeValue">0</p5>
-        </div> 
-      </div>
+    </div> -->
 
-      <button type="button" onclick="calculate()">Check</button>
-
-      <div id="textField"></div>
-   
-      </div>
-
+    <div class="lighting-selection">
+      <!-- https://www.sustainability.vic.gov.au/energy-efficiency-and-reducing-emissions/save-energy-in-the-home/lighting/choose-the-right-led-lighting -->
+      <label for="lumens">What is the luminous flux rating of the light bulb?
+        <span class="tooltip" title="Luminous flux rating is typically indicated on the light bulb packaging under the label 'Lumens'. It is commonly referred as brightness.">&#9432;</span>
+      </label>
+        
+        <input type="number" id="lumens" name="lumens" min="1" max="3000">
     </div>
+        
+    <div class="lighting-selection">
+      <label for="area-name">Choose an area:</label> 
+        <select name="area-names" id="area-names">
+            <option value="none" selected disabled hidden>Select</option>
+            <option value="Bedroom">Bedroom</option> 
+            <option value="Corridor/Walkways">Corridor/Walkways</option> 
+            <option value="Kitchen">Kitchen</option>
+            <option value="Toilet">Toilet</option> 
+        </select>
+    </div>
+
+    <div class="lighting-selection">
+      <label for="size">What is the size of the area in m²?</label>
+        <input type="number" id="size" name="size" min="1" max="3000">
+    </div>
+
+    <div class="lighting-selection">
+      <label for="lightSlider">How many lights do you want for this area?</label>
+      <div class="slider">
+        <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
+        <p5 id="rangeValue">0</p5>
+      </div> 
+    </div>
+
+    <button type="button" onclick="calculate()">Check</button>
+
+    <div id="textField"></div>
+
+    <div id="recommendation" style="display: none;">
+      <h3>Recommendations</h3>
+      <br>
+      <p>There are alternative options that offer maximum brightness while using fewer light bulbs:</p>
+      <ul>
+        <li>Switch to LED lighting</li>
+        <li>Choose the right light fittings</li>
+      </ul>
+      <br>
+      <p>By doing this, you will be saving energy and cost too.</p>
+    </div>
+
   </section>
 
 
-  <section id="about">
+  <!-- <section id="about">
     <h2>About</h2>
     <p2>Contact us</p2>
   <div class="about-box">
     <div class="team-member">
-      <img src="Front_end/images/pig.jpeg">
+      <img src="../images/pig.jpeg">
       <div class="member-name"><p2>Lleyton</p2><div class="icons"><i class="bi bi-envelope"></i><i class="bi bi-facebook"></i><i class="bi bi-messenger"></i></div></div></div>
     <div class="team-member">
-      <img src="Front_end/images/pengpai.png">
+      <img src="../images/pengpai.png">
       <div class="member-name"><p2>Pengpai</p2><div class="icons"><i class="bi bi-envelope"></i><i class="bi bi-facebook"></i><i class="bi bi-messenger"></i></div></div></div>
     <div class="team-member">
-      <img src="Front_end/images/sophia.png">
+      <img src="../images/sophia.png">
       <div class="member-name"><p2>Sophia</p2><div class="icons"><i class="bi bi-envelope"></i><i class="bi bi-facebook"></i><i class="bi bi-messenger"></i></div></div></div>
 
     <div class="team-member">
-      <img src="Front_end/images/vyshnavi.jpeg">
+      <img src="../images/vyshnavi.jpeg">
       <div class="member-name"><p2>Vyshnavi</p2><div class="icons"><i class="bi bi-envelope"></i><i class="bi bi-facebook"></i><i class="bi bi-messenger"></i></div></div></div>
 
     <div class="team-member">
-      <img src="Front_end/images/juntao.png">
-      <div class="member-name"><p2>Juntao</p2><div class="icons"><i class="bi bi-envelope"></i><i class="bi bi-facebook"></i><i class="bi bi-messenger"></i></div></div></div>
+      <img src="../images/juntao.png">
+      <div class="member-name"><p2>Juntao</p2><div class="icons"><i class="bi bi-envelope"></i><i class="bi bi-facebook"></i><i class="bi bi-messenger"></i></div></div></div> -->
 
   </div>
   </section>
 
   <!--import scrips -->
-  <script src="Front_end/javascript/chart.js"></script>
-  <script src="Front_end/javascript/general.js"></script>
-  <script src="Front_end/javascript/lights.js"></script>
-  <script src="Front_end/javascript/map.js"></script>
-  <script src="Front_end/javascript/navbar.js"></script>
+  <script src="../javascript/navbar.js"></script>
+  <script src="../javascript/general.js"></script>
+  <script src="../javascript/map2.js"></script>
+  <script src="../javascript/chart.js"></script>
+  <script src="../javascript/lights.js"></script>
 </body>
 
 </html>
