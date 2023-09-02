@@ -15,6 +15,13 @@ p2 {
   color: #6c757d;
 }
 
+.myUl {
+  color: #6c757d;
+  font-size: 16px;
+  text-align: left;
+  padding: 10px;
+}
+
 h3 {
   font-weight: 600;
   font-size: 20px;
@@ -28,7 +35,7 @@ h1 {
   color: white;
 }
 
-p {
+p8 {
   font-size: 30px;
   color: white;
 }

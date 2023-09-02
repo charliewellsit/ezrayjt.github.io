@@ -31,15 +31,16 @@ header.sticky nav a.active {
   color: #efc050;
 }
 
-.logo {
+/* .logo {
   font-size: 35px;
   text-decoration: none;
   color: black;
   font-family: Lilita One, cursive;
-}
+} */
 
 .logo img {
   width: 120px;
+  height: 40px;
 }
 
 nav a {
