@@ -1,4 +1,13 @@
 let state_name;
+let aus_data;
+
+async function init(){
+  const aus_url='../json/aus_data.json'
+  const response = await fetch(aus_url);
+  aus_data = await response.json();
+}
+
+init();
 
 document.querySelectorAll(".paths").forEach((path) => {
   path.addEventListener("mouseover", function (e) {
@@ -32,10 +41,6 @@ async function getData(){
     const xs = [];
     const ys = [];
     const pieData = [];
-
-    const aus_url='../json/aus_data.json'
-    const response = await fetch(aus_url);
-    const aus_data = await response.json();
 
     const regionName = state_name;
     console.log(regionName);
