@@ -21,8 +21,6 @@ section:nth-child(odd) {
   min-height: 100vh;
 }
 
-#slogan, #slogan-title
-
 #article {
   flex-direction: column;
 }
