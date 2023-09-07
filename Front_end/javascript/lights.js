@@ -6,7 +6,6 @@ function updateAmount() {
     amountDisplay.innerText = selectedValue;
   }
 
-
 // Define a variable to track the recommendation section's visibility
 let isRecommendationVisible = false;
 
@@ -33,7 +32,7 @@ function toggleRecommendation() {
       return; // Stop execution if any field is empty
   }
 
-    let lux = lumens * numberOfLightBulb / areaSize;
+    let lux = parseFloat((lumens * numberOfLightBulb / areaSize).toFixed(2));
 
     // if (lightBulb === "Halogen"){
     //   totalWatt *= 25;
@@ -68,7 +67,7 @@ function toggleRecommendation() {
 
     // Add the Recommendation button
     const recommendationButton = document.createElement("button");
-    recommendationButton.textContent = "Show Recommendation";
+    recommendationButton.textContent = "Show Recommendations";
     recommendationButton.type = "button";
     recommendationButton.onclick = toggleRecommendation;
 
@@ -91,6 +90,8 @@ function toggleRecommendation() {
     const textField = document.getElementById("textField");
     textField.appendChild(recommendationSection);
 }
+
+
 
 
 

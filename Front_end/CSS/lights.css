@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('../images/lights2.jpg'); /* Replace with the actual image file path */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('../images/lights2.jpg');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -10,6 +10,7 @@
     color: rgb(232, 232, 232); /* Text color for content */
     padding: 20px; /* Padding for content */
     position: relative;
+    /* height: 100vh; */
   }
 
 .lighting-option {
@@ -73,6 +74,7 @@ button{
   flex-direction: column;
   display: flex;
   padding:10px;
+  margin:10px;
 }
 
 .seperator {
@@ -124,14 +126,6 @@ img {
   margin-right: 10px;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  margin-left: 5px;
-  font-size: 12px;
-  /* transition: opacity 0ms; */
-}
-
 button {
   background-color: rgb(0, 89, 255); /* Blue background color */
   color: white; /* White font color */
@@ -144,6 +138,13 @@ button {
 /* Optional: Style hover effect */
 button:hover {
   background-color: darkblue; /* Darker blue on hover */
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 12px;
 }
 
 #recommendation{
