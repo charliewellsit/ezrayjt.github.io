@@ -183,7 +183,7 @@
           </div>
 
           <div class="image-container">
-            <img id="bulb-image" src="Front_end/images/white.png" alt="Light Bulb Image">
+            <img id="bulb-image" src="../images/white.png" alt="Light Bulb Image">
           </div>
         </div>
       </div>
@@ -191,15 +191,14 @@
 
     <div class="lighting-selection">
       <!-- https://www.sustainability.vic.gov.au/energy-efficiency-and-reducing-emissions/save-energy-in-the-home/lighting/choose-the-right-led-lighting -->
-      <label for="lumens">What is the luminous flux rating of the light bulb?
+      <label for="lumens">What is the luminous flux rating of the light bulb you are going to purchase/ use?
         <span class="tooltip" title="Luminous flux rating is typically indicated on the light bulb packaging under the label 'Lumens'. It is commonly referred as brightness.">&#9432;</span>
       </label>
-        
         <input type="number" id="lumens" name="lumens" min="1" max="3000">
     </div>
         
     <div class="lighting-selection">
-      <label for="area-name">Choose an area:</label> 
+      <label for="area-name">Select an area you would like to check:</label> 
         <select name="area-names" id="area-names">
             <option value="none" selected disabled hidden>Select</option>
             <option value="Bedroom">Bedroom</option> 
@@ -210,12 +209,12 @@
     </div>
 
     <div class="lighting-selection">
-      <label for="size">What is the size of the area in m²?</label>
+      <label for="size">What is the approximate size of your selected area in m²?</label>
         <input type="number" id="size" name="size" min="1" max="3000">
     </div>
 
     <div class="lighting-selection">
-      <label for="lightSlider">How many lights do you want for this area?</label>
+      <label for="lightSlider">How many light bulbs are you going to install for this area?</label>
       <div class="slider">
         <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
         <p5 id="rangeValue">0</p5>
