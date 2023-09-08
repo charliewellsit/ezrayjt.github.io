@@ -26,13 +26,13 @@ p7{
   color: #6c757d;
   font-size: 13px;
   text-align: left;
-  margin-top: 20px;
 }
 
-h3 {
+h6 {
   font-weight: 600;
   font-size: 15px;
   white-space: nowrap;
+  padding: 10px;
 }
 
 h1 {
