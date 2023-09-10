@@ -1,16 +1,17 @@
 #lighting {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('../images/lights2.jpg');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('../images/lights2.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center top; */
+    /* background-repeat: no-repeat; */
     background-color: #f2f2f2; /* Optional background color */
-    color: rgb(232, 232, 232); /* Text color for content */
-    padding: 20px; /* Padding for content */
-    position: relative;
-    /* height: 100vh; */
+    color: rgb(0, 0, 0); /* Text color for content */
+    /* padding: 20px; Padding for content */
+    position: fixed;
+    height: 100vh;
+    padding-top: 120px;
   }
 
 .lighting-option {
