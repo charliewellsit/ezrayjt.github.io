@@ -15,7 +15,7 @@ header {
 header.sticky {
   padding: 10px 120px;
   /* background: linear-gradient(to bottom, lightslategray,#363945); */
-  background-color: #11141a;
+  background-color: #112D32;
   /* box-shadow: 0 8px 40px rgba(0,0,0,0.5),
                 inset 0 4px 4px rgba(255,255,255,0.2),
                 inset 0 -4px 4px rgba(255,255,255,0.2); */
@@ -28,7 +28,7 @@ header.sticky .logo {
 
 header.sticky nav a:hover,
 header.sticky nav a.active {
-  color: #efc050;
+  color: #4F4A41;
 }
 
 /* .logo {
@@ -53,5 +53,5 @@ nav a {
 
 nav a:hover,
 nav a.active {
-  color: #efc050;
+  color: #4F4A41;
 }
