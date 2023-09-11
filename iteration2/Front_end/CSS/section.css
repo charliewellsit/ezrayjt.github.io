@@ -15,14 +15,15 @@ section:nth-child(odd) {
 }
 
 #home {
-  background: 
+  /*background: 
   linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(ezrayjt.github.io/iteration2/Front_end/images
-  /homepagebg.jpg) no-repeat center center/cover;
+  /homepagebg.jpg) no-repeat center center/cover;*/
+  background-color: #3b945e;
   flex-direction: column;
   min-height: 100vh;
 }
 #container{
- background-color: #254e58;
+ background-color:white;
 }
 
 
