@@ -8,6 +8,7 @@ header {
   justify-content: space-between;
   align-items: center;
   /* background-color: lightslategray; */
+  background-color: black;
   z-index: 100;
   transition: all 0.3s ease;
 }
