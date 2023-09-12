@@ -15,15 +15,10 @@ section:nth-child(odd) {
 }
 
 #home {
-  /*background: 
-  linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(ezrayjt.github.io/iteration2/Front_end/images
-  /homepagebg.jpg) no-repeat center center/cover;*/
-  background-color: #3b945e;
+  background: 
+  linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../images/homepagebg.jpg) no-repeat center center/cover;
   flex-direction: column;
   min-height: 100vh;
-}
-#container{
- background-color:#2b3b3e;
 }
 
 
