@@ -1,19 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <script type="text/javascript">
-    var correctPassword = "TA21";
-    while (true) {
-      var userInput = prompt("Please enter the password to access this page:", "");
-      if (userInput === correctPassword) {
-        break;
-      } else {
-        alert("Incorrect password! Please try again.");
-      }
-    }
-  </script>
 
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -46,10 +35,12 @@
     https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
     "></script>
   <title>SustainUrban</title>
+
 </head>
 
 <body>
   <!-- navbar -->
+  
   <header>
     <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
 
@@ -284,5 +275,15 @@
   <script src="Front_end/javascript/chart.js"></script>
   <script src="Front_end/javascript/lights.js"></script>
 </body>
-
+<script type="text/javascript">
+  var correctPassword = "TA21";
+  while (true) {
+    var userInput = prompt("Please enter the password to access this page:", "");
+    if (userInput === correctPassword) {
+      break;
+    } else {
+      alert("Incorrect password! Please try again.");
+    }
+  }
+</script>
 </html>
