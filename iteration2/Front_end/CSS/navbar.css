@@ -2,7 +2,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 120px;
+  padding: 13px 120px;
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,7 @@ header {
 }
 
 header.sticky {
-  padding: 20px 120px;
+  /* padding: 20px 120px; */
   /* background: linear-gradient(to bottom, lightslategray,#363945); */
   background-color: #182628;
   /* box-shadow: 0 8px 40px rgba(0,0,0,0.5),
@@ -22,11 +22,11 @@ header.sticky {
                 inset 0 -4px 4px rgba(255,255,255,0.2); */
 }
 
-header.sticky nav a,
-header.sticky .logo {
+header.sticky nav a{
   color: white;
 }
 
+/* when it's scrolled */
 header.sticky nav a:hover,
 header.sticky nav a.active {
   color: #3b945e;
@@ -52,6 +52,7 @@ nav a {
   transition: all 0.3s ease;
 }
 
+/* when it's not scrolled */
 nav a:hover,
 nav a.active {
   color: #3b945e;
