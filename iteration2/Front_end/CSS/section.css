@@ -132,3 +132,10 @@ i{
   color: #6c757d;
   padding: 6px;
 }
+.lights{
+  float:center;
+  padding: 10px;
+  border-radius: 50%;
+  border: 10 px black;
+  border-width: 50%;
+}
