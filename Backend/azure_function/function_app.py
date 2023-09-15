@@ -1,5 +1,5 @@
 import azure.functions as func
-import mysql.connector, json, os
+import mysql.connector, json, os, requests
 
 class DatabaseManager:
     def __init__(self, host, user, password, database):
@@ -31,7 +31,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 # Runs only between 10pm to 5pm UTC which means in our timezone (AEST, UTC+10) it will be allowed to sleep from 3am to 8am
 @app.schedule(schedule="0 */5 22-23,0-16 * * *", arg_name="timer")
 def stayinalive(timer: func.TimerRequest):
-    return
+    requests.get("https://ta21-2023-s2.azurewebsites.net/api/get_data")
 
 @app.route(route="get_data")
 def get_data(req: func.HttpRequest):
