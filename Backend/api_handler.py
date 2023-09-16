@@ -9,21 +9,21 @@ import json
 app = Flask(__name__)
 # CORS(app)
 
-db_manager = DatabaseManager(
+db_manager_energy = DatabaseManager(
     host="ta21-2023s2.mysql.database.azure.com",
     user="TA21",
     password=getpass.getpass(),
     database="energy"
 )
 
-# Route to get data
+# Route to get data for iteration 1 map feature
 @app.route('/api/get_data', methods=['GET'])
 def get_data():
     # SQL query to get data from the database
     query = "SELECT r.region_id, r.region_name, c.financial_start_year, c.electricity_usage, c.gas_usage, g.non_renewable_electricity_total, g.renewable_electricity_total, g.total_electricity_generation, g.total_gas_generation FROM regions r LEFT JOIN energy_consumption c ON r.region_id = c.region_id RIGHT JOIN energy_generation g ON r.region_id = g.region_id AND c.financial_start_year = g.financial_start_year"
 
     # Execute the query using the DatabaseManager
-    result = db_manager.execute_query(query)
+    result = db_manager_energy.execute_query(query)
 
     # Process the query result and format it as JSON
     data = []
