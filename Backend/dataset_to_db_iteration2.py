@@ -61,6 +61,7 @@ def load_data_into_db(connection: MySQLConnectionAbstract):
 
 	# Incandescent dataset
 	# Do the same as above
+	# Some family names are blank so we put empty strings in their place
 	incands = pd.read_csv("incandescent.csv")
 	incands_sold_in_aus = incands.SoldIn.map(lambda row: "Australia" in row)
 	incands = incands[(incands["Availability Status"] == "Available") & incands_sold_in_aus].reset_index(drop = True)
@@ -69,7 +70,7 @@ def load_data_into_db(connection: MySQLConnectionAbstract):
 	# Waste management dataset
 	# Some addresses and facility owners are empty so we'll put an empty string instead of a "NaN" for those
 	# This is also true of one facility name in Tasmania - who builds a facility and then doesn't name it??
-	# Pandas makes them floats but we don't want that - instead of 2620.0 we need 2620
+	# Pandas makes the postcodes floats but we don't want that - instead of 2620.0 we need 2620
 	waste = pd.read_csv("Waste_Management_Facilities.csv")
 	waste.address.fillna("", inplace = True)
 	waste.suburb.fillna("", inplace = True)
@@ -78,36 +79,32 @@ def load_data_into_db(connection: MySQLConnectionAbstract):
 	waste["postcode"] = waste.postcode.map(lambda item: "NULL" if pd.isna(item) else str(int(item)))
 	
 	with connection.cursor() as cursor:
-		print("Starting CFLs...")
-		row_data = [
+		cursor.executemany(
+			"INSERT INTO CFLs VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", [
 			(index, row.Brand, row.Model_No, row["Family Name"], row.Country, row.nom_lamp_power, row.nom_lum_flux, row.colour_temp, row.median_lamp_life)
 			for index, row in cfls.iterrows()
-		]
-		cursor.executemany("INSERT INTO CFLs VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", row_data)
-		
-		print("CFLs complete. Starting Waste Management Facilities...")
+		])
+
 		# Don't need the index value because each row already has a unique ObjectID number that we can use
 		# I can't believe the dataset misspelled "infastructure"
-		row_data = [
+		cursor.executemany(
+			"INSERT INTO waste_management_facilities VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", [
 			(row.objectid, row.X, row.Y, row.facility_management_type, row.facility_infastructure_type, row.facility_owner, row.facility_name, row.state, row.address, row.suburb, row.postcode)
 			for _, row in waste.iterrows()
-		]	
-		cursor.executemany("INSERT INTO waste_management_facilities VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-				  row_data)
-		
-		print("Waste Management Facilities complete. Starting Incandescents...")
+		])
+
+		incand_row_data = []
+		incand_manufacturer_row_data = []
 		for index, row in incands.iterrows():
-			cursor.execute("INSERT INTO incandescents VALUES (%s, %s, %s, %s, %s, %s, %s)",
-				  (index, row.Brand, row.Model_No, row["Family Name"], row.nom_lamp_power, row["Lamp Light Output (Lumens)"], row.median_lamp_life))
-			
+			incand_row_data.append((index, row.Brand, row.Model_No, row["Family Name"], row.nom_lamp_power, row["Lamp Light Output (Lumens)"], row.median_lamp_life))
 			# Go through the list of manufacturing countries and add each to the manufacturing table
 			# The index was used as the ID for each row in the main table, so we use the same index number as the foreign key here
-			assert isinstance(row.Country, str)
 			for country in row.Country.split(","):
-				cursor.execute("INSERT INTO incandescent_manufacturing (incandescent_ID, manufacturer_country) VALUES (%s, %s)",
-				   (index, country))
-		print("Incandescents complete.")
+				incand_manufacturer_row_data.append((index, country))
 		
+		cursor.executemany("INSERT INTO incandescents VALUES (%s, %s, %s, %s, %s, %s, %s)", incand_row_data)
+		cursor.executemany("INSERT INTO incandescent_manufacturing (incandescent_ID, manufacturer_country) VALUES (%s, %s)", incand_manufacturer_row_data)
+
 		connection.commit()
 
 def main():
@@ -116,5 +113,6 @@ def main():
 		print("Connected!")
 		create_db_and_tables(connection)
 		load_data_into_db(connection)
+		print("Complete!")
 
 main()
