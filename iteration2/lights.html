@@ -40,38 +40,22 @@
     <div id="lighting-left">
       <h2>Assess Your Lighting's Option</h2>
       <br>
-      <h3>Verify Whether the Light Bulb Brightness in Your Selected Home Area Complies with Recommended Standards</h3>
-      <br><br>
-      <!-- <div class="lighting-option">
-        <div class="lighting-selection">
-          <div class="seperator">
-            <div class="bulb-choice">
-              <label for="light-bulb">Choose your light bulb type: </label>
-                <select name="light-bulb-names" id="light-bulb-names">
-                  <option value="none" selected disabled hidden>Select</option>
-                  <option value="Halogen">Halogen</option> 
-                  <option value="Compact Fluorescent Lamp">Compact Fluorescent Lamp</option> 
-                  <option value="LED">LED</option>
-                </select>
-            </div>
-
-            <div class="image-container">
-              <img id="bulb-image" src="../images/white.png" alt="Light Bulb Image">
-            </div>
-          </div>
-        </div>
-      </div> -->
+      <h3>Verify Whether the Light Bulb Brightness in Your Selected Home Area Complies with Recommended Standards<span>*</span></h3>
+      <br>
+      <p><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p>
 
       <div class="lighting-selection">
-        <!-- https://www.sustainability.vic.gov.au/energy-efficiency-and-reducing-emissions/save-energy-in-the-home/lighting/choose-the-right-led-lighting -->
+        
         <label for="lumens">What is the luminous flux rating of the light bulb you are going to purchase/ use?
           <span class="tooltip" title="Luminous flux rating is typically indicated on the light bulb packaging under the label 'Lumens'. It is commonly referred as brightness.">&#9432;</span>
         </label>
-          <input type="number" id="lumens" name="lumens" min="1" max="3000">
+        <input type="number" id="lumens" name="lumens" min="1" max="3000">
+        <!-- added validation -->
+        <div id="errorMessageLumens" style="color:red; font-size: 14px;"></div>
       </div>
           
-      <!-- <div class="lighting-selection">
-        <label for="area-name">Select an area you would like to check:</label> 
+      <div class="lighting-selection">
+        <label for="area-names">Select an area you would like to check:</label> 
           <select name="area-names" id="area-names">
               <option value="none" selected disabled hidden>Select</option>
               <option value="Bedroom">Bedroom</option> 
@@ -82,23 +66,34 @@
       </div>
 
       <div class="lighting-selection">
-        <label for="size">What is the approximate size of your selected area in m²?</label>
+        <label for="size">What is the approximate size of your selected area in m²?
+          <span class="tooltip" title="Need some clarity? Feel free to refer to the table for personalized guidance!">&#9432;</span>
+        </label>
           <input type="number" id="size" name="size" min="1" max="3000">
+          <!-- added validation -->
+          <div id="errorMessageArea" style="color:red; font-size: 14px;"></div>
       </div>
 
       <div class="lighting-selection">
-        <label for="lightSlider">How many light bulbs are you going to install for this area?</label>
-        <div class="slider">
+        <label for="numberOfLightBulb">How many light bulbs are you going to install for this area?</label>
+        <input type="number" id="numberOfLightBulb" name="numberOfLightBulb" min="1" max="20">
+        <!-- added validation -->
+        <div id="errorMessageBulbs" style="color:red; font-size: 14px;"></div>
+        <!-- <div class="slider">
           <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
           <p5 id="rangeValue">0</p5>
-        </div> 
-      </div> -->
+        </div>  -->
+      </div>
 
-      <button type="button" onclick="calculate()">Check</button>
+      
 
-      <!-- <div id="textField"></div>
 
-      <div id="recommendation" style="display: none;">
+      <!-- <button type="button" onclick="calculate()">Check</button> -->
+      <div id="errorMessageAllFields" style="color: red; font-size: 14px;"></div>
+      <button type="button" id="checkButton" onclick="calculateAndToggle()">Check</button>
+      
+
+      <!-- <div id="recommendation" style="display: none;">
         <h3>Recommendations</h3>
         <br>
         <p>There are alternative options that offer maximum brightness while using fewer light bulbs:</p>
@@ -110,7 +105,25 @@
         <p>By doing this, you will be saving energy and cost too.</p>
       </div> -->
 
+
     </div>
+
+    <div id="lighting-right">adfasdf</div>
+
+    
+
+  </div>
+
+  <div class="row">
+    <div id="hiddenContainer">
+      <div id="thisDiv"></div>
+      <div id="textField"></div>
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <p>compare my light bulbs!</p>
   </div>
 
 
