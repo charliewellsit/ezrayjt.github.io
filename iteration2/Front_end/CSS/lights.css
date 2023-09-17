@@ -1,81 +1,45 @@
 #light-container{
   display: flex;
+  padding:20px;
+  padding-top: 100px;
+  padding-bottom: 0;
+  background-color: whitesmoke;
   width: 100%;
-  height: 100vh;
-  padding-top: 120px;
-  height: 100vh;
-  background-color: aquamarine;
-
 }
 
-.lighting-left{
-  flex: 0 0 60%;
+#lighting-left{
+  width:60%;
+  margin: 40px;
+  margin-top: 0px;
 }
 
-/* .lighting-left {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('../images/lights2.jpg');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-color: #f2f2f2;
-    color: rgb(0, 0, 0);
-    position: fixed;
-    height: 100vh;
-    padding-top: 120px;
-    flex-basis: 20%;
-  } */
+#lighting-right{
+  width: 40%;
+  margin: 40px;
+  margin-top: 0px;
+}
 
+.large-text-lights{
+  font-size: 32px;
+}
 
+.med-text-lights{
+  font-size: 24px;
+}
 
-.lighting-option {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    justify-content: center;
-    align-items: center;
-    /* margin-bottom: 10px; */
-  }
-
-
-
-/* .lighting-option label,
-  .lighting-option select,
-  .lighting-option input[type="number"],
-  .lighting-option button {
-    font-size: 20px;
-  } */
-
-#textField{
-  font-size: 20px;
-  /* justify-content: center; */
+.row{
+  margin:80px 40px;
   text-align: center;
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center; */
+  /* color: white; */
+  /* background-color: forestgreen; */
 }
 
-p5 {
-  font-size: 16px;
-  color: rgb(222, 222, 222);
-}
-
-ul {
-  list-style-position: inside; /* Place the bullet points inside the list item */
-  padding-left: 0; /* Remove the default left padding on the list */
-}
-
-/* h3{
+h2 {
   padding: 0px;
-} */
+}
 
 p, ul, li {
   font-size: 14px;
-  color: rgb(218, 218, 218);
-  /* text-align: center; */
-  /* margin: 0; Remove margin to ensure elements are closer together */
 }
 
 button{
@@ -86,52 +50,16 @@ button{
 
 .lighting-selection{
   /* flex: 1; */
-  /* margin-bottom: 10px; */
   /* display:contents; */
   flex-direction: column;
   display: flex;
-  padding:10px;
-  margin:10px;
+  /* padding:10px; */
+  margin:30px 0;
 }
 
-.seperator {
-  display: flex;
-  flex-direction: row; /* Set to row to create a two-column layout */
-  justify-content: space-between; /* Add space between the two columns */
-  align-items: center; /* Vertically center align content */
-  padding:10px;
-}
-
-.bulb-choice {
-  flex: 1; /* Allow the left column to grow and take available space */
-  margin-right: 20px; /* Add space between the two columns */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
 label {
-  margin-bottom: 10px; /* Add spacing below the label */
-}
-
-.image-container{
-  /* display: flex;
-  align-items: center; */
-  flex: 1;
-}
-
-img {
-  /* float: right; */
-  width:  100px;
-  height: 100px;
-  object-fit: contain;
-}
-
-.slider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 10px;
 }
 
 .input-container {
@@ -139,8 +67,8 @@ img {
   align-items: center;
 }
 
-.input-container label {
-  margin-right: 10px;
+.label-text, input[type="number"], select {
+  width: 50em; /* Set a width based on content */
 }
 
 button {
@@ -148,6 +76,7 @@ button {
   color: white; /* White font color */
   border: none; /* Remove border */
   border-radius: 24px; /* Rounded corners */
+  width: 10em;
   padding:10px;
   cursor: pointer; /* Add a pointer cursor on hover */
 }
@@ -164,10 +93,15 @@ button:hover {
   font-size: 12px;
 }
 
-#recommendation{
+/* #recommendation{
   display: flex;
   flex-direction: column;
   padding: 20px;
   background-color: black;
   opacity: 90%;
 }
+
+ul {
+  list-style-position: inside; 
+  padding-left: 0; 
+} */
