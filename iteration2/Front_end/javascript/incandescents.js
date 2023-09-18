@@ -1,8 +1,8 @@
 // Function to fetch data from the API
 async function fetchDataFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_incandescent');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_incandescents');
+        // const response = await fetch('http://127.0.0.1:5000/api/get_incandescent');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_incandescent');
         if (!response.ok) {
             throw new Error('API request failed');
         }
