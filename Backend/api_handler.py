@@ -20,24 +20,13 @@ db_manager_energy = DatabaseManager(
 @app.route('/api/get_data', methods=['GET'])
 def get_data():
     # SQL query to get data from the database
-    query = "SELECT r.region_id, r.region_name, c.financial_start_year, c.electricity_usage, c.gas_usage, g.non_renewable_electricity_total, g.renewable_electricity_total, g.total_electricity_generation, g.total_gas_generation FROM regions r LEFT JOIN energy_consumption c ON r.region_id = c.region_id RIGHT JOIN energy_generation g ON r.region_id = g.region_id AND c.financial_start_year = g.financial_start_year"
+    query = "SELECT region_name, financial_start_year + 1, ROUND(electricity_usage), ROUND(gas_usage), ROUND(non_renewable_electricity_total), ROUND(renewable_electricity_total), ROUND(total_electricity_generation), ROUND(total_gas_generation) FROM regions JOIN energy_consumption USING (region_id) JOIN energy_generation USING (region_id, financial_start_year)"
 
     # Execute the query using the DatabaseManager
     result = db_manager_energy.execute_query(query)
 
     # Process the query result and format it as JSON
-    data = []
-    for each in result:
-        region = each[1]
-        year = each[2] + 1
-        electricity_usage = round(each[3])
-        gas_usage = round(each[4])
-        elect_non_renewable_generated = round(each[5])
-        elect_renewable_generated = round(each[6])
-        total_elect_generated = round(each[7])
-        total_gas_generated = round(each[8])
-
-        data.append({
+    data = [{
             'region': region,
             'financial year': year,
             'electricity_usage': electricity_usage,
@@ -46,8 +35,9 @@ def get_data():
             'renewable_source_electricity_generated': elect_renewable_generated,
             'total_electricity_generated': total_elect_generated,
             'total_gas_generated': total_gas_generated
-        })
+        } for region, year, electricity_usage, gas_usage, elect_non_renewable_generated, elect_renewable_generated, total_elect_generated, total_gas_generated in result]
 
+    db_manager_energy.close()
     result_json = json.dumps(data)
     return result_json
 
