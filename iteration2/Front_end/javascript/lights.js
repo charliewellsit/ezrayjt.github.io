@@ -102,3 +102,8 @@ function calculateAndToggle(){
   }
 }
 
+function redirectToCFL() {
+  // Redirect to the "cfl.html" page
+  window.location.href = "cfl.html";
+}
+

@@ -24,59 +24,65 @@
 <body>
     <div>
         <!-- navbar -->
-        <header>
-            <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
+      <header>
+          <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
 
-            <nav>
-            <a href="index.html#home" class="active">Home</a>
-            <a href="index.html#article">Issues</a>
-            <a href="index.html#interactive-map">Map</a>
-            <a href="lights.html">Lights</a>
-            <!-- <a href="#about">About</a> -->
-            </nav>
-        </header>
+          <nav>
+          <a href="index.html#home" class="active">Home</a>
+          <a href="index.html#article">Issues</a>
+          <a href="index.html#interactive-map">Map</a>
+          <a href="lights.html">Lights</a>
+          <!-- <a href="#about">About</a> -->
+          </nav>
+      </header>
     </div>
     <div id="container1">
         <!-- <h2>Compare Light Bulb</h2> -->
         <div class="lightbulb-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4">Compare Light Bulb</h1>
-            <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+            <h3>Pick from the options below to access details about your chosen light bulb</h3>
+            <br>
+            <p class="lead">You'll have the flexibility to adjust various settings and sort them by efficiency.</p>
           </div>
     </div>
-    <div class="album py-5 bg-light">
-        <div class="container">
+    <div class="album bg-light">
+      <div class="container1">
 
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm" onclick="redirectToCFL()">
+              <!-- <div class="card-header">
+                <h4>Enterprise</h4>
+              </div> -->
+              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block; background-color: limegreen;" src="Front_end/images/lights2.jpg">
+              <div class="card-body">
+                <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                <h4>Compact Fluorescent Lamp (CFL)</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                  <!-- <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  </div> -->
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block; background-color: limegreen;" src="Front_end/images/lights2.jpg">
+              <div class="card-body">
+                <h4>Incandescent Lamp</h4>
+                <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                <div class="d-flex justify-content-between align-items-center">
+                  <!-- <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  </div> -->
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
 
 
