@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="Front_end/CSS/general.css" />
     <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
     <link rel="stylesheet" href="Front_end/CSS/section.css" />
-    <link rel="stylesheet" href="Front_end/CSS/lights.css" />
+    <link rel="stylesheet" href="Front_end/CSS/lamp.css" />
 </head>
 <body>
     <!-- navbar -->
@@ -35,17 +35,133 @@
     </nav>
   </header>
 
+  <div id="container2">
+    <div>
+        <h1 class="display-3">Compact Fluorescent Lamp (CFL)</h1>
+    </div>
+    <div>
+        <h3>
+            Compact Fluorescent Lamps (CFLs) are energy-saving light bulbs, which last longer and use far less energy than traditional (or incandescent) light bulbs for the same level of light intensity.
+        </h3>
+    </div>
+    <br><br>
+    <p style="font-size: large;">Select the options below to discover the best light bulb for you:</p>
+    <br>
+    <div id="light-container">
+        <div id="lighting-left">
+            <div class="lighting-selection">
+                <label for="brand">Brand Name:</label> 
+                <select name="brand" id="brand" style="font-size: large;">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Any">Any Brand</option> 
+                    <option value="Coles">Coles</option> 
+                    <option value="Mirabella">Mirabella</option>
+                    <option value="Olsent">Olsent</option> 
+                    <option value="Osram">Osram</option> 
+                    <option value="Philips">Philips</option> 
+                </select>
+            </div>
+            <div class="lighting-selection">
+                <label for="colour_temperature">Colour Temperature:
+                    <span class="tooltip" title="Refer to the image for guidance">&#9432;</span>
+                </label> 
+                <select name="colour_temperature" id="colour_temperature" style="font-size: large;">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Any">Any Colour Temperature</option> 
+                    <!-- change back -->
+                    <option value="warmWhite">Warm White</option> 
+                    <option value="naturalWhite">Natural White</option>
+                    <option value="coolWhite">Cool White</option>
+                </select>
+            </div>
+            <div class="lighting-selection">
+                <label for="power">Wattage:
+                    <span class="tooltip" title="Wattage of a lamp is the amount of energy the lamp consumed">&#9432;</span>
+                </label> 
+                <select name="power" id="power" style="font-size: large;">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Any">Any</option> 
+                    <!-- change back -->
+                    <option value="below20">Below 20 Watts</option> 
+                    <option value="between20to30">Between 20 to 30 Watts</option>
+                    <option value="above30">Above 30 Watts</option>
+                </select>
+            </div>
+
+            <button type="button" id="searchButton" onclick="filterAndDisplayData()">Search</button>
+
+        </div>
+
+        
+        <div id="lighting-right">
+            <!-- <div id="imgContainer">
+                <img src="Front_end/images/room-warm.jpg">
+                <img src="Front_end/images/room-natural.jpg">
+                <img src="Front_end/images/room-cool.jpg">
+            </div> -->
+            <div id="imgContainer">
+                <img src="Front_end/images/room-warm.jpg">
+            </div>
+            <div id="imgContainer">
+                <img src="Front_end/images/room-natural.jpg">
+            </div>
+            <div id="imgContainer">
+                <img src="Front_end/images/room-cool.jpg">
+            </div>
+
+        </div>
+    </div>
+    <br>
+
+    <!-- <div id="imgContainer">
+        <img src="Front_end/images/lights2.jpg">
+    </div> -->
+
+    <div id="hiddenContainer">
+        <h1>Top 5 Recommendations</h1>
+        <div class="row">
+            <div class="table-responsive-xl">
+                <!-- Table to display filtered results -->
+                <table id="resultsTable" class="custom-table">
+                    <!-- Table headers -->
+                    <thead>
+                        <tr style="background-color: whitesmoke; font-weight: bold;">
+                            <!-- <th>Brand</th> -->
+                            <th scope="col">Brand</td>
+                            <th scope="col">Model</td>
+                            <th scope="col">Color Temperature</th>
+                            <th scope="col">Brightness (Lumens)</th>
+                            <th scope="col">Power (Watts)</th>
+                            <th scope="col">Efficiency (Lumens/Watts)</th>
+                            <th scope="col">Search</th>
+                        </tr>
+                    </thead>
+                    <!-- Table body for filtered results -->
+                    <tbody>
+                        <!-- Table rows will be added here based on user selections -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </div>
+    <div id="thisDiv"></div>
+    
+    
+  </div>
 
 
 
 
 
-  
+
+
 
     <!--import scrips -->
   <script src="Front_end/javascript/navbar.js"></script>
   <script src="Front_end/javascript/general.js"></script>
   <script src="Front_end/javascript/lights.js"></script>
+  <script src="Front_end/javascript/cfl.js"></script>
   <script src="Front_end/javascript/passwordCheck.js"></script>
 </body>
 </html>
