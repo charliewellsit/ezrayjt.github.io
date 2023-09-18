@@ -35,7 +35,7 @@ function success(pos) {
     }
     // Set zoom to boundaries of accuracy circle
 
-    map.setView([lat, lng]);
+    map.setView([lat, lng], 10);
     // Set map focus to current user position
 
 }
