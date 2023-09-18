@@ -127,4 +127,6 @@ img {
     margin: 0 40px;
     padding-right: 15px;
     padding-left: 15px;
+    overflow: hidden;
+    border-radius: 16px;
 }
