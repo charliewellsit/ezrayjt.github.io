@@ -1,7 +1,7 @@
 const map = L.map('wasteMap'); 
 // Initializes map
 
-map.setView([51.505, -0.09], 13); 
+map.setView([-37.8136, 144.9631], 9); 
 // Sets initial coordinates and zoom level
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
