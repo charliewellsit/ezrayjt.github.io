@@ -70,20 +70,20 @@ function calculateAndToggle(){
     if (areaName === "Bedroom" || areaName === "Toilet" || areaName === "Kitchen"){
       if (lux > 160){
         resultText = `
-          <span class="large-text-lights">Your Result</span><br><br>
+          <br><br><span class="large-text-lights">Your Result</span><br><br>
           <span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>
-          It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).`;
+          It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br><br><br>`;
       }
       // }
       else{
-        resultText = `<span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (160 Lux).`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br><br><br>`;
       }
     } else {
       if (lux > 40){
-        resultText = `<span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br><br><br>`;
       }
       else{
-        resultText = `<span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (40 Lux).`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br><br><br>`;
       }
     }
 
@@ -95,10 +95,10 @@ function calculateAndToggle(){
     const thisDiv = document.getElementById("thisDiv");
     thisDiv.scrollIntoView({ behavior: "smooth" });
 
-    // Show the hiddenDiv result (hiddenDiv is not shown before clicking the "Check" button)
-    const hiddenDiv = document.getElementById("hiddenDiv");
-    // hiddenDiv.style.display = "block";
-  // }
+  //   // Show the hiddenDiv result (hiddenDiv is not shown before clicking the "Check" button)
+  //   const hiddenDiv = document.getElementById("hiddenDiv");
+  //   // hiddenDiv.style.display = "block";
+  // // }
   }
 }
 
@@ -144,3 +144,20 @@ data.forEach(item => {
   // Append the row to the table body
   tbody.appendChild(row);
 });
+
+// Get all table rows
+const rows = document.querySelectorAll("#resultsTable tbody tr");
+
+// Add mouseover and mouseout event listeners to each row
+rows.forEach((row) => {
+  row.addEventListener("mouseover", function () {
+    // Add a CSS class to highlight the row on mouseover
+    row.classList.add("highlighted-row");
+  });
+
+  row.addEventListener("mouseout", function () {
+    // Remove the CSS class to remove the highlight on mouseout
+    row.classList.remove("highlighted-row");
+  });
+});
+
