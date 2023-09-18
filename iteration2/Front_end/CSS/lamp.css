@@ -72,7 +72,23 @@ button:hover {
     display: flex;
     height:13rem;
     margin: 10px;
+    position: relative;
 }
+
+.img-label {
+    position: absolute;
+    top: 20px;
+    left:2px;
+    /* background-color: rgba(0, 0, 0, 0.5); Background color for the label */
+    color: black; /* Text color for the label */
+    padding: 5px 10px; /* Padding for the label */
+    font-size: 20px; /* Adjust the font size as needed */
+    border-radius: 5px; /* Rounded corners for the label */
+    width: 100%; /* Make the label width 100% of the parent container (imgContainer) */
+    box-sizing: border-box; /* Include padding and border in the label's width */
+    text-align: center; /* Center-align the text within the label */
+}
+
 
 #imgContainerIncands{
     display: flex;
@@ -98,6 +114,17 @@ button:hover {
     border-collapse: collapse; /* Optional: Collapses table borders */
     width: 100%; /* Optional: Set table width as needed */
     text-align: left;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #000000; /* Add desired border style here */
+    padding: 8px; /* Optional: Add padding for better spacing */
+    text-align: left;
+}
+
+.custom-table tbody tr:hover {
+    background-color: lightblue; /* Change this to your desired highlight color */
 }
 
 #hiddenContainer {

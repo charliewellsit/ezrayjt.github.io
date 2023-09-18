@@ -2,7 +2,7 @@
 async function fetchDataFromAPI() {
     try {
         const response = await fetch('http://127.0.0.1:5000/api/get_CFL');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_CFL');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_cfl');
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -61,20 +61,6 @@ function filterAndDisplayData() {
                     lampColour = true;
                     break;
             }
-
-            // // Determine the color temperature label
-            // let colourTempLabel = '';
-            // switch (item.colour_temperature) {
-            //     case 2700:
-            //         colourTempLabel = 'Warm White';
-            //         break;
-            //     case 4100:
-            //         colourTempLabel = 'Natural White';
-            //         break;
-            //     case 6500:
-            //         colourTempLabel = 'Cool White';
-            //         break;
-            // }
  
             // Filter based on brand and power conditions
             return brandCondition && powerCondition && lampColour;

@@ -8,9 +8,6 @@
     justify-content: center;
   }
 
-.album {
-    margin: 50px; /* margin is typically set to 0 by default */
-}
   
 .lightbulb-header{
     max-width: 700px;
@@ -78,7 +75,7 @@
     display: flex;
     /* -ms-flex-direction: column;  */
     flex-direction: column;
-    width:25rem;
+    width:20rem;
     /* height: 40rem; */
     /* width: 40em; */
     /* min-width: 0; */
@@ -93,7 +90,8 @@
 }
 
 .card:hover {
-    background-color: ivory;
+    background-color: olivedrab;
+    color: oldlace;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
@@ -105,8 +103,8 @@
     height: 5rem;;
     justify-content: center;
     align-items: center;
-    margin: 1.5rem;
-    padding: 1.25rem;
+    margin: 1rem;
+    padding: 0.8rem;
 }
 
 .card-img-top {
@@ -124,9 +122,16 @@ img {
 .col-md-4{
     position: relative;
     min-height: 1px;
-    margin: 0 40px;
-    padding-right: 15px;
-    padding-left: 15px;
+    margin: 40px;
+    padding: 20px;
+    /* padding-right: 15px;
+    padding-left: 15px; */
     overflow: hidden;
     border-radius: 16px;
 }
+
+/* .col-md-4:hover {
+    background-color: olivedrab;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+} */
