@@ -74,6 +74,25 @@ button:hover {
     margin: 10px;
 }
 
+#imgContainerIncands{
+    display: flex;
+    height:17rem;
+    margin: 10px;
+    margin-right: 5rem;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+#lighting-right1{
+    width: 75%;
+    margin: 1rem;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: right;
+    
+  }
+
 .custom-table {
     border: 1px solid #dee2e6; /* Add desired border style here */
     border-collapse: collapse; /* Optional: Collapses table borders */

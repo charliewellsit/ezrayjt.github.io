@@ -1,8 +1,8 @@
 // Function to fetch data from the API
 async function fetchDataFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_CFL');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_CFL');
+        const response = await fetch('http://127.0.0.1:5000/api/get_incandescent');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_incandescents');
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -19,7 +19,7 @@ async function fetchDataFromAPI() {
 function filterAndDisplayData() {
     // Retrieve user selections
     const brand = document.getElementById('brand').value;
-    const colour_temperature = document.getElementById('colour_temperature').value;
+    const manufacturer_country = document.getElementById('manufacturer_country').value;
     const power = document.getElementById('power').value;
 
     // Fetch data from the API
@@ -45,39 +45,11 @@ function filterAndDisplayData() {
             // Check the brand condition
             const brandCondition = brand === 'Any' || item.brand === brand;
 
-            // Check the selected power condition
-            let lampColour = true;
-            switch (colour_temperature) {
-                case 'warmWhite':
-                    lampColour = item.colour_temperature === 2700;
-                    break;
-                case 'naturalWhite':
-                    lampColour = item.colour_temperature === 4100;
-                    break;
-                case 'coolWhite':
-                    lampColour = item.colour_temperature === 6500;
-                    break;
-                case 'Any':
-                    lampColour = true;
-                    break;
-            }
-
-            // // Determine the color temperature label
-            // let colourTempLabel = '';
-            // switch (item.colour_temperature) {
-            //     case 2700:
-            //         colourTempLabel = 'Warm White';
-            //         break;
-            //     case 4100:
-            //         colourTempLabel = 'Natural White';
-            //         break;
-            //     case 6500:
-            //         colourTempLabel = 'Cool White';
-            //         break;
-            // }
- 
-            // Filter based on brand and power conditions
-            return brandCondition && powerCondition && lampColour;
+            // Check the brand condition
+            const country = manufacturer_country === 'Any' || item.manufacturer_country === manufacturer_country;
+    
+            // Filter based on brand, power, country, and year conditions
+            return brandCondition && powerCondition && country;
         });
 
         // Sort filteredData by efficiency in descending order
@@ -102,13 +74,12 @@ function filterAndDisplayData() {
             <tr>
                 <td>${item.brand}</td>
                 <td>${item.model}</td>
-                <td>${item.colour_temperature}</td>
                 <td>${item.brightness}</td>
                 <td>${item.power}</td>
                 <td>${item.efficiency}</td>
                 <td>${item.life}</td>
                 <td><a href="https://www.google.com/search?q=${item.brand}+${item.model}+light bulb buy" target="_blank">Google</a>
-                <a href="https://www.amazon.com/s?k=${encodeURIComponent('CFL' + ' ' + item.brand + ' ' +item.model)}" target="_blank">Amazon</a></td>
+                <a href="https://www.amazon.com/s?k=${encodeURIComponent('light bulb' + ' ' + item.brand + ' ' +item.model)}" target="_blank">Amazon</a></td>
             </tr>
             `;
             tbody.appendChild(row);
