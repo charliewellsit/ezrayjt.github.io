@@ -111,4 +111,3 @@ function redirectToIncandescents() {
   // Redirect to the "cfl.html" page
   window.location.href = "incandescents.html";
 }
-

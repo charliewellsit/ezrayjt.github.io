@@ -3,7 +3,7 @@
     padding:2rem;
     padding-bottom:3rem;
     padding-top: 7em;
-    background-color: lightgray;
+    background-color: cornsilk;
     width: 100%;
     justify-content: center;
   }
@@ -93,7 +93,7 @@
 }
 
 .card:hover {
-    background-color: lightgray;
+    background-color: ivory;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
