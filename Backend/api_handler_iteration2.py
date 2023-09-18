@@ -20,7 +20,7 @@ db_manager_iteration2 = DatabaseManager(
 @app.route('/api/get_incandescent', methods=['GET'])
 def get_data_incandescent():
     # SQL query to get data from the database
-    query = "SELECT i.brand, i.model_number, i.lamp_power_watts, i.lamp_light_lumens, i.lamp_life_hours, GROUP_CONCAT(m.manufacturer_country) AS country_list FROM incandescents i JOIN incandescent_manufacturing m ON i.ID = m.incandescent_ID GROUP BY i.brand, i.model_number, i.lamp_power_Watts, i.lamp_light_lumens, i.lamp_life_hours"
+    query = "SELECT i.brand, i.model_number, i.lamp_power_watts, ROUND(i.lamp_light_lumens), i.lamp_life_hours, GROUP_CONCAT(m.manufacturer_country) AS country_list, ROUND(i.lamp_light_lumens / i.lamp_power_watts) AS efficiency FROM incandescents i JOIN incandescent_manufacturing m ON i.ID = m.incandescent_ID GROUP BY i.brand, i.model_number, i.lamp_power_Watts, i.lamp_light_lumens, i.lamp_life_hours"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration2.execute_query(query)
@@ -31,10 +31,10 @@ def get_data_incandescent():
         brand = each[0].title()
         model_number = each[1]
         lamp_power_watts = each[2]
-        lamp_light_lumens = round(each[3])
+        lamp_light_lumens = each[3]
         lamp_life_hours = each[4]
         country_list = each[5]
-        efficiency = round(lamp_light_lumens/lamp_power_watts)
+        efficiency = each[6]
 
         data.append({
             'brand': brand,
@@ -54,7 +54,7 @@ def get_data_incandescent():
 @app.route('/api/get_CFL', methods=['GET'])
 def get_data_CFL():
     # SQL query to get data from the database
-    query = "SELECT c.brand, c.model_number, c.manufacturer_country, c.lamp_power_watts, c.lamp_light_lumens, c.colour_temperature, c.lamp_life_hours FROM CFLs c"
+    query = "SELECT brand, model_number, manufacturer_country, lamp_power_watts, ROUND(lamp_light_lumens), colour_temperature, lamp_life_hours, ROUND(lamp_light_lumens / lamp_power_watts) FROM CFLs"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration2.execute_query(query)
@@ -66,11 +66,10 @@ def get_data_CFL():
         model_number = each[1]
         manufacturer_country = each[2]
         lamp_power_watts = each[3]
-        lamp_light_lumens = round(each[4])
+        lamp_light_lumens = each[4]
         colour_temperature = each[5]
         lamp_life_hours = each[6]
-        
-        efficiency = round(lamp_light_lumens/lamp_power_watts)
+        efficiency = each[7]
 
         data.append({
             'brand': brand,
@@ -91,7 +90,7 @@ def get_data_CFL():
 @app.route('/api/get_waste_mgmt_facilities', methods=['GET'])
 def get_data_waste_facilities():
     # SQL query to get data from the database
-    query = "SELECT w.x, w.y, w.facility_management_type, w.facility_infrastructure_type, w.facility_owner, w.facility_name, w.state_or_territory, w.address, w.suburb, w.postcode FROM waste_management_facilities w"
+    query = "SELECT x, y, facility_management_type, facility_infrastructure_type, facility_owner, facility_name, state_or_territory, address, suburb, postcode FROM waste_management_facilities"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration2.execute_query(query)
