@@ -2,12 +2,12 @@
 import getpass
 from flask import Flask, jsonify
 from database_manager import DatabaseManager
-# from flask_cors import CORS
+from flask_cors import CORS
 import json
 
 # Create a Flask app instance
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
 
 db_manager_iteration2 = DatabaseManager(
     host="ta21-2023s2.mysql.database.azure.com",
