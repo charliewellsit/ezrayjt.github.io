@@ -3,18 +3,12 @@
   padding:20px;
   padding-top: 100px;
   padding-bottom: 0;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   width: 100%;
 }
 
 #lighting-left{
   width:60%;
-  margin: 40px;
-  margin-top: 0px;
-}
-
-#lighting-right{
-  width: 40%;
   margin: 40px;
   margin-top: 0px;
 }
@@ -105,3 +99,32 @@ ul {
   list-style-position: inside; 
   padding-left: 0; 
 } */
+
+#lighting-right{
+  width: 40%;
+  margin: 40px;
+  margin-top: 0px;
+  align-items: center;
+  display: flex;
+  /* background-color: antiquewhite; */
+}
+
+#container{
+  padding: 40px;
+  margin:10px;
+  background-color: oldlace;
+}
+
+.custom-table {
+  border: 1px solid #dee2e6; /* Add desired border style here */
+  border-collapse: collapse; /* Optional: Collapses table borders */
+  width: 100%; /* Optional: Set table width as needed */
+  text-align: left;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #000000; /* Add desired border style here */
+    padding: 8px; /* Optional: Add padding for better spacing */
+    text-align: left;
+}
