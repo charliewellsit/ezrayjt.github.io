@@ -203,7 +203,7 @@ i{
 .bi-trash-fill{
   color: #3b945e;
   font-size: 50px;
-  position:relative;
+  position:absolute;
   bottom: 30%;
   align-content: center;
   transition: color 0.3s ;
