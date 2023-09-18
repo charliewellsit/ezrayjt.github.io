@@ -204,8 +204,7 @@ i{
   color: #3b945e;
   font-size: 50px;
   position:absolute;
-  bottom: 30%;
-  align-content: center;
+  align-items: center;
   transition: color 0.3s ;
 }
 .bi-trash-fill:hover{
