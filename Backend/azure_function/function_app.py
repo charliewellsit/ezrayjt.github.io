@@ -25,6 +25,16 @@ class DatabaseManager:
         self.cursor.close()
         self.connection.close()
 
+def get_database_manager():
+    db_password = os.environ["mysql_database"]
+
+    return DatabaseManager(
+    host="ta21-2023s2.mysql.database.azure.com",
+    user="TA21",
+    password=db_password,
+    database="energy"
+    )
+
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 # Run a function that triggers every 5 minutes to prevent the function from going to sleep mode
@@ -35,14 +45,7 @@ def stayinalive(timer: func.TimerRequest):
 
 @app.route(route="get_data")
 def get_data(req: func.HttpRequest):
-    db_password = os.environ["mysql_database"]
-
-    db_manager = DatabaseManager(
-    host="ta21-2023s2.mysql.database.azure.com",
-    user="TA21",
-    password=db_password,
-    database="energy"
-    )
+    db_manager = get_database_manager()
 
     # SQL query to get data from the database
     query = "SELECT region_name, financial_start_year + 1, ROUND(electricity_usage), ROUND(gas_usage), ROUND(non_renewable_electricity_total), ROUND(renewable_electricity_total), ROUND(total_electricity_generation), ROUND(total_gas_generation) FROM regions JOIN energy_consumption USING (region_id) JOIN energy_generation USING (region_id, financial_start_year)"

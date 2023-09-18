@@ -126,6 +126,5 @@ def get_data_waste_facilities():
     result_json = json.dumps(data)
     return result_json
 
-
 if __name__ == '__main__':
     app.run()
