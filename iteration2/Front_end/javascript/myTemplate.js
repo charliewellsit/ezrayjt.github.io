@@ -44,7 +44,7 @@ class navbar extends HTMLElement{
         <a href="index.html" class="logo"><img src="Front_end/images/logo.png"></a>
 
         <nav>
-        <a href="index.html#home" class="active">Home</a>
+        <a href="index.html#home">Home</a>
         <a href="index.html#article">Issues</a>
         <a href="index.html#interactive-map">Map</a>
         <a href="index.html#Services">Services</a>
