@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Waste</title>
+
+  <!-- use leaflet.js to plot the map-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,800&family=Lilita+One&family=Quicksand:wght@300;500;600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="Front_end/CSS/waste.css" />
+  <link rel="stylesheet" href="Front_end/CSS/wasteMap.css" />
+  <link rel="stylesheet" href="Front_end/CSS/wasteDisposal.css" />
+  <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
+  <!-- <link rel="stylesheet" href="Front_end/CSS/general.css" /> -->
+</head>
+<nav-bar></nav-bar>
+
+<body>
+  <div class="diposalSection">
+    <div class="wasteIntro">
+      <h1>Building Waste</h1>
+      <ul class="myUl">
+        <li class="myUl">35% of building waste go to landfill each year in Australia.Work with your designer/ builder for waste management plan </li>
+        <li class="myUl">Reuse your building materials such as windows, doors, roofing tiles. Recycle materials </li>
+      </ul>
+    </div>
+
+    <div id="wasteMap"></div>
+  </div>
+
+
+  <!--import scrips -->
+  <script src="Front_end/javascript/wasteMap.js"></script>
+  <script src="Front_end/javascript/myTemplate.js"></script>
+  <script src="Front_end/javascript/navbar.js"></script>
+  <!-- <script src="Front_end/javascript/general.js"></script> -->
+</body>
+
+</html>

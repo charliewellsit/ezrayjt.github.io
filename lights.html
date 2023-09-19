@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustainUrban | Lighting</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,800&family=Lilita+One&family=Quicksand:wght@300;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- use bootstrap for some icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- css files to stylise the page -->
+    <link rel="stylesheet" href="Front_end/CSS/general.css" />
+    <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
+    <link rel="stylesheet" href="Front_end/CSS/section.css" />
+    <link rel="stylesheet" href="Front_end/CSS/lights.css" />
+</head>
+<body>
+    <!-- navbar -->
+  <header>
+    <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
+
+    <nav>
+      <a href="index.html#home" class="active">Home</a>
+      <a href="index.html#article">Issues</a>
+      <a href="index.html#interactive-map">Map</a>
+      <a href="index.html#Services">Services</a>
+      <!-- <a href="lights.html">Lights</a> -->
+      <!-- <a href="#about">About</a> -->
+    </nav>
+  </header>
+
+  <div id="light-container">
+
+    <div id="lighting-left">
+      <h2>Assess Your Lighting's Option</h2>
+      <br>
+      <h3>Verify Whether the Light Bulb Brightness in Your Selected Home Area Complies with Recommended Standards<span>*</span></h3>
+      <br>
+      <p><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p>
+
+      <div class="lighting-selection">
+        
+        <label for="lumens">What is the luminous flux rating of the light bulb you are going to purchase/ use?
+          <span class="tooltip" title="Luminous flux rating is typically indicated on the light bulb packaging under the label 'Lumens'. It is commonly referred as brightness.">&#9432;</span>
+        </label>
+        <input type="number" id="lumens" name="lumens" min="1" max="3000">
+        <!-- added validation -->
+        <div id="errorMessageLumens" style="color:red; font-size: 14px;"></div>
+      </div>
+          
+      <div class="lighting-selection">
+        <label for="area-names">Select an area you would like to check:</label> 
+          <select name="area-names" id="area-names">
+              <option value="none" selected disabled hidden>Select</option>
+              <option value="Bedroom">Bedroom</option> 
+              <option value="Corridor/Walkways">Corridor/Walkways</option> 
+              <option value="Kitchen">Kitchen</option>
+              <option value="Toilet">Toilet</option> 
+          </select>
+      </div>
+
+      <div class="lighting-selection">
+        <label for="size">What is the approximate size of your selected area in m²?
+          <span class="tooltip" title="Need some clarity? Feel free to refer to the table for personalized guidance!">&#9432;</span>
+        </label>
+          <input type="number" id="size" name="size" min="1" max="3000">
+          <!-- added validation -->
+          <div id="errorMessageArea" style="color:red; font-size: 14px;"></div>
+      </div>
+
+      <div class="lighting-selection">
+        <label for="numberOfLightBulb">How many light bulbs are you going to install for this area?</label>
+        <input type="number" id="numberOfLightBulb" name="numberOfLightBulb" min="1" max="20">
+        <!-- added validation -->
+        <div id="errorMessageBulbs" style="color:red; font-size: 14px;"></div>
+        <!-- <div class="slider">
+          <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
+          <p5 id="rangeValue">0</p5>
+        </div>  -->
+      </div>
+
+      
+
+
+      <!-- <button type="button" onclick="calculate()">Check</button> -->
+      <div id="errorMessageAllFields" style="color: red; font-size: 14px;"></div>
+      <button type="button" id="checkButton" onclick="calculateAndToggle()">Check</button>
+
+    </div>
+
+    <div id="lighting-right">
+      <div id="container">
+        <h3>Confused with the room's size?</h3>
+        <br><br>
+        <h4>Refer to this table for guidance</h4><br>
+        <div class="table-responsive-xl">
+          <!-- Table to display filtered results -->
+          <table id="resultsTable" class="custom-table">
+              <!-- Table headers -->
+              <thead>
+                  <tr style="background-color: #3b945e;; font-weight: bold; color: azure">
+                      <!-- <th>Brand</th> -->
+                      <th scope="col">Room Type</td>
+                      <th scope="col">Small (m²)</td>
+                      <th scope="col">Large (m²)</th>
+                  </tr>
+              </thead>
+              <!-- Table body for filtered results -->
+              <tbody>
+                  <!-- Table rows will be added here based on user selections -->
+              </tbody>
+          </table>
+        </div>
+        <br><br>
+      </div>
+    </div>
+
+    
+
+  </div>
+
+  <div class="row">
+    <div id="hiddenContainer" style="background-color: oldlace;">
+      <div id="thisDiv"></div>
+      <div id="textField"></div>
+    </div>
+    
+  </div>
+
+  <!-- <div class="row" style="padding: 20px; margin: 0 20px;">
+    <a href="lightbulb.html">
+      <button type="button" style="display: inline-flexbox;">Compare Light Bulb Options</button>
+    </a>
+  </div> -->
+  <div class="row" style="padding: 20px; margin: 0 20px; border-top: 2px solid #3b945e;;">
+    <!-- <h2>Light Bulb Types</h2><br> -->
+    <h3>Click the button below to know more about light bulb types.</h3><br>
+    <a href="lightbulb.html" class="compare-button-container">
+        <button type="button" class="compare-button">Show Me Light Bulb Types</button>
+    </a>
+</div>
+
+
+
+
+  <!--import scrips -->
+  <script src="Front_end/javascript/navbar.js"></script>
+  <script src="Front_end/javascript/general.js"></script>
+  <script src="Front_end/javascript/lights.js"></script>
+  <script src="Front_end/javascript/passwordCheck.js"></script>
+</body>
+</html>

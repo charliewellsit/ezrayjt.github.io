@@ -1,115 +1,163 @@
-function updateAmount() {
-    const slider = document.getElementById("lightSlider");
-    const amountDisplay = document.getElementById("rangeValue");
+// function updateAmount() {
+//     const slider = document.getElementById("lightBulbTotal");
+//     const amountDisplay = document.getElementById("rangeValue");
     
-    const selectedValue = slider.value;
-    amountDisplay.innerText = selectedValue;
-  }
+//     const selectedValue = slider.value;
+//     amountDisplay.innerText = selectedValue;
+//   }
 
-// Define a variable to track the recommendation section's visibility
-let isRecommendationVisible = false;
+// // Define a variable to track the recommendation section's visibility
+// let isRecommendationVisible = false;
 
-function toggleRecommendation() {
-  const recommendationSection = document.getElementById("recommendation");
+// function toggleRecommendation() {
+//   const recommendationSection = document.getElementById("recommendation");
 
-  // Toggle the visibility state
-  isRecommendationVisible = !isRecommendationVisible;
+//   // Toggle the visibility state
+//   isRecommendationVisible = !isRecommendationVisible;
 
-  // Show or hide the recommendation section based on the visibility state
-  recommendationSection.style.display = isRecommendationVisible ? "block" : "none";
+//   // Show or hide the recommendation section based on the visibility state
+//   recommendationSection.style.display = isRecommendationVisible ? "block" : "none";
+// }
+
+function clearErrorMessages(){
+  // Clear all error messages by setting their innerHTML to an empty string
+  document.getElementById("errorMessageAllFields").innerHTML = "";
+  document.getElementById("errorMessageLumens").innerHTML = "";
+  document.getElementById("errorMessageBulbs").innerHTML = "";
+  document.getElementById("errorMessageArea").innerHTML = "";
 }
 
-  function calculate(){
-    // const lightBulb = document.getElementById("light-bulb-names").value;
-    const lumens = document.getElementById("lumens").value;
-    const numberOfLightBulb = parseFloat(document.getElementById("rangeValue").textContent);
-    const areaName = document.getElementById("area-names").value;
-    const areaSize = document.getElementById("size").value;
+function displayErrorMessage(elementId, message) {
+  // Display an error message in the specified element
+  document.getElementById(elementId).innerHTML = message;
+}
 
-    // Check if any of the required fields are empty
-    if (!lumens || isNaN(numberOfLightBulb) || areaName === "none" || !areaSize) {
-      alert("Please fill in all the required fields before checking.");
-      return; // Stop execution if any field is empty
+function calculateAndToggle(){
+  let conditionsMet = true;
+
+  let lumens = parseFloat(document.getElementById("lumens").value);
+  let numberOfLightBulb = parseFloat(document.getElementById("numberOfLightBulb").value);
+  let areaName = document.getElementById("area-names").value;
+  let areaSize = parseFloat(document.getElementById("size").value);
+
+  if (!lumens || isNaN(numberOfLightBulb) || areaName === "none" || !areaSize) {
+    displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Check'");
+    conditionsMet = false;
   }
 
-    let lux = parseFloat((lumens * numberOfLightBulb / areaSize).toFixed(2));
+  else if (lumens > 3000 || lumens < 1) {
+    displayErrorMessage("errorMessageLumens", "Please only enter between 1 to 3000");
+    conditionsMet = false;
+  }
 
-    // if (lightBulb === "Halogen"){
-    //   totalWatt *= 25;
-    // } else if (lightBulb == "Compact Fluorescent Lamp"){
-    //   totalWatt *= 60;
-    // } else {
-    //   totalWatt *= 72;
-    // }
+  else if (numberOfLightBulb > 20 || numberOfLightBulb < 1) {
+    displayErrorMessage("errorMessageBulbs", "Please only enter between 1 to 20");
+    conditionsMet = false;
+  }
+
+  else if (areaSize > 3000 || areaSize < 1) {
+    displayErrorMessage("errorMessageArea", "Please only enter between 1 to 3000");
+    conditionsMet = false;
+  }
+
+  if (conditionsMet){
+    clearErrorMessages();
+    let lux = parseFloat((lumens * numberOfLightBulb / areaSize).toFixed(2));
 
     console.log(lux);
 
     let resultText = "";
     if (areaName === "Bedroom" || areaName === "Toilet" || areaName === "Kitchen"){
       if (lux > 160){
-        resultText = "Your total illuminance is " + lux + " Lux.<br><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).";
+        resultText = `
+          <br><br><span class="large-text-lights">Your Result</span><br><br>
+          <span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>
+          It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br><br><br>`;
       }
+      // }
       else{
-        resultText = "Your total illuminance is " + lux + " Lux.<br><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (160 Lux).";
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br><br><br>`;
       }
     } else {
       if (lux > 40){
-        resultText = "Your total illuminance is " + lux + " Lux.<br><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).";
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br><br><br>`;
       }
       else{
-        resultText = "Your total illuminance is " + lux + " Lux.<br><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (40 Lux).";
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br><br><br>`;
       }
     }
 
     const textField = document.getElementById("textField");
-    textField.style.display = "block";
     textField.innerHTML = resultText;
 
-    // Add the Recommendation button
-    const recommendationButton = document.createElement("button");
-    recommendationButton.textContent = "Show Recommendations";
-    recommendationButton.type = "button";
-    recommendationButton.onclick = toggleRecommendation;
 
-    // Create a div for the button
-    const buttonDiv = document.createElement("div");
-    buttonDiv.appendChild(recommendationButton);
+    // Scroll to the "thisDiv" element
+    const thisDiv = document.getElementById("thisDiv");
+    thisDiv.scrollIntoView({ behavior: "smooth" });
 
-    // Append the button divs to the parent container (textField)
-    textField.appendChild(buttonDiv);
+  //   // Show the hiddenDiv result (hiddenDiv is not shown before clicking the "Check" button)
+  //   const hiddenDiv = document.getElementById("hiddenDiv");
+  //   // hiddenDiv.style.display = "block";
+  // // }
   }
-
-
-  function showRecommendation() {
-    // Add your recommendation content here
-    const recommendationSection = document.createElement("div");
-    recommendationSection.id = "recommendation";
-    recommendationSection.style.display = "none"; // Initially hidden
-    // recommendationSection.innerHTML = "<p>There are alternative options that offer maximum brightness while using fewer light bulbs:</p><ul><li>Switch to LED lighting</li><li>Choose the right light fittings</li></ul><p>By doing this, you will be saving energy and cost too.</p>";
-
-    const textField = document.getElementById("textField");
-    textField.appendChild(recommendationSection);
 }
 
+function redirectToCFL() {
+  // Redirect to the "cfl.html" page
+  window.location.href = "cfl.html";
+}
 
+function redirectToIncandescents() {
+  // Redirect to the "cfl.html" page
+  window.location.href = "incandescents.html";
+}
 
+// Assuming you have an array of data objects
+const data = [
+  { roomType: 'Bedroom', small: 10, large: 20 },
+  { roomType: 'Toilet', small: 4, large: 9 },
+  { roomType: 'Kitchen', small: 8, large:  18}
+];
 
+// Get a reference to the table body
+const tbody = document.querySelector('#resultsTable tbody');
 
-// to change pics
-// const bulbSelect = document.getElementById("light-bulb-names");
-// const bulbImage = document.getElementById("bulb-image");
+// Iterate through the data and add rows
+data.forEach(item => {
+  const row = document.createElement('tr');
 
-// bulbSelect.addEventListener("change", function() {
-//   const selectedBulb = bulbSelect.value;
+  // Create and populate the cells (columns)
+  const roomTypeCell = document.createElement('td');
+  roomTypeCell.textContent = item.roomType;
 
-//   if (selectedBulb === "Halogen") {
-//     bulbImage.src = "../images/halogen.png"; // Replace with the correct image path for Halogen
-//   } else if (selectedBulb === "Compact Fluorescent Lamp") {
-//     bulbImage.src = "../images/CFL.jpg"; // Replace with the correct image path for CFL
-//   } else if (selectedBulb === "LED") {
-//     bulbImage.src = "../images/LED.jpg"; // Replace with the correct image path for LED
-//   } else {
-//     bulbImage.src = ""; // Clear the image if no option is selected
-//   }
-// });
+  const smallCell = document.createElement('td');
+  smallCell.textContent = item.small;
+
+  const largeCell = document.createElement('td');
+  largeCell.textContent = item.large;
+
+  // Append cells to the row
+  row.appendChild(roomTypeCell);
+  row.appendChild(smallCell);
+  row.appendChild(largeCell);
+
+  // Append the row to the table body
+  tbody.appendChild(row);
+});
+
+// Get all table rows
+const rows = document.querySelectorAll("#resultsTable tbody tr");
+
+// Add mouseover and mouseout event listeners to each row
+rows.forEach((row) => {
+  row.addEventListener("mouseover", function () {
+    // Add a CSS class to highlight the row on mouseover
+    row.classList.add("highlighted-row");
+  });
+
+  row.addEventListener("mouseout", function () {
+    // Remove the CSS class to remove the highlight on mouseout
+    row.classList.remove("highlighted-row");
+  });
+});
 

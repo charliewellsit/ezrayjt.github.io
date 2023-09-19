@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustainUrban | Lighting</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,800&family=Lilita+One&family=Quicksand:wght@300;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- use bootstrap for some icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- css files to stylise the page -->
+    <link rel="stylesheet" href="Front_end/CSS/general.css" />
+    <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
+    <link rel="stylesheet" href="Front_end/CSS/section.css" />
+    <link rel="stylesheet" href="Front_end/CSS/lamp.css" />
+</head>
+<body>
+    <!-- navbar -->
+  <header>
+    <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
+
+    <nav>
+      <a href="index.html#home" class="active">Home</a>
+      <a href="index.html#article">Issues</a>
+      <a href="index.html#interactive-map">Map</a>
+      <a href="index.html#Services">Services</a>
+      <!-- <a href="lights.html">Lights</a> -->
+      <!-- <a href="#about">About</a> -->
+    </nav>
+  </header>
+
+  <div id="container2">
+    <div>
+        <h1 class="display-3">Incandescent Lamp</h1>
+    </div>
+    <div>
+        <h3>
+          Incandescent light bulbs use a heated filament in a glass bulb, but they're highly inefficient, converting less than 5% of energy into light.<br><br>
+          They produce heat and have short lifespans compared to alternatives like fluorescent and LED lights, leading to government-led phase-outs for energy conservation.
+        </h3>
+    </div>
+    <br><br>
+    <p style="font-size: large;">Select the options below to discover the best light bulb<span>*</span> for you:</p>
+    <br>
+    <p style="font-size: small;"><span>*</span>All light bulbs recommended below have been approved by the Australian government and due for expiry after 2024</p>
+    <div id="light-container">
+        <div id="lighting-left">
+            <div class="lighting-selection">
+                <label for="brand">Brand Name:</label> 
+                <select name="brand" id="brand" style="font-size: large;">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Any">Any Brand</option> 
+                    <option value="BE">Brilliant Lighting</option>
+                    <option value="GE">GE</option> 
+                    <option value="Mirabella">Mirabella</option>
+                    <option value="Nelson">Nelson</option>
+                    <option value="Olsent">Olsent</option> 
+                    <option value="Osram">Osram</option> 
+                    <option value="Philips">Philips</option>
+                    <option value="Sylvania">Sylvania</option>
+                </select>
+            </div>
+            <div class="lighting-selection">
+                <label for="manufacturer_country">Manufacturer Country:
+                    <span class="tooltip" title="Refer to the image for guidance">&#9432;</span>
+                </label> 
+                <select name="manufacturer_country" id="manufacturer_country" style="font-size: large;">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Any">Any Manufacturer Country</option> 
+                    <!-- change back -->
+                    <option value="Belgium">Belgium</option> 
+                    <option value="China">China</option>
+                    <option value="United States Of America">United States Of America</option>
+                </select>
+            </div>
+            <div class="lighting-selection">
+                <label for="power">Wattage:
+                    <span class="tooltip" title="Wattage of a lamp is the amount of energy the lamp consumed">&#9432;</span>
+                </label> 
+                <select name="power" id="power" style="font-size: large;">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Any">Any</option> 
+                    <!-- change back -->
+                    <option value="below20">Below 20 Watts</option> 
+                    <option value="between20to30">Between 20 to 30 Watts</option>
+                    <option value="above30">Above 30 Watts</option>
+                </select>
+            </div>
+
+            <button type="button" id="searchButton" onclick="filterAndDisplayData()">Search</button>
+
+        </div>
+
+        
+        <div id="lighting-right1">
+            <div id="imgContainerIncands">
+                <img src="Front_end/images/incands1.jpg">
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div id="hiddenContainer">
+        <h1>Top 5 Recommendations</h1>
+        <div class="row">
+            <div class="table-responsive-xl">
+                <!-- Table to display filtered results -->
+                <table id="resultsTable" class="custom-table">
+                    <!-- Table headers -->
+                    <thead>
+                        <tr style="background-color: #3b945e;color: oldlace; font-weight: bold;">
+                            <!-- <th>Brand</th> -->
+                            <th scope="col">Brand</td>
+                            <th scope="col">Model</td>
+                            <th scope="col">Brightness (Lumens)</th>
+                            <th scope="col">Power (Watts)</th>
+                            <th scope="col">Efficiency (Lumens/Watts)</th>
+                            <th scope="col">Life (hours)</th>
+                            <th scope="col">Search</th>
+                        </tr>
+                    </thead>
+                    <!-- Table body for filtered results -->
+                    <tbody>
+                        <!-- Table rows will be added here based on user selections -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </div>
+    <div id="thisDiv"></div>
+    
+    
+  </div>
+  
+
+  
+
+
+
+
+
+
+    <!--import scrips -->
+  <script src="Front_end/javascript/navbar.js"></script>
+  <script src="Front_end/javascript/general.js"></script>
+  <script src="Front_end/javascript/incandescents.js"></script>
+  <script src="Front_end/javascript/passwordCheck.js"></script>
+</body>
+</html>
