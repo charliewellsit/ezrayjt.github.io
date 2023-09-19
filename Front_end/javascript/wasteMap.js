@@ -26,8 +26,8 @@ function success(pos) {
     const accuracy = pos.coords.accuracy;
 
     if (marker) {
-        map.removeLayer(marker);
-        map.removeLayer(circle);
+        wastemap.removeLayer(marker);
+        wastemap.removeLayer(circle);
     }
     // Removes any existing marker and circule (new ones about to be set)
 
