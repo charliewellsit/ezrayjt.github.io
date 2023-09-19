@@ -27,7 +27,7 @@
 // Function to check if the current page is "lights.html" or "cfl.html or other html pages that are not index.html"
 function isLightsOrCFLPage() {
   const currentPage = window.location.pathname;
-  return currentPage.includes("lights.html") || currentPage.includes("cfl.html") || currentPage.includes("incandescents.html") || currentPage.includes("waste.html") || currentPage.includes(buildingWaste.html) || currentPage.includes(HouseholdCleaners.html) || currentPage.includes(LightingContaining.html) || currentPage.includes(Paint.html);
+  return currentPage.includes("lights.html") || currentPage.includes("cfl.html") || currentPage.includes("incandescents.html") || currentPage.includes("waste.html") || currentPage.includes("buildingWaste.html") || currentPage.includes("HouseholdCleaners.html") || currentPage.includes("LightingContaining.html") || currentPage.includes("Paint.html");
 }
 
 // Function to add the "active" class to the "Services" link
