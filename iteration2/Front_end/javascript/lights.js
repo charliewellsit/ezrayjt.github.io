@@ -1,24 +1,3 @@
-// function updateAmount() {
-//     const slider = document.getElementById("lightBulbTotal");
-//     const amountDisplay = document.getElementById("rangeValue");
-    
-//     const selectedValue = slider.value;
-//     amountDisplay.innerText = selectedValue;
-//   }
-
-// // Define a variable to track the recommendation section's visibility
-// let isRecommendationVisible = false;
-
-// function toggleRecommendation() {
-//   const recommendationSection = document.getElementById("recommendation");
-
-//   // Toggle the visibility state
-//   isRecommendationVisible = !isRecommendationVisible;
-
-//   // Show or hide the recommendation section based on the visibility state
-//   recommendationSection.style.display = isRecommendationVisible ? "block" : "none";
-// }
-
 function clearErrorMessages(){
   // Clear all error messages by setting their innerHTML to an empty string
   document.getElementById("errorMessageAllFields").innerHTML = "";
@@ -72,33 +51,62 @@ function calculateAndToggle(){
         resultText = `
           <br><br><span class="large-text-lights">Your Result</span><br><br>
           <span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>
-          It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br><br><br>`;
+          It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br>`;
       }
       // }
       else{
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br><br><br>`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br>`;
       }
     } else {
       if (lux > 40){
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br><br><br>`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br>`;
       }
       else{
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br><br><br>`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br>`;
       }
     }
 
     const textField = document.getElementById("textField");
     textField.innerHTML = resultText;
 
+    // Create a button element
+    const button = document.createElement("button");
+    buttonText = "Recommend Me Ways to Lower My Level of Illuminance";
+    button.textContent = buttonText;
+    button.style.marginBottom = "40px";
+    // button.style.display = "flex";
+    const textWidth = buttonText.length * 10 + "px";
+    button.style.width = textWidth;
+    // button.style.justifyContent = "center";
+
+    const recommendationText = document.createElement("div");
+    recommendationText.innerHTML = `<br><br><ul style="list-style-type: disc; font-size: 20px; color: red; list-style-position: inside;"">
+    There are several ways to reduce AGASDFASDFASD
+      <li style="color: black">Choose the right light fittings</li>
+      <li>Consider the color of the lightbulb</li>
+      <li>Use mirrors to reflect light</li>
+      <li>Opt for lighter wall colors</li>
+      <li>Maximize natural light sources</li>
+    </ul><br><br>`;
+    recommendationText.style.backgroundColor = "white";
+    recommendationText.style.color = "black";
+
+    // Add a click event listener to the button
+    button.addEventListener("click", function () {
+      // Add your button click functionality here
+      textField.appendChild(recommendationText);
+    });
+
+    // Append the button to the textField element
+    // const textField = document.getElementById("textField");
+    textField.appendChild(button);
+    // textField.appendChild(recommendationText);
+
 
     // Scroll to the "thisDiv" element
     const thisDiv = document.getElementById("thisDiv");
     thisDiv.scrollIntoView({ behavior: "smooth" });
 
-  //   // Show the hiddenDiv result (hiddenDiv is not shown before clicking the "Check" button)
-  //   const hiddenDiv = document.getElementById("hiddenDiv");
-  //   // hiddenDiv.style.display = "block";
-  // // }
   }
 }
 
@@ -161,3 +169,16 @@ rows.forEach((row) => {
   });
 });
 
+function openPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'block';
+  }
+}
+
+function closePopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'none';
+  }
+}
