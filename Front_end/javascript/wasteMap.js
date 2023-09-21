@@ -23,7 +23,6 @@ function success(pos) {
 
     const lat = pos.coords.latitude;
     const lng = pos.coords.longitude;
-    const accuracy = pos.coords.accuracy;
 
     if (marker) {
         wastemap.removeLayer(marker);
@@ -32,7 +31,18 @@ function success(pos) {
     // Removes any existing marker and circule (new ones about to be set)
 
     marker = L.marker([lat, lng]).addTo(wastemap);
-    circle = L.circle([lat+latOffset, lng+lngOffset], { radius: accuracy*100 }).addTo(wastemap);
+    circle = L.circle([lat+latOffset, lng+lngOffset], { 
+        radius: 700,
+        color: 'green',
+        fillColor: 'green',
+        fillOpacity: 0.7
+    }).addTo(wastemap);
+    // circle2 = L.circle([lat, lng], { 
+    //     radius: 17000,
+    //     fillOpacity: 0.1
+    // }).addTo(wastemap);
+    marker.bindPopup("It's your location").openPopup();
+    circle.bindPopup("Nearest Waste Recycling Facility.");
     // Adds marker to the map and a circle for accuracy
 
 
