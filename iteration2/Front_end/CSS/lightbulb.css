@@ -6,11 +6,13 @@
     /* background-color: cornsilk; */
     width: 100%;
     justify-content: center;
+    align-items: center;
+    
   }
 
   
 .lightbulb-header{
-    max-width: 700px;
+    /* max-width: 700px; */
     text-align: center;
 }
 
@@ -25,6 +27,14 @@
 .py-5{
     padding-bottom: 3rem;
 }
+
+h3 {
+    font-size:24px;
+  }
+  
+  p, ul, li, label, input, select {
+    font-size: 20px;
+  }
 
 /* .mb-4, .my-4 {
     margin-bottom: 1.5rem!important;
@@ -75,7 +85,7 @@
     display: flex;
     /* -ms-flex-direction: column;  */
     flex-direction: column;
-    width:20rem;
+    width:18rem;
     /* height: 40rem; */
     /* width: 40em; */
     /* min-width: 0; */
@@ -87,6 +97,7 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
     transition: background-color 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
 .card:hover {
@@ -100,7 +111,7 @@
     /* -ms-flex: 1 1 auto;
     flex: 1 1 auto; */
     display: flex;
-    height: 5rem;;
+    height: 5rem;
     justify-content: center;
     align-items: center;
     margin: 1rem;

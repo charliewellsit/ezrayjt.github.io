@@ -1,8 +1,8 @@
 // Function to fetch data from the API
 async function fetchDataFromAPI() {
     try {
-        // const response = await fetch('http://127.0.0.1:5000/api/get_CFL');
-        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_cfl');
+        const response = await fetch('http://127.0.0.1:5000/api/get_CFL');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_cfl');
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -69,36 +69,93 @@ function filterAndDisplayData() {
         // Sort filteredData by efficiency in descending order
         filteredData.sort((a, b) => b.efficiency - a.efficiency);
 
+        console.log(filteredData);
+
         // Get the top 5 results
         const top5Results = filteredData.slice(0, 5);
 
-        console.log(filteredData);
-        
+        console.log(top5Results)
 
         // Get the table body
         const tbody = document.querySelector('#resultsTable tbody');
 
-        // Clear previous results
+        // Clear previous results and hide the table header initially
         tbody.innerHTML = '';
+        document.querySelector('thead').style.display = 'none';
 
-        // Populate the table with filtered results
-        top5Results.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-            <tr>
-                <td>${item.brand}</td>
-                <td>${item.model}</td>
-                <td>${item.colour_temperature}</td>
-                <td>${item.brightness}</td>
-                <td>${item.power}</td>
-                <td>${item.efficiency}</td>
-                <td>${item.life}</td>
-                <td><a href="https://www.google.com/search?q=${item.brand}+${item.model}+light bulb buy" target="_blank">Google</a>
-                <a href="https://www.amazon.com/s?k=${encodeURIComponent('CFL' + ' ' + item.brand + ' ' +item.model)}" target="_blank">Amazon</a></td>
-            </tr>
-            `;
-            tbody.appendChild(row);
-        });
+        
+        // // Check if there are filtered results to display
+        // if (top5Results.length > 0) {
+        //     // Show the table header
+        //     document.querySelector('thead').style.display = 'table-header-group';
+
+        //     // Populate the table with filtered results
+        //     top5Results.forEach(item => {
+        //         const row = document.createElement('tr');
+        //         row.innerHTML = `
+        //             <tr>
+        //                 <td>${item.brand}</td>
+        //                 <td>${item.model}</td>
+        //                 <td>${item.colour_temperature}</td>
+        //                 <td>${item.brightness}</td>
+        //                 <td>${item.power}</td>
+        //                 <td>${item.efficiency}</td>
+        //                 <td>${item.life}</td>
+        //                 <td><a href="https://www.google.com/search?q=${item.brand}+${item.model}+light bulb buy" target="_blank">Google</a>
+        //                 <a href="https://www.amazon.com/s?k=${encodeURIComponent('CFL' + ' ' + item.brand + ' ' +item.model)}" target="_blank">Amazon</a></td>
+        //             </tr>
+        //         `;
+        //         tbody.appendChild(row);
+        //     });
+
+        //     const feedbackMessage = document.createElement('tr');
+        //     if (top5Results.length === 0) {
+        //         feedbackMessage.innerHTML = '<td colspan="8">There\'s no lightbulb under the selection you\'ve chosen.</td>';
+        //     } else if (top5Results.length < 5) {
+        //         feedbackMessage.innerHTML = `<td colspan="8">Looks like there's only ${top5Results.length} lightbulbs that we can recommend.</td>`;
+        //     }
+        //     tbody.appendChild(feedbackMessage);
+    
+        // }
+
+        console.log(top5Results.length);
+
+        // Check if there are filtered results to display
+        if (top5Results.length === 0) {
+            // Display feedback message when there are no results
+            const feedbackMessage = document.createElement('tr');
+            feedbackMessage.innerHTML = '<td colspan="8">There\'s no lightbulb under the selection you\'ve chosen.</td>';
+            tbody.appendChild(feedbackMessage);
+        } else {
+            // Show the table header
+            document.querySelector('thead').style.display = 'table-header-group';
+
+            // Iterate over the filtered results and create rows
+            top5Results.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.brand}</td>
+                    <td>${item.model}</td>
+                    <td>${item.colour_temperature}</td>
+                    <td>${item.brightness}</td>
+                    <td>${item.power}</td>
+                    <td>${item.efficiency}</td>
+                    <td>${item.life}</td>
+                    <td>
+                        <a href="https://www.google.com/search?q=${item.brand}+${item.model}+light bulb buy" target="_blank">Google</a>
+                        <a href="https://www.amazon.com/s?k=${encodeURIComponent('CFL' + ' ' + item.brand + ' ' + item.model)}" target="_blank">Amazon</a>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Check if there are fewer than 5 results
+            if (top5Results.length < 5) {
+                const feedbackMessage = document.createElement('tr');
+                feedbackMessage.innerHTML = `<td colspan="8">Looks like there's only ${top5Results.length} lightbulbs that we can recommend based on your selections.</td>`;
+                tbody.appendChild(feedbackMessage);
+            }
+        }
     });
 
     // Scroll to the "thisDiv" element

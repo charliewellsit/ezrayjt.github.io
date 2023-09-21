@@ -27,27 +27,34 @@
     <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
 
     <nav>
-      <a href="index.html#home" class="active">Home</a>
-      <a href="index.html#article">Issues</a>
-      <a href="index.html#interactive-map">Map</a>
-      <a href="index.html#Services">Services</a>
-      <!-- <a href="lights.html">Lights</a> -->
-      <!-- <a href="#about">About</a> -->
+        <a href="index.html#home" class="active">Home</a>
+        <a href="index.html#article">Issues</a>
+        <a href="index.html#interactive-map">Map</a>
+        <!-- <a href="index.html#Services">Services</a> -->
+        <a href="lights.html">Assess Room's Lighting</a>
+        <a href="lightbulb.html">Lightbulb Types</a>
+        <a href="waste.html">Waste</a>
+        <!-- <a href="#about">About</a> -->
     </nav>
   </header>
 
   <div id="container2">
-    <div>
-        <h1 class="display-3">Compact Fluorescent Lamp (CFL)</h1>
-    </div>
-    <div>
-        <h3>
-            Compact Fluorescent Lamps (CFLs) are energy-saving light bulbs, which last longer and use far less energy than traditional (or incandescent) light bulbs for the same level of light intensity.
-        </h3>
-    </div>
-    <br><br>
-    <p style="font-size: large;">Select the options below to discover the best light bulb for you:</p>
+    <h1 class="display-3" style="text-align: center;">Compact Fluorescent Lamp (CFL)</h1>
+    <hr style="border: 2px solid green">
     <br>
+    <div>
+        <div style="display: flex; align-items: center; margin: 2rem 0">
+            <h3 style="flex: 1; margin-left: 0;">
+                Compact Fluorescent Lamp (CFL) are designed with a bent or folded tube to fit standard light fixtures and include a compact electronic ballast in their base.<br><br>
+                They consume only a fraction of the electricity compared to incandescent bulbs whilst offering an eight to fifteen times longer lifespan.<br><br>Despite their higher initial price, CFL can save more than five times their purchase cost throughout their usage.<br><br>However, given the toxic mercury content, CFL require proper disposal in many countries.
+            </h3>
+            <img src="Front_end/images/cfl bg.jpg" style="width: 30rem; border-radius: 16px; margin-left: 50px;">
+        </div>
+    </div>
+    
+    
+    <!-- <h3>To discover the best CFL for you, select the options below:</h3> -->
+    <p style="font-size: large;">To discover the best CFL for you, select from the options below:</p>
     <div id="light-container">
         <div id="lighting-left">
             <div class="lighting-selection">
@@ -64,12 +71,21 @@
             </div>
             <div class="lighting-selection">
                 <label for="colour_temperature">Colour Temperature:
-                    <span class="tooltip" title="Refer to the image for guidance">&#9432;</span>
+                    <!-- <span class="tooltip" title="Refer to the image for guidance">&#9432;</span> -->
+                    <button class="button1" type="button" onclick="openPopup('popup2')">
+                        <span class="hover-icon">&#9432</span>
+                    </button>
+                    <div id="popup2" class="popup" style="text-align: center;">
+                        <p style="font-size: 16px; text-align: left;">
+                            Refer to the image for guidance.<br><br>
+                        </p>
+                        <button type="button" onclick="closePopup('popup2')">Close</button>
+                    </div>
                 </label> 
+
                 <select name="colour_temperature" id="colour_temperature" style="font-size: large;">
                     <option value="none" selected disabled hidden>Select</option>
                     <option value="Any">Any Colour Temperature</option> 
-                    <!-- change back -->
                     <option value="warmWhite">Warm White</option> 
                     <option value="naturalWhite">Natural White</option>
                     <option value="coolWhite">Cool White</option>
@@ -77,12 +93,19 @@
             </div>
             <div class="lighting-selection">
                 <label for="power">Wattage:
-                    <span class="tooltip" title="Wattage of a lamp is the amount of energy the lamp consumed">&#9432;</span>
+                    <button class="button1" type="button" onclick="openPopup('popup3')">
+                        <span class="hover-icon">&#9432</span>
+                    </button>
+                    <div id="popup3" class="popup" style="text-align: center;">
+                        <p style="font-size: 16px; text-align: left;">
+                            Wattage of a lamp is the amount of energy the lamp consumed.<br><br>
+                        </p>
+                        <button type="button" onclick="closePopup('popup3')">Close</button>
+                    </div>
                 </label> 
                 <select name="power" id="power" style="font-size: large;">
                     <option value="none" selected disabled hidden>Select</option>
-                    <option value="Any">Any</option> 
-                    <!-- change back -->
+                    <option value="Any">Any</option>
                     <option value="below20">Below 20 Watts</option> 
                     <option value="between20to30">Between 20 to 30 Watts</option>
                     <option value="above30">Above 30 Watts</option>
@@ -93,13 +116,7 @@
 
         </div>
 
-        
         <div id="lighting-right">
-            <!-- <div id="imgContainer">
-                <img src="Front_end/images/room-warm.jpg">
-                <img src="Front_end/images/room-natural.jpg">
-                <img src="Front_end/images/room-cool.jpg">
-            </div> -->
             <div id="imgContainer">
                 <div class="img-label">Warm</div>
                 <img src="Front_end/images/room00 warm.jpg">
@@ -118,7 +135,8 @@
     <br>
 
     <div id="hiddenContainer">
-        <h1>Top 5 Recommendations</h1>
+        <h1>Top 5 Recommendations<span>*</span></h1>
+        <h3><span>*</span>This is sorted based on the efficiency of the lightbulb.</h3><br>
         <div class="row">
             <div class="table-responsive-xl">
                 <!-- Table to display filtered results -->
