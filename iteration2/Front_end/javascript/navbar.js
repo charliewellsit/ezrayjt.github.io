@@ -2,7 +2,7 @@
 function highlightNavSection() {
   const currentPage = window.location.pathname;
   const lightPage = currentPage.includes("lights.html");
-  const lightBulbPage = currentPage.includes("lightbulb.html") || currentPage.includes("cfl.html") || currentPage.includes("incandescents.html");
+  const lightBulbPage = currentPage.includes("lightbulb.html") || currentPage.includes("cfl.html") || currentPage.includes("incandescents.html") || currentPage.includes("led.html");
   const wastePages = currentPage.includes("buildingWaste.html") || currentPage.includes("HouseholdCleaners.html") || currentPage.includes("LightingContaining.html") || currentPage.includes("Paint.html")|| currentPage.includes("waste.html");
   const lightsNavLink = document.querySelector("header nav a[href='lights.html']");
   const lightBulbNavLink = document.querySelector("header nav a[href='lightbulb.html']");
