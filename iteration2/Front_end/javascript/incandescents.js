@@ -57,33 +57,49 @@ function filterAndDisplayData() {
 
         // Get the top 5 results
         const top5Results = filteredData.slice(0, 5);
-
-        console.log(filteredData);
         
-
         // Get the table body
         const tbody = document.querySelector('#resultsTable tbody');
 
-        // Clear previous results
+        // Clear previous results and hide the table header initially
         tbody.innerHTML = '';
+        document.querySelector('thead').style.display = 'none';
 
-        // Populate the table with filtered results
-        top5Results.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-            <tr>
-                <td>${item.brand}</td>
-                <td>${item.model}</td>
-                <td>${item.brightness}</td>
-                <td>${item.power}</td>
-                <td>${item.efficiency}</td>
-                <td>${item.life}</td>
-                <td><a href="https://www.google.com/search?q=${item.brand}+${item.model}+light bulb buy" target="_blank">Google</a>
-                <a href="https://www.amazon.com/s?k=${encodeURIComponent('light bulb' + ' ' + item.brand + ' ' +item.model)}" target="_blank">Amazon</a></td>
-            </tr>
-            `;
-            tbody.appendChild(row);
-        });
+        // Check if there are filtered results to display
+        if (top5Results.length === 0) {
+            // Display feedback message when there are no results
+            const feedbackMessage = document.createElement('tr');
+            feedbackMessage.innerHTML = '<td colspan="8">There\'s no lightbulb under the selection you\'ve chosen.</td>';
+            tbody.appendChild(feedbackMessage);
+        } else {
+            // Show the table header
+            document.querySelector('thead').style.display = 'table-header-group';
+
+            // Populate the table with filtered results
+            top5Results.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <tr>
+                    <td>${item.brand}</td>
+                    <td>${item.model}</td>
+                    <td>${item.brightness}</td>
+                    <td>${item.power}</td>
+                    <td>${item.efficiency}</td>
+                    <td>${item.life}</td>
+                    <td><a href="https://www.google.com/search?q=${item.brand}+${item.model}+light bulb buy" target="_blank">Google</a>
+                    <a href="https://www.amazon.com/s?k=${encodeURIComponent('light bulb' + ' ' + item.brand + ' ' +item.model)}" target="_blank">Amazon</a></td>
+                </tr>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Check if there are fewer than 5 results
+            if (top5Results.length < 5) {
+                const feedbackMessage = document.createElement('tr');
+                feedbackMessage.innerHTML = `<td colspan="8">Looks like there's only ${top5Results.length} lightbulbs that we can recommend based on your selections.</td>`;
+                tbody.appendChild(feedbackMessage);
+            }
+        }
     });
 
     // Scroll to the "thisDiv" element

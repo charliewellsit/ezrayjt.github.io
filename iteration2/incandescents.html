@@ -27,31 +27,40 @@
     <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
 
     <nav>
-      <a href="index.html#home" class="active">Home</a>
-      <a href="index.html#article">Issues</a>
-      <a href="index.html#interactive-map">Map</a>
-      <a href="index.html#Services">Services</a>
-      <!-- <a href="lights.html">Lights</a> -->
-      <!-- <a href="#about">About</a> -->
+        <a href="index.html#home" class="active">Home</a>
+        <a href="index.html#article">Issues</a>
+        <a href="index.html#interactive-map">Electricity Usage</a>
+        <!-- <a href="index.html#Services">Services</a> -->
+        <a href="lights.html">Assess Room's Lighting</a>
+        <a href="lightbulb.html">Lightbulb Types</a>
+        <a href="waste.html">Waste</a>
+        <!-- <a href="#about">About</a> -->
     </nav>
   </header>
 
   <div id="container2">
+    <h1 class="display-3" style="text-align: center;">Incandescent Lamp</h1>
+    <hr style="border: 2px solid green">
+    <br>
     <div>
-        <h1 class="display-3">Incandescent Lamp</h1>
-    </div>
-    <div>
-        <h3>
-          Incandescent light bulbs use a heated filament in a glass bulb, but they're highly inefficient, converting less than 5% of energy into light.<br><br>
-          They produce heat and have short lifespans compared to alternatives like fluorescent and LED lights, leading to government-led phase-outs for energy conservation.
-        </h3>
+        <div style="display: flex; align-items: center; margin: 2rem 0">
+            <h3 style="flex: 1; margin-left: 0;">
+            <!-- Incandescent light bulbs use a heated filament in a glass bulb, but they're highly inefficient, converting less than 5% of energy into light.<br><br>
+            They produce heat and have short lifespans compared to alternatives like fluorescent and LED lights, leading to government-led phase-outs for energy conservation. -->
+            An incandescent lightbulb, also known as an incandescent lamp, emits light by heating a wire filament until it glows.<br><br>
+            Encased in a glass bulb filled with vacuum or inert gas, the filament is supplied with current via embedded terminals or wires.<br><br>
+            Despite their widespread use in household and commercial lighting, they are highly inefficient, converting less than 5% of energy into light, with the rest being emitted as heat.<br><br>
+            Incandescents have shorter lifespans compared to other lighting options and are gradually being phased out by some governments to save energy.
+            </h3>
+        <img src="Front_end/images/incands1.jpg" style="width: 30rem; border-radius: 16px; margin-left: 50px;">
+        </div>
     </div>
     <br><br>
-    <p style="font-size: large;">Select the options below to discover the best light bulb<span>*</span> for you:</p>
+    <p style="font-size: large;">To discover the best Incandescent lightbulb<span>*</span> for you, select from the options below:</p>
     <br>
-    <p style="font-size: small;"><span>*</span>All light bulbs recommended below have been approved by the Australian government and due for expiry after 2024</p>
+    <p style="font-size: medium;"><span>*</span>All lightbulbs recommended below have been approved by the Australian government and due for expiry after 2024</p>
     <div id="light-container">
-        <div id="lighting-left">
+        <div id="lighting-left1">
             <div class="lighting-selection">
                 <label for="brand">Brand Name:</label> 
                 <select name="brand" id="brand" style="font-size: large;">
@@ -68,9 +77,7 @@
                 </select>
             </div>
             <div class="lighting-selection">
-                <label for="manufacturer_country">Manufacturer Country:
-                    <span class="tooltip" title="Refer to the image for guidance">&#9432;</span>
-                </label> 
+                <label for="manufacturer_country">Manufacturer Country:</label> 
                 <select name="manufacturer_country" id="manufacturer_country" style="font-size: large;">
                     <option value="none" selected disabled hidden>Select</option>
                     <option value="Any">Any Manufacturer Country</option> 
@@ -82,7 +89,15 @@
             </div>
             <div class="lighting-selection">
                 <label for="power">Wattage:
-                    <span class="tooltip" title="Wattage of a lamp is the amount of energy the lamp consumed">&#9432;</span>
+                    <button class="button1" type="button" onclick="openPopup('popup4')">
+                        <span class="hover-icon">&#9432</span>
+                    </button>
+                    <div id="popup4" class="popup" style="text-align: center;">
+                        <p style="font-size: 16px; text-align: left;">
+                            Wattage of a lamp is the amount of energy the lamp consumed.<br><br>
+                        </p>
+                        <button type="button" onclick="closePopup('popup4')">Close</button>
+                    </div>
                 </label> 
                 <select name="power" id="power" style="font-size: large;">
                     <option value="none" selected disabled hidden>Select</option>
@@ -98,17 +113,18 @@
 
         </div>
 
-        
-        <div id="lighting-right1">
-            <div id="imgContainerIncands">
-                <img src="Front_end/images/incands1.jpg">
-            </div>
+        <div id="lighting-rightIncands">
+            <!-- <div id="imgContainer" style="justify-content: right;"> -->
+                <img src="Front_end/images/incands3.jpg" style="width: 25rem; margin-left: 8rem; border-radius: 16px;">
+            <!-- </div> -->
+
         </div>
     </div>
     <br>
 
     <div id="hiddenContainer">
         <h1>Top 5 Recommendations</h1>
+        <h3><span>*</span>This is sorted based on the efficiency of the lightbulb.</h3><br>
         <div class="row">
             <div class="table-responsive-xl">
                 <!-- Table to display filtered results -->
@@ -151,6 +167,7 @@
     <!--import scrips -->
   <script src="Front_end/javascript/navbar.js"></script>
   <script src="Front_end/javascript/general.js"></script>
+  <script src="Front_end/javascript/lights.js"></script>
   <script src="Front_end/javascript/incandescents.js"></script>
   <script src="Front_end/javascript/passwordCheck.js"></script>
 </body>
