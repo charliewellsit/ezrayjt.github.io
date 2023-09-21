@@ -1,24 +1,3 @@
-// function updateAmount() {
-//     const slider = document.getElementById("lightBulbTotal");
-//     const amountDisplay = document.getElementById("rangeValue");
-    
-//     const selectedValue = slider.value;
-//     amountDisplay.innerText = selectedValue;
-//   }
-
-// // Define a variable to track the recommendation section's visibility
-// let isRecommendationVisible = false;
-
-// function toggleRecommendation() {
-//   const recommendationSection = document.getElementById("recommendation");
-
-//   // Toggle the visibility state
-//   isRecommendationVisible = !isRecommendationVisible;
-
-//   // Show or hide the recommendation section based on the visibility state
-//   recommendationSection.style.display = isRecommendationVisible ? "block" : "none";
-// }
-
 function clearErrorMessages(){
   // Clear all error messages by setting their innerHTML to an empty string
   document.getElementById("errorMessageAllFields").innerHTML = "";
@@ -71,34 +50,41 @@ function calculateAndToggle(){
       if (lux > 160){
         resultText = `
           <br><br><span class="large-text-lights">Your Result</span><br><br>
-          <span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>
-          It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br><br><br>`;
+          <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
+          <span class="small-text-lights">It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br></span>`
+          ;
       }
       // }
       else{
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br><br><br>`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br>
+        <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
+        <span class="small-text-lights">Congratulations on your excellent work!<br><br>
+        Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br>
+        </span>`;
       }
     } else {
       if (lux > 40){
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br><br><br>`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br>
+        <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
+        <span class="small-text-lights">It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br>
+        </span>`;
       }
       else{
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br><span class="med-text-lights">Your total illuminance is ${lux} Lux.</span><br><br>Congratulations on your excellent work!<br><br>Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br><br><br>`;
+        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br>
+        <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
+        <span class="small-text-lights">Congratulations on your excellent work!<br><br>
+        Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br>
+        </span>`;
       }
     }
 
     const textField = document.getElementById("textField");
     textField.innerHTML = resultText;
 
-
     // Scroll to the "thisDiv" element
     const thisDiv = document.getElementById("thisDiv");
     thisDiv.scrollIntoView({ behavior: "smooth" });
 
-  //   // Show the hiddenDiv result (hiddenDiv is not shown before clicking the "Check" button)
-  //   const hiddenDiv = document.getElementById("hiddenDiv");
-  //   // hiddenDiv.style.display = "block";
-  // // }
   }
 }
 
@@ -161,3 +147,16 @@ rows.forEach((row) => {
   });
 });
 
+function openPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'block';
+  }
+}
+
+function closePopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'none';
+  }
+}
