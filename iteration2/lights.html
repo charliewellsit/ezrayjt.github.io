@@ -31,7 +31,9 @@
       <a href="index.html#article">Issues</a>
       <a href="index.html#interactive-map">Map</a>
       <!-- <a href="index.html#Services">Services</a> -->
-      <a href="lights.html">Lights</a>
+      <a href="lights.html">Assess Room's Lighting</a>
+      <a href="lightbulb.html">Types of Lightbulbs</a>
+      <a href="waste.html">Waste</a>
       <!-- <a href="#about">About</a> -->
     </nav>
   </header>
@@ -45,7 +47,7 @@
       <br>
       <h3>Verify Whether Your Room's Lighting Choices Complies with the Recommended Standards<span>*</span></h3>
       <br>
-      <p><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p>
+      <p style="font-size: 18px;"><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p>
       <br>
 
       <div class="lighting-selection">
@@ -66,7 +68,7 @@
         </label>
         <input type="number" id="lumens" name="lumens" min="1" max="3000">
         <!-- added validation -->
-        <div id="errorMessageLumens" style="color:red; font-size: 14px;"></div>
+        <div id="errorMessageLumens" style="color:red; font-size: 16px;"></div>
       </div>
           
       <div class="lighting-selection">
@@ -91,7 +93,7 @@
               Refer to the table for guidance!<br><br>
               <div class="table-responsive-xl">
                 <!-- Table to display filtered results -->
-                <table id="resultsTable" class="custom-table">
+                <table id="resultsTable" class="custom-table" style="font-size: 16px;">
                      <!-- Table headers  -->
                     <thead>
                         <tr style="background-color: #3b945e; font-weight: bold; color: oldlace">
@@ -112,14 +114,14 @@
         </label>
           <input type="number" id="size" name="size" min="1" max="3000">
           <!-- added validation -->
-          <div id="errorMessageArea" style="color:red; font-size: 14px;"></div>
+          <div id="errorMessageArea" style="color:red; font-size: 16px;"></div>
       </div>
 
       <div class="lighting-selection">
         <label for="numberOfLightBulb">How many light bulbs are you going to install for this area?</label>
         <input type="number" id="numberOfLightBulb" name="numberOfLightBulb" min="1" max="20">
         <!-- added validation -->
-        <div id="errorMessageBulbs" style="color:red; font-size: 14px;"></div>
+        <div id="errorMessageBulbs" style="color:red; font-size: 16px;"></div>
         <!-- <div class="slider">
           <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
           <p5 id="rangeValue">0</p5>
@@ -130,7 +132,7 @@
 
 
       <!-- <button type="button" onclick="calculate()">Check</button> -->
-      <div id="errorMessageAllFields" style="color: red; font-size: 14px;"></div>
+      <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
       <button type="button" id="checkButton" onclick="calculateAndToggle()">Check</button>
 
     </div>
@@ -167,29 +169,53 @@
   </div>
 
   <div class="row">
-    <div id="hiddenContainer" style="background-color: green; color: oldlace;">
+    <div id="thisDiv"></div>
+    <div id="hiddenContainer" style="background-color: lightgrey; color: black;">
       <!-- #e9ecef; -->
-      <div id="thisDiv"></div>
+      
       <div id="textField"></div>
     </div>
     
   </div>
 
-  <div class="row" style="padding: 20px; margin: 0 0px; background-color: green;color:oldlace; border: 2px solid #3b945e;">
-    <!-- <h2>Light Bulb Types</h2><br> -->
-    <h3>Click the button below to know more about light bulb types.</h3><br>
-    <a href="lightbulb.html" class="compare-button-container">
-        <button type="button" class="compare-button">Show Me Light Bulb Types</button>
-    </a>
-</div>
-
-
-
+  <div class="row" style="margin: 0px 0px; background-color: green;color:oldlace;">
+    <div class="row">
+      <br>
+      <br>
+      
+      <h2>Ways To Improve Your Room's Lighting Level</h2>
+      <br>
+      <hr style="border: 2px solid white; margin:0px 10rem">
+      <br>
+        <h3>There are several tips to enhance the brightness of your room!</h3>
+      <br>
+    </div>
+   
+    <div class="boxesContainer">
+      <div class="boxes">
+        <div class="box">
+          <h3>Consider the colour of the lightbulb</h3>
+          <br>
+          <p style="font-size: 18px;">Lightbulbs with higher color temperatures (e.g., 5000K or higher) emit cooler, bluish-white light that can make your room appear brighter whilst lower color temperatures (e.g., 2700K) produce warmer, yellowish light that creates a cozy and less intense ambiance, making the room seem dimmer.</p>
+        </div>
+        <div class="box">
+          <h3>User mirrors to reflect lights</h3>
+          <br>
+          <p style="font-size: 18px;">By reflecting and dispersing natural and artificial light sources with the use of mirrors, you can enhance the room's brightness. This can be done by placing mirrors opposite windows or light fixtures which can bounce light across the space, making your room appear brighter.</p>
+        </div>
+        <div class="box">
+          <h3>Opt for lighter wall colours</h3>
+          <br>
+          <p style="font-size: 18px;">Lighter wall colours can significantly impact a room's brightness by reflecting more natural and artificial light. The lighter color of the wallpaper helps to distribute and amplify the available light, making the space feel more spacious and well-lit.</p>
+        </div>
+    </div>
+  </div>
 
   <!--import scrips -->
   <script src="Front_end/javascript/navbar.js"></script>
   <script src="Front_end/javascript/general.js"></script>
   <script src="Front_end/javascript/lights.js"></script>
   <script src="Front_end/javascript/passwordCheck.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

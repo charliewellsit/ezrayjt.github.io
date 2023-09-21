@@ -4,7 +4,7 @@
   padding-top: 100px;
   padding-bottom: 0;
   width: 100%;
-  /* height: 100vh; */
+  height: 100vh;
   justify-content: center;
   text-align: center;
 }
@@ -22,6 +22,10 @@
   font-size: 24px;
 }
 
+.small-text-lights{
+  font-size: 20px;
+}
+
 .row{
   /* margin:0 40px; */
   text-align: center;
@@ -32,8 +36,12 @@ h2 {
   padding: 0px;
 }
 
-p, ul, li {
-  font-size: 14px;
+h3 {
+  font-size:24px;
+}
+
+p, ul, li, label, input, select {
+  font-size: 20px;
 }
 
 button{
@@ -72,12 +80,12 @@ button:hover {
   background-color: darkblue; /* Darker blue on hover */
 }
 
-.tooltip {
+/* .tooltip {
   position: relative;
   display: inline-block;
   margin-left: 5px;
   font-size: 20px;
-}
+} */
 
 .popup {
   display: none;
@@ -152,12 +160,41 @@ button:hover {
 }
 
 /* CSS for the flex container */
-.compare-button-container {
-  display: flex;
-  justify-content: flex-end; /* Adjust alignment as needed */
+.compare-button-container, .boxesContainer {
+  display: block;
+  /* justify-content: flex-end; */
 }
 
 /* CSS for the button */
 .compare-button {
-  width: 100%;
+  width: fit-content;
+  padding: 10px 60px;
+  /* width: ; */
+}
+
+.boxes{
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.box{
+  width: 24rem;
+  height:24rem;
+  border: 1px solid black;
+  border-radius: 24px;
+  margin: 2rem;
+  padding: 2rem;
+  background-color: white;
+  color: black; 
+  transition: transform 0.3s;
+}
+
+/* Optional: Style hover effect */
+.box:hover {
+  background-color: #182628;
+  color: oldlace;
+  transform: scale(1.05);
 }
