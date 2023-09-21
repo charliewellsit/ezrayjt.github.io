@@ -98,6 +98,11 @@ function redirectToIncandescents() {
   window.location.href = "incandescents.html";
 }
 
+function redirectToLed() {
+  // Redirect to the "cfl.html" page
+  window.location.href = "led.html";
+}
+
 // Assuming you have an array of data objects
 const data = [
   { roomType: 'Bedroom', small: 10, large: 20 },
