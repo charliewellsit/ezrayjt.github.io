@@ -1,23 +1,34 @@
 // Function to add the "active" class to the "Services" link
 function highlightNavSection() {
   const currentPage = window.location.pathname;
-  const lightPages = currentPage.includes("lights.html") || currentPage.includes("lightbulb.html") || currentPage.includes("cfl.html") || currentPage.includes("incandescents.html")
+  const lightPage = currentPage.includes("lights.html");
+  const lightBulbPage = currentPage.includes("lightbulb.html") || currentPage.includes("cfl.html") || currentPage.includes("incandescents.html");
   const wastePages = currentPage.includes("buildingWaste.html") || currentPage.includes("HouseholdCleaners.html") || currentPage.includes("LightingContaining.html") || currentPage.includes("Paint.html")|| currentPage.includes("waste.html");
   const lightsNavLink = document.querySelector("header nav a[href='lights.html']");
+  const lightBulbNavLink = document.querySelector("header nav a[href='lightbulb.html']");
   const wasteNavLink = document.querySelector("header nav a[href='waste.html']");
   const homeNavLink = document.querySelector("header nav a[href='index.html#home']");
-  if (lightPages) {
+  if (lightPage) {
     lightsNavLink.classList.add("active");
+    lightBulbNavLink.classList.remove("active");
+    wasteNavLink.classList.remove("active");
+    homeNavLink.classList.remove("active");
+  }
+  else if (lightBulbPage){
+    lightsNavLink.classList.remove("active");
+    lightBulbNavLink.classList.add("active");
     wasteNavLink.classList.remove("active");
     homeNavLink.classList.remove("active");
   }
   else if (wastePages){
     lightsNavLink.classList.remove("active");
+    lightBulbNavLink.classList.remove("active");
     wasteNavLink.classList.add("active");
     homeNavLink.classList.remove("active");
   }
   else {
     lightsNavLink.classList.remove("active");
+    lightBulbNavLink.classList.remove("active");
     wasteNavLink.classList.remove("active");
     homeNavLink.classList.add("active");
   }
