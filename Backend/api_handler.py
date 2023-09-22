@@ -20,7 +20,7 @@ db_manager_energy = DatabaseManager(
 @app.route('/api/get_data', methods=['GET'])
 def get_data():
     # SQL query to get data from the database
-    query = "SELECT region_name, financial_start_year + 1, ROUND(electricity_usage), ROUND(gas_usage), ROUND(non_renewable_electricity_total), ROUND(renewable_electricity_total), ROUND(total_electricity_generation), ROUND(total_gas_generation) FROM regions JOIN energy_consumption USING (region_id) JOIN energy_generation USING (region_id, financial_start_year)"
+    query = "SELECT region_name, financial_start_year + 1, ROUND(electricity_usage) / 1000, ROUND(gas_usage), ROUND(non_renewable_electricity_total) / 1000, ROUND(renewable_electricity_total) / 1000, ROUND(total_electricity_generation) / 1000, ROUND(total_gas_generation) FROM regions JOIN energy_consumption USING (region_id) JOIN energy_generation USING (region_id, financial_start_year)"
 
     # Execute the query using the DatabaseManager
     result = db_manager_energy.execute_query(query)
