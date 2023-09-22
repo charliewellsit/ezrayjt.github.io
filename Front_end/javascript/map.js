@@ -52,9 +52,8 @@ async function getData(){
     const electricityGenerated = regionData.map(entry => entry["total_electricity_generated"]);
     pieData.push(...electricityGenerated);
 
-    const electricityUsage = regionData.map(entry => entry["electricity_usage"]);
-    const electricityUsage2 = electricityUsage/1000;
-    ys.push(...electricityUsage2);
+    const electricityUsage = regionData.map(entry => entry["electricity_usage"] / 1000);
+    ys.push(...electricityUsage);
 
     return {xs, ys, pieData};
 }
@@ -144,7 +143,7 @@ async function updateChart(){
   myChart.config.data.labels = ausData.xs;
   myChart.update();
 
-  myChart2.config.data.datasets[0].data = [ausData.ys[10], ausData.pieData[10]];
-  console.log(ausData.pieData[10], ausData.ys[10]);
+  myChart2.config.data.datasets[0].data = [ausData.ys[ausData.ys.length - 1], ausData.pieData[ausData.pieData.length - 1]];
+  console.log(ausData.ys[ausData.ys.length - 1], ausData.pieData[ausData.pieData.length - 1]);
   myChart2.update();
 }
