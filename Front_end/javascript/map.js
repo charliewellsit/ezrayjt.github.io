@@ -69,7 +69,7 @@ data: {
     label: 'Electricity Consumption',
     data: [],
     fill: false,
-    bordercolor: 'lightskyblue',
+    bordercolor: 'rgb(255, 99, 132)',
     tension: 0.1
     }]
 },
@@ -79,7 +79,7 @@ options: {
         beginAtZero: false,
         ticks: {
           callback: function(value, index, values) {
-            return value/1000 + ' MWh';
+            return value + ' MWh';
           }
         }
     }
@@ -94,8 +94,8 @@ const myChart2 = new Chart(ctx2, {
 type: 'doughnut',
 data :{
   labels: [
-    'Electricity Consumption',
-    'Electricity Generated'
+    'Electricity Generated',
+    'Electricity Consumption'
   ],
   datasets: [{
     label: '',
@@ -143,7 +143,7 @@ async function updateChart(){
   myChart.config.data.labels = ausData.xs;
   myChart.update();
 
-  myChart2.config.data.datasets[0].data = [ausData.ys[10], ausData.pieData[10]];
-  console.log(ausData.pieData[10], ausData.ys[10]);
+  myChart2.config.data.datasets[0].data = [ausData.pieData[ausData.pieData.length - 1], ausData.ys[ausData.ys.length - 1]];
+  console.log(ausData.pieData[ausData.pieData.length - 1], ausData.ys[ausData.ys.length - 1]);
   myChart2.update();
 }
