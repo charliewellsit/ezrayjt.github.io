@@ -79,7 +79,7 @@ options: {
         beginAtZero: false,
         ticks: {
           callback: function(value, index, values) {
-            return value*0.01 + ' MWh';
+            return value/1000 + ' MWh';
           }
         }
     }
