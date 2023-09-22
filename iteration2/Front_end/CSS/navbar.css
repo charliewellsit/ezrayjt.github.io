@@ -29,7 +29,7 @@ header.sticky nav a{
 /* when it's scrolled */
 header.sticky nav a:hover,
 header.sticky nav a.active {
-  color: #3b945e;
+  color: green;
 }
 
 /* .logo {
@@ -55,5 +55,5 @@ nav a {
 /* when it's not scrolled */
 nav a:hover,
 nav a.active {
-  color: #3b945e;
+  color: green;
 }

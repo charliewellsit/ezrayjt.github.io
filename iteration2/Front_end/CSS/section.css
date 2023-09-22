@@ -21,11 +21,9 @@ section:nth-child(odd) {
   min-height: 100vh;
 }
 
-
 #article {
   flex-direction: column;
 }
-
 .issue-box {
   display: flex;
   flex-direction: column;
@@ -141,35 +139,54 @@ i{
 }
 #Services{
   flex-direction: column;
-  background-color: #6c757d;
+  background-color: lightgray;
 }
 #Services h2{
-  font-weight: 600;
-  font-size: 35px;
-  padding: 10px;
+  font-size: 50px;
+  color:#182628;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+ font-weight: 50;
+ position: relative;
 }
 
-.services-lights{
+#Services h2::before{
+  content: '';
+	position:absolute;
+	left:0;
+	bottom: -8%;
+	background-color: green;
+	height: 2px;
+	box-sizing: border-box;
+	width: 299px;
+}
+
+.services-con{
   display: flex;
+}
+.services-lights{
+  flex:1;
   padding: 10%;
-  width: 250px;
-  height: 150px;
-  background-color:#182628 ;
+  width: 300px;
+  height: 200px;
+  background-color:#182628;
   margin-right: 5%;
   border-radius: 5%;
   position: relative;
   cursor:pointer;
   border: 2px solid white;
   transition: border 0.3s;
+  vertical-align: bottom;
+  justify-content: center;
+  display: flex;
 }
 .services-lights:hover{
-  border: 5px solid #3b945e;
+  box-shadow: 1px 1px 50px green;
 }
 .bi-lightbulb-fill{
-  color: #3b945e;
+  color: green;
   font-size: 50px;
   position:absolute;
-  align-content: center;
   transition: color 0.3s ;
 }
 .bi-lightbulb-fill:hover{
@@ -186,39 +203,41 @@ i{
 }
 
 .services-waste{
+  flex:1;
   padding: 10%;
-  width: 250px;
-  height: 150px;
-  background-color: #182628;
-  display: column;
+  width: 300px;
+  height: 200px;
+  background-color:#182628;
+  margin-right: 5%;
   border-radius: 5%;
   position: relative;
   cursor:pointer;
   border: 2px solid white;
-  transition: border 0.2s;
+  transition: border 0.3s;
+  vertical-align: bottom;
+  justify-content: center;
+  display: flex;
 }
 .services-waste:hover{
-  border: 3px solid #3b945e;
+  box-shadow: 1px 1px 50px green;
 }
 .bi-trash-fill{
-  color: #3b945e;
+  color: green;
   font-size: 50px;
   position:absolute;
-  align-items: center;
+  /* align-items: center; */
   transition: color 0.3s ;
 }
 .bi-trash-fill:hover{
-  color:greenyellow;
+  color:rgb(7, 255, 115);
 }
 .services-waste a{
 	text-transform:capitalize;
 	color: #ffffff;
 	text-decoration: none;
-  text-wrap: 20%;
 }
 .services-waste h4{
   font-size: 20px;
-  text-wrap: wrap;
 }
 
 .footer{
@@ -259,7 +278,7 @@ float: left;
 	position:absolute;
 	left:0;
 	bottom: -8%;
-	background-color: #3b945e;
+	background-color: green;
 	height: 2px;
 	box-sizing: border-box;
 	width: 60px;
@@ -278,7 +297,7 @@ float: left;
 	transition: all 0.3s ease;
 }
 .footer-column ul li a:hover{
-	color:#3b945e;
+	color:green;
 	padding-right: 1px;
 }
 .footer-note{
@@ -288,5 +307,5 @@ float: left;
 }
 .footer-note h4{
   color: whitesmoke;
-  font-size:  8px; 
+  font-size:  10px; 
 }
