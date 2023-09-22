@@ -53,7 +53,8 @@ async function getData(){
     pieData.push(...electricityGenerated);
 
     const electricityUsage = regionData.map(entry => entry["electricity_usage"]);
-    ys.push(...electricityUsage);
+    const electricityUsage2 = electricityUsage/1000;
+    ys.push(...electricityUsage2);
 
     return {xs, ys, pieData};
 }
@@ -69,7 +70,7 @@ data: {
     label: 'Electricity Consumption',
     data: [],
     fill: false,
-    bordercolor: 'lightskyblue',
+    bordercolor: 'rgb(255, 99, 132)',
     tension: 0.1
     }]
 },
@@ -79,7 +80,7 @@ options: {
         beginAtZero: false,
         ticks: {
           callback: function(value, index, values) {
-            return value/1000 + ' MWh';
+            return value + ' MWh';
           }
         }
     }
