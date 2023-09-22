@@ -143,7 +143,7 @@ async function updateChart(){
   myChart.config.data.labels = ausData.xs;
   myChart.update();
 
-  myChart2.config.data.datasets[0].data = [ausData.ys[ausData.ys.length - 1], ausData.pieData[ausData.pieData.length - 1]];
-  console.log(ausData.ys[ausData.ys.length - 1], ausData.pieData[ausData.pieData.length - 1]);
+  myChart2.config.data.datasets[0].data = [ausData.pieData[ausData.pieData.length - 1], ausData.ys[ausData.ys.length - 1]];
+  console.log(ausData.pieData[ausData.pieData.length - 1], ausData.ys[ausData.ys.length - 1]);
   myChart2.update();
 }
