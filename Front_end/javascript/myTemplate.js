@@ -48,6 +48,11 @@ class navbar extends HTMLElement{
         <a href="index.html#article">Issues</a>
         <a href="index.html#interactive-map">Map</a>
         <a href="index.html#Services">Services</a>
+
+        <!-- <a href="#Services">Services</a> -->
+        <a href="lights.html">Assess Room's Lighting</a>
+        <a href="lightbulb.html">Lightbulb Types</a>
+        <a href="waste.html">Waste</a>
         </nav>
 
     </header>
