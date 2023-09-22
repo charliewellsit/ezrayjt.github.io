@@ -94,8 +94,8 @@ const myChart2 = new Chart(ctx2, {
 type: 'doughnut',
 data :{
   labels: [
-    'Electricity Consumption',
-    'Electricity Generated'
+    'Electricity Generated',
+    'Electricity Consumption'
   ],
   datasets: [{
     label: '',
