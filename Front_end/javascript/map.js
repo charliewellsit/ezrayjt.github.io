@@ -49,10 +49,10 @@ async function getData(){
     const financialYears = regionData.map(entry => entry["financial year"]);
     xs.push(...financialYears);
 
-    const electricityGenerated = regionData.map(entry => entry["total_electricity_generated"] / 1000);
+    const electricityGenerated = regionData.map(entry => entry["total_electricity_generated"]);
     pieData.push(...electricityGenerated);
 
-    const electricityUsage = regionData.map(entry => entry["electricity_usage"] / 1000);
+    const electricityUsage = regionData.map(entry => entry["electricity_usage"]);
     ys.push(...electricityUsage);
 
     return {xs, ys, pieData};
