@@ -174,23 +174,22 @@ i{
   border-radius: 5%;
   position: relative;
   cursor:pointer;
-  border: 2px solid white;
+  border: 2px solid greenyellow;
   transition: border 0.3s;
   vertical-align: bottom;
   justify-content: center;
   display: flex;
 }
-.services-lights:hover{
-  box-shadow: 1px 1px 50px green;
-}
 .bi-lightbulb-fill{
   color: green;
   font-size: 50px;
+  box-sizing: 0px;
   position:absolute;
   transition: color 0.3s ;
 }
 .bi-lightbulb-fill:hover{
   color: yellow;
+  text-shadow: 1px 1px 50px yellow;
 }
 
 .services-lights a{
@@ -212,15 +211,14 @@ i{
   border-radius: 5%;
   position: relative;
   cursor:pointer;
-  border: 2px solid white;
+  border: 2px solid greenyellow;
   transition: border 0.3s;
   vertical-align: bottom;
   justify-content: center;
   display: flex;
 }
-.services-waste:hover{
-  box-shadow: 1px 1px 50px green;
-}
+
+
 .bi-trash-fill{
   color: green;
   font-size: 50px;
@@ -229,7 +227,8 @@ i{
   transition: color 0.3s ;
 }
 .bi-trash-fill:hover{
-  color:rgb(7, 255, 115);
+  color: yellow;
+  text-shadow: 1px 1px 50px yellow;
 }
 .services-waste a{
 	text-transform:capitalize;
