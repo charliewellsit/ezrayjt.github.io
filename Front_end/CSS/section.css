@@ -24,69 +24,66 @@ section:nth-child(odd) {
 #article {
   flex-direction: column;
 }
-.issue-box {
+.issue-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
   height: 570px;
   text-align: center;
-}
-
-.issue-box::before {
-  content: "";
-  position: absolute;
-  width: 3px;
-  top: 10px;
-  bottom: 10px;
-  left: 50%;
-  background-color: #e9ecef;
-  transform: translateX(-50%);
-}
-
-.issues {
-  position: relative;
-  margin: 20px;
-  margin-top: 100px;
-}
+} 
 
 .issue {
   position: relative;
+  text-align: center;
+  top: 20%;
 }
 
 .issue img{
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
+  right:20%;
+  left:20%;
   object-fit: cover;
-  border: 7px solid #e9ecef;
+  border: 2px solid #182628;
 }
-
-.issue-text1 {
-  position: absolute;
-  right: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 20px;
-  width: 500px;
+.issue h6{
+  margin: 10px 0;
 }
-
-.issue-text2 {
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 20px;
-  padding-left: 50px;
-  width: 500px;
+.issue-box .issue img{
+  transition: transform 0.3s ease-in-out;
 }
-
-.issue-text3 {
+ .issue-container .issue img:hover{
+  box-shadow: 5px 5px 50px green;
+  border-radius: 50%;
+  transform: scale(1.1);
+}
+.issue-preview{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay background */
+  z-index: 1;
+}
+.preview {
   position: absolute;
-  right: 100%;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
   padding: 20px;
-  width: 500px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333; /* Close button color */
 }
 
 #about{
@@ -171,6 +168,8 @@ i{
   height: 200px;
   background-color:#182628;
   margin-right: 5%;
+  margin-bottom: 5%;
+  margin-top: 5%;
   border-radius: 5%;
   position: relative;
   cursor:pointer;
@@ -208,6 +207,8 @@ i{
   height: 200px;
   background-color:#182628;
   margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   border-radius: 5%;
   position: relative;
   cursor:pointer;
@@ -223,7 +224,7 @@ i{
   color: green;
   font-size: 50px;
   position:absolute;
-  /* align-items: center; */
+  align-items: center; 
   transition: color 0.3s ;
 }
 .bi-trash-fill:hover{

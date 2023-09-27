@@ -31,7 +31,7 @@ p7{
 h6 {
   font-weight: 600;
   font-size: 15px;
-  white-space: nowrap;
+  white-space: wrap;
   padding: 10px;
 }
 
