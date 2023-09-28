@@ -13,6 +13,7 @@ document.querySelectorAll(".paths").forEach((path) => {
   path.addEventListener("mouseover", function (e) {
     const divElement = document.getElementById("aus-map");
     const rect = divElement.getBoundingClientRect();
+    const path = document.getElementById('paths');
     
     x = e.clientX - rect.left; // Calculate x relative to the div
     y = e.clientY - rect.top;
@@ -29,6 +30,7 @@ document.querySelectorAll(".paths").forEach((path) => {
   });
 
   path.addEventListener("click", function () {
+    path.classList.toggle('selected');
     state_name = path.id;
     updateChart();
     document.getElementById("suggestion").style.opacity = 0;
