@@ -71,36 +71,48 @@
     <!-- Use nested flexbox to do the layout -->
     <div class="issue-container">
       <div class="issue">
-            <img src="Front_end/images/Au coal plant.jpg" id="img1" data-name="img1" />
-          <h6 id="text-issue">Coal-digger</h6>
+            <img src="Front_end/images/Au coal plant.jpg" class="openPopupImage" data-popup="popup1" alt="Image 1" />
+          <h6 id="issue-text" >Coal-digger</h6>
         </div>
 
         <div class="issue"> 
-            <img src="Front_end/images/Gas cooktop.jpg" id="img2" data-name="img2"/>
-          <h6 id="text-issue">The invisible invader</h6>
+            <img src="Front_end/images/Gas cooktop.jpg" alt="Image 2" class="openPopupImage" data-popup="popup2" />
+          <h6 id="issue-text">The invisible invader</h6>
         </div>
   
       
         <div class="issue">
-            <img src="Front_end/images/Climate change.jpg"  id="img3" data-name="img3" />
-          <h6 id="text-issue">'Angry Summer' & 'Weird Winter'</h6>
+            <img src="Front_end/images/Climate change.jpg"   alt="Image 3" class="openPopupImage" data-popup="popup3" />
+          <h6 id="issue-text">'Angry Summer' & 'Weird Winter'</h6>
         </div>
 
-        <div class="issue-preview" id="issue-preview">
-        <div class="preview" id="preview" data-target="img1">
-        <span id="close-button" class="close-button">&times;</span>
+        <div class="popup" id="popup1">
+        <div class="popup-content">
+          <span class="close" data-popup="popup1">&times;</span>
+          <img src="Front_end/images/Au coal plant.jpg">
+          <h4>Coal-digger</h4>
             <p>Australians living near coal power plants spend $2.4 billion on healthcare every year.Children develop conditions like asthma, and serious developmental disabilities.</p>
-        <span id="close-button" class="close-button">&times;</span>
-        <div class="preview" id="preview" data-target="img2">
+            </div>
+            </div>
+        <div class="popup" id="popup2">
+        <div class="popup-content">
+          <span class="close" data-popup="popup2">&times;</span>
+          <img src="Front_end/images/Gas cooktop.jpg">
+          <h4>The invisible invader</h4>
             <p>
             People are exposed to harmful particles like carbon monoxide and nitrogen oxide, even when the gas stoves are turned off.
             </p>
           </div>
-        <span id="close-button" class="close-button">&times;</span>
-        <div class="preview" id="preview" data-target="img3">
+          </div>
+        <div class="popup" id="popup3">
+        <div class="popup-content">
+          <span class="close" data-popup="popup3">&times;</span>
+          <img src="Front_end/images/Climate change.jpg">
+          <h4> 'Angry Summer' & 'Weird Winter'</h4>
             <p>Climate change since 2013 due to burning of fossil fuels for energy generation.</p>
         </div>
-      </div>
+        </div>
+        <div id="overlay"></div>
     </div>
   </section>
   <!-- interactive map here-->
@@ -176,16 +188,14 @@
   </section>
 
   <section id="Services">
-    <h2>Our Services</h2>
-  <div class="services-con">
-    <div class="services-row">
-      <div class = "services-lights">
-        <a href="lights.html"><h4>Lights</h4><i class="bi bi-lightbulb-fill"></i></a>
-      </div>
-      <div class ="services-waste">
-       <a href="waste.html"><h4>Waste<br>Disposal</h4><i class="bi bi-trash-fill"></i></a>
-      </div>
-    </div>
+    <h2>Our Services</h2><br>
+<div class="services-con">
+  <div class = "services-lights" <a href="lights.html"></a>
+      <a href="lights.html"><h4>Lights</h4><i class="bi bi-lightbulb-fill" style="justify-content: center;"></i></a>
+  </div>
+  <div class ="services-waste"<a href="waste.html"></a>
+     <a href="waste.html"><h4>Waste</h4><i class="bi bi-trash-fill" style="justify-content: center;"></i></a>
+  </div>
   </div>
   </section>
   <footer class="footer">
