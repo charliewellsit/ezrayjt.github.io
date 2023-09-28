@@ -1,6 +1,9 @@
 #interactive-map {
   flex-direction: column;
 }
+#interactive-map h2{
+  border-bottom: 2px solid green;
+}
 
 path:hover{
   fill: lightskyblue;
@@ -71,6 +74,7 @@ path:active{
   transition: all 0.5s ease;
   border-radius: 10px;
 }
+
 
 svg{
   width: 100%;

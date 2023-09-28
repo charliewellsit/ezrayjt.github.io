@@ -24,6 +24,9 @@ section:nth-child(odd) {
 #article {
   flex-direction: column;
 }
+#article h2{
+  border-bottom: 2px solid green;
+}
 .issue-container {
   display: flex;
   flex-direction: row;
@@ -59,10 +62,8 @@ section:nth-child(odd) {
 }
 
 .popup {
-  display: none;
+  display: flex;
   position: fixed;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
@@ -74,12 +75,16 @@ section:nth-child(odd) {
 
 .popup-content {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  margin-left: 20%;
+  border: 2px solid black;
   border-radius: 5px;
   text-align: center;
   position: relative;
-  box-sizing: 10px;
-  top: 25%;
+  width: 500px;
+  height: 400px;
 }
 .popup-content img{
   height: 100px;
@@ -97,8 +102,8 @@ section:nth-child(odd) {
   background-color: transparent;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter:blur(10px);
-  height: 500px;
-  width: 900px;
+  height: 600px;
+  width: 1000px;
 }
 #popup3.popup{
   background-color: transparent;
@@ -273,8 +278,8 @@ i{
   padding: 50px;
 }
 .footer-logo img{
-height: 50px;
-width: 150px;
+height: 40px;
+width: 200px;
 margin-top: 10%;
 float: left;
 }
