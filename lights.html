@@ -18,7 +18,7 @@
     <!-- css files to stylise the page -->
     <link rel="stylesheet" href="Front_end/CSS/general.css" />
     <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
-    <link rel="stylesheet" href="Front_end/CSS/section.css" />
+    <!-- <link rel="stylesheet" href="Front_end/CSS/section.css" /> -->
     <link rel="stylesheet" href="Front_end/CSS/lights.css" />
 </head>
 <body>
@@ -59,9 +59,56 @@
           </button>
           <div id="popup" class="popup" style="text-align: center;">
             <p style="font-size: 16px; text-align: left;">
-              Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br><br>
+              Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
               It is commonly referred to as brightness.<br><br>
-              The higher the number of Lumens, the brighter the lightbulb is.
+              The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+              Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+              <div class="table-responsive-xl">
+                <!-- Table to display filtered results -->
+                <table id="resultsTable" class="custom-table" style="font-size: 16px;">
+                     <!-- Table headers  -->
+                    <thead>
+                        <tr style="background-color: #3b945e; font-weight: bold; color: oldlace">
+                            <th scope="col">Bulb</td>
+                            <th scope="col">450 Lumens</td>
+                            <th scope="col">800 Lumens</th>
+                            <th scope="col">1100 Lumens</th>
+                            <th scope="col">1600 Lumens</th>
+                            <th scope="col">2600 Lumens</th>
+                        </tr>
+                    </thead>
+                    <!-- table content -->
+                    <tbody>
+                      <!-- row 1 -->
+                      <tr>
+                          <td>LED</td>
+                          <td>6 Watts</td>
+                          <td>9-10 Watts</td>
+                          <td>13 Watts</td>
+                          <td>16-18 Watts</td>
+                          <td>24 Watts</td>
+                      </tr>
+                      <!-- row 2 -->
+                      <tr>
+                          <td>CFL</td>
+                          <td>8-9 Watts</td>
+                          <td>13-14 Watts</td>
+                          <td>18-19 Watts</td>
+                          <td>23 Watts</td>
+                          <td>40 Watts</td>
+                      </tr>
+                      <!-- row 3 -->
+                      <tr>
+                          <td>Incandescent</td>
+                          <td>40 Watts</td>
+                          <td>60 Watts</td>
+                          <td>75 Watts</td>
+                          <td>100 Watts</td>
+                          <td>150 Watts</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
             </p>
             <button type="button" onclick="closePopup('popup')">Close</button>
           </div>
@@ -102,10 +149,27 @@
                             <th scope="col">Large (m²)</th>
                         </tr>
                     </thead>
-                     <!-- Table body for filtered results  -->
+                    <!-- table content -->
                     <tbody>
-                         <!-- Table rows will be added here based on user selections  -->
-                    </tbody>
+                      <!-- row 1 -->
+                      <tr>
+                          <td>Bedroom</td>
+                          <td>10</td>
+                          <td>20</td>
+                      </tr>
+                      <!-- row 2 -->
+                      <tr>
+                          <td>Toilet</td>
+                          <td>4</td>
+                          <td>9</td>
+                      </tr>
+                      <!-- row 3 -->
+                      <tr>
+                          <td>Kitchen</td>
+                          <td>8</td>
+                          <td>18</td>
+                      </tr>
+                  </tbody>
                 </table>
               </div>
             </p>
@@ -122,26 +186,17 @@
         <input type="number" id="numberOfLightBulb" name="numberOfLightBulb" min="1" max="20">
         <!-- added validation -->
         <div id="errorMessageBulbs" style="color:red; font-size: 16px;"></div>
-        <!-- <div class="slider">
-          <input type="range" id="lightSlider" min="0" max="10" value="0" oninput="updateAmount()">
-          <p5 id="rangeValue">0</p5>
-        </div>  -->
       </div>
-
-      
-
 
       <!-- <button type="button" onclick="calculate()">Check</button> -->
       <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
       <button type="button" id="checkButton" onclick="calculateAndToggle()">Check</button>
-      
     </div>
   </div>
 
   <div class="row">
     <div id="thisDiv"></div>
-    <div id="hiddenContainer" style="background-color: lightgrey; color: black;">
-      <!-- #e9ecef; -->
+    <div id="hiddenContainer" style="color: white;">
       
       <div id="textField"></div>
     </div>

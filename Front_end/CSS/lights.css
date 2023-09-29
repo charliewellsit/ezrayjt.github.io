@@ -4,7 +4,7 @@
   padding-top: 100px;
   padding-bottom: 0;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   justify-content: center;
   text-align: center;
 }
@@ -59,16 +59,15 @@ button{
   flex-direction: column;
   display: flex;
   margin:30px 0;
+  align-items: center;
 }
-
 
 label {
   margin-bottom: 10px;
 }
 
-.input-container {
-  display: flex;
-  align-items: center;
+input, select{
+  width: 80%;
 }
 
 button {
@@ -81,17 +80,9 @@ button {
   cursor: pointer; /* Add a pointer cursor on hover */
 }
 
-/* Optional: Style hover effect */
 button:hover {
   background-color: darkblue; /* Darker blue on hover */
 }
-
-/* .tooltip {
-  position: relative;
-  display: inline-block;
-  margin-left: 5px;
-  font-size: 20px;
-} */
 
 .popup {
   display: none;
@@ -103,6 +94,7 @@ button:hover {
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 /* Default style for the icon and button */
@@ -183,7 +175,6 @@ button:hover {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .box{
@@ -203,4 +194,13 @@ button:hover {
   background-color: #182628;
   color: oldlace;
   transform: scale(1.05);
+}
+
+#hiddenContainer{
+  background-color: black;
+    color: black;
+    background-image: url("Front_end/images/bg lights2.jpg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
