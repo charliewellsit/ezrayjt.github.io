@@ -5,9 +5,15 @@ const waste_url='Front_end/json/waste.json';
 async function getData(){
     const response = await fetch(waste_url);
     waste_data = await response.json();
+    console.log('wastedata:', waste_data);
   }
 
-getData();
+async function order(){
+  await getData();
+  getLocation();
+};
+
+order();
 
 
 
@@ -41,18 +47,34 @@ function getLocation() {
           latitude: lat,
           longitude: lng,
         };
-        const nearestFasility = findNearestCoordinate(userLocation, waste_data);
 
-        let circle = L.circle([nearestFasility.latitude, nearestFasility.longitude], {
-          radius: 100,
-          color: 'green',
-          fillColor: 'green',
-          fillOpacity: 0.7
-        }).addTo(myMap);
+        let filtered = waste_data.filter((item) => {
+          if (document.querySelector('h1').innerHTML === 'Building Waste')
+          {return item.type === 'Disposal';}
+          else if (document.querySelector('h1').innerHTML === 'Household Cleaners')
+          {return item.type === 'Drop-Off';}
+          else if (document.querySelector('h1').innerHTML === 'Lighting Containing Mercury')
+          {return item['sub-type'] === 'Organics Recycling Facility'}
+          else if (document.querySelector('h1').innerHTML === 'Paint')
+          {return item['sub-type'] === 'Paper And Cardboard Recycling Facility'}
+        })
+
+        console.log(filtered);
+
+        const nearestFasility = findNearestCoordinate(userLocation, filtered);
+
+        // let circle = L.circle([nearestFasility.latitude, nearestFasility.longitude], {
+        //   radius: 100,
+        //   color: 'green',
+        //   fillColor: 'green',
+        //   fillOpacity: 0.7
+        // }).addTo(myMap);
+
+        let marker2 = L.marker([nearestFasility.latitude, nearestFasility.longitude]).addTo(myMap);
 
         marker.bindPopup("This is your location.").openPopup();
 
-        circle.bindPopup(`
+        marker2.bindPopup(`
         <p><strong>Name:</strong> ${nearestFasility.name}</p>
         <p><strong>Type:</strong> ${nearestFasility.type}</p>
         <p><strong>Sub-type:</strong> ${nearestFasility['sub-type']}</p>
@@ -63,8 +85,25 @@ function getLocation() {
     `);
 
         // set map view to show both marker and circle
-        let bounds = [marker.getLatLng(), circle.getBounds().getNorthEast(), circle.getBounds().getSouthWest()];
-        myMap.fitBounds(bounds);
+        // Assuming marker and marker2 are Leaflet markers
+let bounds = [marker.getLatLng(), marker2.getLatLng()];
+
+// Calculate padding factor (e.g., 0.1 for 10% padding)
+let paddingFactor = 0.1;
+
+// Calculate padding values
+let paddingLat = (bounds[1].lat - bounds[0].lat) * paddingFactor;
+let paddingLng = (bounds[1].lng - bounds[0].lng) * paddingFactor;
+
+// Apply padding to the bounds
+let paddedBounds = [
+  [bounds[0].lat - paddingLat, bounds[0].lng - paddingLng],
+  [bounds[1].lat + paddingLat, bounds[1].lng + paddingLng]
+];
+
+// Fit the padded bounds to the map
+myMap.fitBounds(paddedBounds);
+
     }
 
     let error = () => {
