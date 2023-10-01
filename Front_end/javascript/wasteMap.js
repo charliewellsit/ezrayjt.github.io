@@ -89,7 +89,7 @@ function getLocation() {
 let bounds = [marker.getLatLng(), marker2.getLatLng()];
 
 // Calculate padding factor (e.g., 0.1 for 10% padding)
-let paddingFactor = 0.1;
+let paddingFactor = 0.2;
 
 // Calculate padding values
 let paddingLat = (bounds[1].lat - bounds[0].lat) * paddingFactor;
