@@ -181,10 +181,10 @@ def get_data_waste_facilities(req: func.HttpRequest):
         postcode = each[9]
 
         data.append({
-            'x-coordinate': x,
-            'y-coordinate': y,
+            'longitude': x,
+            'latitude': y,
             'type': facility_management_type,
-            'sub-type': facility_infrastructure_type,
+            'subtype': facility_infrastructure_type,
             'owner': facility_owner,
             'name': facility_name,
             'state': state_or_territory,
