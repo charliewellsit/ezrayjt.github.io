@@ -55,7 +55,7 @@ h1{
     margin-right: 0;
     display: flex;
     align-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 button {
@@ -75,7 +75,8 @@ button:hover {
 
 #imgContainer{
     display: flex;
-    height:13rem;
+    justify-content: flex-end;
+    height:12rem;
     margin: 10px;
     position: relative;
 }
@@ -144,6 +145,7 @@ button:hover {
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
   }
 
 /* Default style for the icon and button */

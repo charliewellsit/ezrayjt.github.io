@@ -4,12 +4,7 @@ import mysql.connector, json, os, requests
 class DatabaseManager:
     def __init__(self, host, user, password, database):
         # Initialize a connection to the MySQL database
-        self.connection = mysql.connector.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=database
-        )
+        self.connection = mysql.connector.connect(host=host, user=user, password=password, database=database)
         # Create a cursor object to interact with the database
         self.cursor = self.connection.cursor()
 
@@ -27,13 +22,7 @@ class DatabaseManager:
 
 def get_database_manager(db_name: str):
     db_password = os.environ["mysql_database"]
-
-    return DatabaseManager(
-    host="ta21-2023s2.mysql.database.azure.com",
-    user="TA21",
-    password=db_password,
-    database=db_name
-    )
+    return DatabaseManager(host="ta21-2023s2.mysql.database.azure.com", user="TA21", password=db_password, database=db_name)
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
@@ -43,8 +32,8 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 def stayinalive(timer: func.TimerRequest):
     requests.get("https://ta21-2023-s2.azurewebsites.net/api/get_data")
 
-@app.route()
-def get_data(req: func.HttpRequest):
+@app.route('get_data')
+def get_data_energy(req: func.HttpRequest):
     db_manager = get_database_manager("energy")
 
     # SQL query to get data from the database
@@ -72,6 +61,8 @@ def get_data(req: func.HttpRequest):
       result_json,
       mimetype="application/json"
     )
+
+### Iteration 2
 
 # Route to get incandescent light bulb data for iteration 2
 @app.route('get_incandescent', methods=['GET'])
@@ -102,7 +93,7 @@ def get_data_incandescent(req: func.HttpRequest):
             'brightness': lamp_light_lumens,
             'life': lamp_life_hours,
             'manufacturer_country': country_list,
-            # no unit for efficiency so can sort based on the efficiency for the frontend
+            # no unit for efficiency so we can sort based on the efficiency for the frontend
             'efficiency': efficiency
         })
 
@@ -181,10 +172,10 @@ def get_data_waste_facilities(req: func.HttpRequest):
         postcode = each[9]
 
         data.append({
-            'x-coordinate': x,
-            'y-coordinate': y,
+            'longitude': x,
+            'latitude': y,
             'type': facility_management_type,
-            'sub-type': facility_infrastructure_type,
+            'subtype': facility_infrastructure_type,
             'owner': facility_owner,
             'name': facility_name,
             'state': state_or_territory,
@@ -197,5 +188,72 @@ def get_data_waste_facilities(req: func.HttpRequest):
     result_json = json.dumps(data)
     return func.HttpResponse(
       result_json,
+      mimetype="application/json"
+    )
+
+### Iteration 3
+
+# Route to get refrigerators data for iteration 2
+@app.route('get_refrigerators', methods=['GET'])
+def get_data_refrigerators(req: func.HttpRequest):
+    db_manager_iteration3 = get_database_manager("iteration3")
+
+    # SQL query to get data from the database
+    query = "SELECT brand, model_number, is_refrigerator, is_freezer, energy_usage_kwh_per_month, total_volume_litres, star_rating FROM Refrigerators"
+
+    # Execute the query using the DatabaseManager
+    result = db_manager_iteration3.execute_query(query)
+
+    # Process the query result and format it as JSON
+    data = []
+    for each in result:
+        brand = each[0].title()
+        model_number = each[1]
+        is_refrigerator = each[2]
+        is_freezer = each[3]
+        energy_usage_kwh_per_month = float(each[4])
+        total_volume_litres = each[5]
+        star_rating = float(each[6])
+
+        data.append({
+            'brand': brand,
+            'model': model_number,
+            'is_refrigerator': is_refrigerator,
+            'is_freezer': is_freezer,
+            'energy_usage_kwh_per_month' : energy_usage_kwh_per_month,
+            'total_volume_litres': total_volume_litres,
+            'star_rating': star_rating
+        })
+
+    db_manager_iteration3.close()
+    return func.HttpResponse(
+      json.dumps(data),
+      mimetype="application/json"
+    )
+
+# Route to get air conditioners data for iteration 2
+@app.route('get_ac', methods=['GET'])
+def get_data_ac(req: func.HttpRequest):
+    db_manager_iteration3 = get_database_manager("iteration3")
+
+    # SQL query to get data from the database
+    query = "SELECT brand, model_number, cooling_usage_kw, heating_usage_kw, ROUND(cooling_star_rating,1), ROUND(heating_star_rating,1) FROM air_conditioners"
+
+    # Execute the query using the DatabaseManager
+    result = db_manager_iteration3.execute_query(query)
+
+    # Process the query result and format it as JSON
+    data = [{
+            'brand': each[0].title(),
+            'model': each[1],
+            'cooling_usage_kw': float(each[2]),
+            'heating_usage_kw': float(each[3]),
+            'cooling_star_rating': float(each[4]),
+            'heating_star_rating': float(each[5])
+        } for each in result]
+
+    db_manager_iteration3.close()
+    return func.HttpResponse(
+      json.dumps(data),
       mimetype="application/json"
     )
