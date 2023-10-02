@@ -205,25 +205,15 @@ def get_data_refrigerators(req: func.HttpRequest):
     result = db_manager_iteration3.execute_query(query)
 
     # Process the query result and format it as JSON
-    data = []
-    for each in result:
-        brand = each[0].title()
-        model_number = each[1]
-        is_refrigerator = each[2]
-        is_freezer = each[3]
-        energy_usage_kwh_per_month = float(each[4])
-        total_volume_litres = each[5]
-        star_rating = float(each[6])
-
-        data.append({
-            'brand': brand,
-            'model': model_number,
-            'is_refrigerator': is_refrigerator,
-            'is_freezer': is_freezer,
-            'energy_usage_kwh_per_month' : energy_usage_kwh_per_month,
-            'total_volume_litres': total_volume_litres,
-            'star_rating': star_rating
-        })
+    data = [{
+            'brand': each[0].title(),
+            'model': each[1],
+            'is_refrigerator':  each[2],
+            'is_freezer': each[3],
+            'energy_usage_kwh_per_month': float(each[4]),
+            'total_volume_litres': each[5],
+            'star_rating': float(each[6])
+        } for each in result]
 
     db_manager_iteration3.close()
     return func.HttpResponse(
