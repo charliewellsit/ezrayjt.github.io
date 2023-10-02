@@ -37,6 +37,7 @@ document.querySelectorAll(".paths").forEach((path) => {
   });
 
 
+
 async function getData(){
     
     const xs = [];
