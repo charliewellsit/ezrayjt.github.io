@@ -50,6 +50,7 @@ class navbar extends HTMLElement{
         <a href="lights.html">Assess Room's Lighting</a>
         <a href="lightbulb.html">Lightbulb Types</a>
         <a href="waste.html">Waste</a>
+        <a href="DIY.html">DIY project</a>
         </nav>
 
     </header>
@@ -58,3 +59,25 @@ class navbar extends HTMLElement{
 }
 
 customElements.define('nav-bar', navbar);
+
+class dropdown extends HTMLElement{
+    connectedCallback(){
+        this.innerHTML = `
+        <header>
+        <a href="index.html" class="logo"><img src="Front_end/images/logo.png"></a>
+
+        <nav>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#article">Issues</a>
+        <a href="index.html#interactive-map">Electricity Usage</a>
+        <a href="lights.html">Assess Room's Lighting</a>
+        <a href="lightbulb.html">Lightbulb Types</a>
+        <a href="waste.html">Waste</a>
+        </nav>
+
+    </header>
+        `;
+    }
+}
+
+customElements.define('drop-down', dropdown);

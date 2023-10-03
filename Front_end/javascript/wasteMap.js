@@ -5,7 +5,6 @@ const waste_url='Front_end/json/waste.json';
 async function getData(){
     const response = await fetch(waste_url);
     waste_data = await response.json();
-    console.log('wastedata:', waste_data);
   }
 
 async function order(){
@@ -32,7 +31,39 @@ myMap.setView([-37.8136, 144.9631], 9);
 
 
 
+//filter the data based on the option
+// function filterData(userLocation, marker, marker2){
+//   if (marker2){
+//     marker2.remove();
+//   }
+//   let selectedCategory = document.getElementById("filter").value;
+  
+//   console.log(selectedCategory);
+//   let selected = waste_data.filter(item => item.type === selectedCategory);
 
+//   let selectedFasility = findNearestCoordinate(userLocation, selected);
+
+//   marker2 = L.marker([selectedFasility.latitude, selectedFasility.longitude]).addTo(myMap);
+
+//   let bounds = [marker.getLatLng(), marker2.getLatLng()];
+
+// // Calculate padding factor (e.g., 0.1 for 10% padding)
+// let paddingFactor = 0.2;
+
+// // Calculate padding values
+// let paddingLat = (bounds[1].lat - bounds[0].lat) * paddingFactor;
+// let paddingLng = (bounds[1].lng - bounds[0].lng) * paddingFactor;
+
+// // Apply padding to the bounds
+// let paddedBounds = [
+//   [bounds[0].lat - paddingLat, bounds[0].lng - paddingLng],
+//   [bounds[1].lat + paddingLat, bounds[1].lng + paddingLng]
+// ];
+
+// // Fit the padded bounds to the map
+// myMap.fitBounds(paddedBounds);
+
+// };
 
 
 //get user location and add markers
@@ -43,7 +74,7 @@ function getLocation() {
         let lng = position.coords.longitude;
         let marker = L.marker([lat, lng]).addTo(myMap);
 
-        let userLocation = {
+        userLocation = {
           latitude: lat,
           longitude: lng,
         };
@@ -54,12 +85,11 @@ function getLocation() {
           else if (document.querySelector('h1').innerHTML === 'Household Cleaners')
           {return item.type === 'Drop-Off';}
           else if (document.querySelector('h1').innerHTML === 'Lighting Containing Mercury')
-          {return item['sub-type'] === 'Organics Recycling Facility'}
+          {return item.subtype === 'Organics Recycling Facility'}
           else if (document.querySelector('h1').innerHTML === 'Paint')
-          {return item['sub-type'] === 'Paper And Cardboard Recycling Facility'}
+          {return item.subtype === 'Paper And Cardboard Recycling Facility'}
         })
 
-        console.log(filtered);
 
         const nearestFasility = findNearestCoordinate(userLocation, filtered);
 
@@ -104,6 +134,11 @@ let paddedBounds = [
 // Fit the padded bounds to the map
 myMap.fitBounds(paddedBounds);
 
+// if (document.getElementById("filter").value!== 'all'){
+//   filterData(marker, marker2);
+// }
+
+
     }
 
     let error = () => {
@@ -129,7 +164,6 @@ function degToRad(deg) {
   }
 
 function getDistance(lat1, lon1, lat2, lon2) {
-    // console.log("lat1:", lat1, "lon1:", lon1, "lat2:", lat2, "lon2:", lon2);
 
     const R = 6371; // Radius of the Earth in kilometers
     const dLat = degToRad(lat2 - lat1);
@@ -139,7 +173,6 @@ function getDistance(lat1, lon1, lat2, lon2) {
       Math.cos(degToRad(lat1)) * Math.cos(degToRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c; // Distance in kilometers
-    // console.log("Distance:", distance);
     return distance;
   }
   
