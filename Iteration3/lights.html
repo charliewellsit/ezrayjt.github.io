@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustainUrban | Lighting</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,800&family=Lilita+One&family=Quicksand:wght@300;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- use bootstrap for some icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- css files to stylise the page -->
+    <link rel="stylesheet" href="Front_end/CSS/general.css" />
+    <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
+    <!-- <link rel="stylesheet" href="Front_end/CSS/section.css" /> -->
+    <link rel="stylesheet" href="Front_end/CSS/lights.css" />
+</head>
+<body>
+    <!-- navbar -->
+  <header>
+    <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
+
+    <nav>
+      <a href="index.html#home" class="active">Home</a>
+      <a href="index.html#article">Issues</a>
+      <a href="index.html#interactive-map">Electricity Usage</a>
+      <!-- <a href="index.html#Services">Services</a> -->
+      <a href="lights.html">Assess Room's Lighting</a>
+      <a href="lightbulb.html">Lightbulb Types</a>
+      <a href="waste.html">Waste</a>
+      <!-- <a href="#about">About</a> -->
+    </nav>
+  </header>
+
+  <div id="light-container">
+
+    <div id="lighting-left">
+      <br>
+      <h1 class="display-4">Assess Your Room's Lighting Level</h1>
+      <hr style="border: 2px solid green">
+      <br>
+      <h3>Verify Whether Your Room's Lighting Choices Complies with the Recommended Standards<span>*</span></h3>
+      <br>
+      <p style="font-size: 18px;"><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p>
+      <br>
+
+      <div class="lighting-selection">
+        
+        <label for="lumens">What is the luminous flux rating of the lightbulb you are going to purchase/ use?
+          <!-- <span class="tooltip" title="Luminous flux rating is typically indicated on the light bulb packaging under the label 'Lumens'. It is commonly referred as brightness.">&#9432;</span> -->
+          <button class="button1" type="button" onclick="openPopup('popup')">
+            <span class="hover-icon">&#9432</span>
+          </button>
+          <div id="popup" class="popup" style="text-align: center;">
+            <p style="font-size: 16px; text-align: left;">
+              Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
+              It is commonly referred to as brightness.<br><br>
+              The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+              Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+              <div class="table-responsive-xl">
+                <!-- Table to display filtered results -->
+                <table id="resultsTable" class="custom-table" style="font-size: 16px;">
+                     <!-- Table headers  -->
+                    <thead>
+                        <tr style="background-color: #3b945e; font-weight: bold; color: oldlace">
+                            <th scope="col">Bulb</td>
+                            <th scope="col">450 Lumens</td>
+                            <th scope="col">800 Lumens</th>
+                            <th scope="col">1100 Lumens</th>
+                            <th scope="col">1600 Lumens</th>
+                            <th scope="col">2600 Lumens</th>
+                        </tr>
+                    </thead>
+                    <!-- table content -->
+                    <tbody>
+                      <!-- row 1 -->
+                      <tr>
+                          <td>LED</td>
+                          <td>6 Watts</td>
+                          <td>9-10 Watts</td>
+                          <td>13 Watts</td>
+                          <td>16-18 Watts</td>
+                          <td>24 Watts</td>
+                      </tr>
+                      <!-- row 2 -->
+                      <tr>
+                          <td>CFL</td>
+                          <td>8-9 Watts</td>
+                          <td>13-14 Watts</td>
+                          <td>18-19 Watts</td>
+                          <td>23 Watts</td>
+                          <td>40 Watts</td>
+                      </tr>
+                      <!-- row 3 -->
+                      <tr>
+                          <td>Incandescent</td>
+                          <td>40 Watts</td>
+                          <td>60 Watts</td>
+                          <td>75 Watts</td>
+                          <td>100 Watts</td>
+                          <td>150 Watts</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </p>
+            <button type="button" onclick="closePopup('popup')">Close</button>
+          </div>
+        </label>
+        <input type="number" id="lumens" name="lumens" min="1" max="3000">
+        <!-- added validation -->
+        <div id="errorMessageLumens" style="color:red; font-size: 16px;"></div>
+      </div>
+          
+      <div class="lighting-selection">
+        <label for="area-names">Select an area you would like to check:</label> 
+          <select name="area-names" id="area-names">
+              <option value="none" selected disabled hidden>Select</option>
+              <option value="Bedroom">Bedroom</option> 
+              <option value="Corridor/Walkways">Corridor/Walkways</option> 
+              <option value="Kitchen">Kitchen</option>
+              <option value="Toilet">Toilet</option> 
+          </select>
+      </div>
+
+      <div class="lighting-selection">
+        <label for="size">What is the approximate size of your selected area in m²?
+          <!-- <span class="tooltip" title="Need some clarity? Feel free to refer to the table for personalized guidance!">&#9432;</span> -->
+          <button class="button1" type="button" onclick="openPopup('popup1')">
+            <span class="hover-icon">&#9432</span>
+          </button>
+          <div id="popup1" class="popup" style="text-align: center;">
+            <p style="font-size: 16px; text-align: left;">
+              Refer to the table for guidance!<br><br>
+              <div class="table-responsive-xl">
+                <!-- Table to display filtered results -->
+                <table id="resultsTable" class="custom-table" style="font-size: 16px;">
+                     <!-- Table headers  -->
+                    <thead>
+                        <tr style="background-color: #3b945e; font-weight: bold; color: oldlace">
+                            <th scope="col">Room Type</td>
+                            <th scope="col">Small (m²)</td>
+                            <th scope="col">Large (m²)</th>
+                        </tr>
+                    </thead>
+                    <!-- table content -->
+                    <tbody>
+                      <!-- row 1 -->
+                      <tr>
+                          <td>Bedroom</td>
+                          <td>10</td>
+                          <td>20</td>
+                      </tr>
+                      <!-- row 2 -->
+                      <tr>
+                          <td>Toilet</td>
+                          <td>4</td>
+                          <td>9</td>
+                      </tr>
+                      <!-- row 3 -->
+                      <tr>
+                          <td>Kitchen</td>
+                          <td>8</td>
+                          <td>18</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </p>
+            <button type="button" onclick="closePopup('popup1')">Close</button>
+          </div>
+        </label>
+          <input type="number" id="size" name="size" min="1" max="3000">
+          <!-- added validation -->
+          <div id="errorMessageArea" style="color:red; font-size: 16px;"></div>
+      </div>
+
+      <div class="lighting-selection">
+        <label for="numberOfLightBulb">How many light bulbs are you going to install for this area?</label>
+        <input type="number" id="numberOfLightBulb" name="numberOfLightBulb" min="1" max="20">
+        <!-- added validation -->
+        <div id="errorMessageBulbs" style="color:red; font-size: 16px;"></div>
+      </div>
+
+      <!-- <button type="button" onclick="calculate()">Check</button> -->
+      <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
+      <button type="button" id="checkButton" onclick="calculateAndToggle()">Check</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="thisDiv"></div>
+    <div id="hiddenContainer" style="color: white;">
+      
+      <div id="textField"></div>
+    </div>
+    
+  </div>
+
+  <div class="row" style="margin: 0px 0px; background-color: green;color:oldlace;">
+    <div class="row">
+      <br>
+      <br>
+      <br>
+      
+      <h2>Ways To Improve Your Room's Lighting Level</h2>
+      <br>
+      <hr style="border: 2px solid white; margin:0px 10rem">
+      <br>
+        <h3>There are several tips to enhance the brightness of your room!</h3>
+      <br>
+    </div>
+   
+    <div class="boxesContainer">
+      <div class="boxes">
+        <div class="box">
+          <h3>Consider the colour of the lightbulb</h3>
+          <br>
+          <p style="font-size: 18px;">Lightbulbs with higher color temperatures (e.g., 5000K or higher) emit cooler, bluish-white light that can make your room appear brighter whilst lower color temperatures (e.g., 2700K) produce warmer, yellowish light that creates a cozy and less intense ambiance, making the room seem dimmer.</p>
+        </div>
+        <div class="box">
+          <h3>User mirrors to reflect lights</h3>
+          <br>
+          <p style="font-size: 18px;">By reflecting and dispersing natural and artificial light sources with the use of mirrors, you can enhance the room's brightness. This can be done by placing mirrors opposite windows or light fixtures which can bounce light across the space, making your room appear brighter.</p>
+        </div>
+        <div class="box">
+          <h3>Opt for lighter wall colours</h3>
+          <br>
+          <p style="font-size: 18px;">Lighter wall colours can significantly impact a room's brightness by reflecting more natural and artificial light. The lighter color of the wallpaper helps to distribute and amplify the available light, making the space feel more spacious and well-lit.</p>
+        </div>
+    </div>
+  </div>
+
+  <!--import scrips -->
+  <script src="Front_end/javascript/navbar.js"></script>
+  <script src="Front_end/javascript/general.js"></script>
+  <script src="Front_end/javascript/lights.js"></script>
+  <script src="Front_end/javascript/passwordCheck.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint</title>
+
+    <!-- use leaflet.js to plot the map-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,800&family=Lilita+One&family=Quicksand:wght@300;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="Front_end/CSS/waste.css" />
+    <link rel="stylesheet" href="Front_end/CSS/wasteMap.css" />
+    <link rel="stylesheet" href="Front_end/CSS/wasteDisposal.css" />
+    <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
+    <!-- <link rel="stylesheet" href="Front_end/CSS/general.css" /> -->
+</head>
+<nav-bar></nav-bar>
+
+<body>
+    <div class="diposalSection">
+        <div class="wasteIntro">
+            <h1>Paint</h1>
+            <ul class="myUl">
+                <li class="myUl">Whenever feasible, try to repurpose paints to minimize their impact on the environment, given their toxic nature. 
+                </li>
+                <li class="myUl">Pre-1970s homes often feature lead-based paint, posing potential health risks. It's essential to handle and dispose of these lead-contaminated materials properly. Prior to commencing any renovation or construction work, reach out to your local concil for guidance on appropriate disposal procedures. .</li>
+            </ul>
+            <p>Map shows the nearest waste Recycling Facility -></p>
+            <p1>Try click on markers to see more info</p1>
+        </div>
+
+        <div id="wasteMap"></div>
+    </div>
+
+
+    <!--import scrips -->
+    <script src="Front_end/javascript/wasteMap.js"></script>
+    <script src="Front_end/javascript/myTemplate.js"></script>
+    <script src="Front_end/javascript/navbar.js"></script>
+    <!-- <script src="Front_end/javascript/general.js"></script> -->
+</body>
+
+</html>

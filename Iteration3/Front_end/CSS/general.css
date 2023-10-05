@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Quicksand, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* combine with js file to display the page after everything is loaded */
+body{
+  display: none;
+}
+
+p2 {
+  color: #6c757d;
+}
+
+.myUl {
+  color: #6c757d;
+  font-size: 13px;
+  text-align: left;
+  padding: 10px;
+}
+
+p7{
+  color: #6c757d;
+  font-size: 13px;
+  text-align: left;
+}
+
+h6 {
+  font-weight: 600;
+  font-size: 15px;
+  white-space: wrap;
+  padding: 10px;
+}
+
+h1 {
+  font-family: Bricolage Grotesque, sans-serif;
+  font-size: 100px;
+  color: white;
+}
+
+p8 {
+  font-size: 30px;
+  color: white;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 35px;
+  padding: 10px;
+}
