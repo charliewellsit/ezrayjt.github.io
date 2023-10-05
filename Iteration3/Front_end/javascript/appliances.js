@@ -36,7 +36,7 @@ async function updateGraph() {
                 labels: labels,
                 datasets: [
                     {
-                        label: 'Average Energy Consumption',
+                        label: 'Average Energy Consumption per month',
                         data: chartData,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -50,7 +50,7 @@ async function updateGraph() {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Average Energy Consumption'
+                            text: 'Average Energy Consumption per month'
                         }
                     }
                 }
@@ -137,3 +137,71 @@ function addEventListeners() {
 // Initialize the graph with event listeners
 addEventListeners();
 updateGraph();
+
+// ------------------ calculate section ------------------ 
+
+// function clearErrorMessages(){
+//     // Clear all error messages by setting their innerHTML to an empty string
+//     document.getElementById("errorMessageAllFields").innerHTML = "";
+//     document.getElementById("errorMessageLumens").innerHTML = "";
+//     document.getElementById("errorMessageBulbs").innerHTML = "";
+//     document.getElementById("errorMessageArea").innerHTML = "";
+//   }
+  
+//   function displayErrorMessage(elementId, message) {
+//     // Display an error message in the specified element
+//     document.getElementById(elementId).innerHTML = message;
+//   }
+
+
+
+function Calculate(){
+    let conditionsMet = true;
+  
+    let power = parseFloat(document.getElementById("power").value);
+    let hours = parseFloat(document.getElementById("hours").value);
+    let charge = parseFloat(document.getElementById("charge").value);
+  
+    // if (!lumens || isNaN(numberOfLightBulb) || areaName === "none" || !areaSize) {
+    //   displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Check'");
+    //   conditionsMet = false;
+    // }
+  
+    // else if (lumens > 3000 || lumens < 1) {
+    //   displayErrorMessage("errorMessageLumens", "Please only enter between 1 to 3000");
+    //   conditionsMet = false;
+    // }
+  
+    // else if (numberOfLightBulb > 20 || numberOfLightBulb < 1) {
+    //   displayErrorMessage("errorMessageBulbs", "Please only enter between 1 to 20");
+    //   conditionsMet = false;
+    // }
+  
+    // else if (areaSize > 3000 || areaSize < 1) {
+    //   displayErrorMessage("errorMessageArea", "Please only enter between 1 to 3000");
+    //   conditionsMet = false;
+    // }
+  
+    if (conditionsMet){
+    //   clearErrorMessages();
+      let total = parseFloat((power * hours * charge * 30).toFixed(2));
+  
+      console.log(total);
+  
+      let resultText = "";
+
+      resultText = `<br><br><span class="large-text">Your Result</span><br><br>
+      <span class="med-text">Your total electricity cost per month would be $${total}.</span><br><br>`      
+  
+      const hiddenContainer = document.getElementById("hiddenContainer");
+      hiddenContainer.style.backgroundImage = 'url("Front_end/images/bg_lights2.jpg")';
+  
+      const textField = document.getElementById("textField");
+      textField.innerHTML = resultText;
+  
+      // Scroll to the "thisDiv" element
+      const thisDiv = document.getElementById("thisDiv");
+      thisDiv.scrollIntoView({ behavior: "smooth" });
+  
+    }
+  }

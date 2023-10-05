@@ -4,22 +4,22 @@
     padding-top: 100px;
     padding-bottom: 0;
     width: 100%;
-    /* height: 100vh; */
+    height: 100vh;
     justify-content: center;
     text-align: center;
   }
   
-#appliances{
+/* #appliances{
     margin: 40px;
     margin-top: 0px;
-    }
+} */
 
 .selection{
     flex-direction: column;
     display: flex;
     margin:30px 0;
     align-items: center;
-    }
+}
 
 .display-4 {
     font-size: 3rem;
@@ -27,4 +27,69 @@
     line-height: 1;
     color: black;
     padding-bottom: 2rem;
-    }
+}
+
+.row{
+    text-align: center;
+}
+
+button {
+    background-color: rgb(0, 89, 255); /* Blue background color */
+    color: white; /* White font color */
+    border: none; /* Remove border */
+    border-radius: 24px; /* Rounded corners */
+    width: 10em;
+    padding:10px;
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+button:hover {
+    background-color: darkblue; /* Darker blue on hover */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: oldlace;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Default style for the icon and button */
+.hover-icon,
+.button1 {
+  font-size: 20px; /* Set the font size as needed */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  margin: 5px;
+}
+
+/* Style the button background color and hover effect */
+.button1 {
+  background-color: transparent; /* No background color */
+  border: none; /* Remove border */
+  color: inherit; /* Inherit text color (usually black) */
+  width: auto; /* Auto width to match content */
+  height: auto; /* Auto height to match content */
+  padding: 0; /* Remove padding to match icon size */
+  outline: none; /* Remove the default focus outline */
+  transition: background-color 0.3s; /* Add a smooth background color transition */
+}
+
+/* Style the button on hover */
+.button1:hover {
+  background-color: rgb(0, 89, 255); 
+  color: white; /* White text color on hover */
+}
+
+label {
+    margin-bottom: 10px;
+  }
+  
+/* input, select{
+    width: 80%;
+} */

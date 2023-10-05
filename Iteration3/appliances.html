@@ -40,8 +40,8 @@
 
         <div id="appliances">
             <br>
-            <h1 class="display-4">Energy Efficiency and Cost Calculator for Appliances</h1>
-            <hr style="border: 2px solid green">
+            <h1 class="display-4">Energy Efficiency</h1>
+            <hr style="border: 2px solid green; ">
             <br>
             <h3>Appliance Energy Consumption by Star Rating, Type, and Brand</h3>
             <br>
@@ -145,7 +145,91 @@
 
 
                 </div>
+        </div>        
+    </div>
+
+    <div class="row" style="background-color: lightgrey;">
+        <br>
+        <h1 class="display-4">Cost Calculator for Appliances</h1>
+        <hr style="border: 2px solid white; margin:0px 10rem">
+        <br>
+        <h3>Find out how much your appliances energy cost in a month</h3>
+        <br>
+        <!-- <p style="font-size: 18px;"><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p> -->
+        <br>
+        <div class="selection">
+        
+            <label for="power">What is the power consumption of your appliances per month?
+              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
+                <span class="hover-icon">&#9432</span>
+              </button>
+              <div id="popup" class="popup" style="text-align: center;">
+                <p style="font-size: 16px; text-align: left;">
+                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
+                  It is commonly referred to as brightness.<br><br>
+                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+                </p>
+              </div> -->
+            </label>
+            <input type="number" id="power" name="power" min="0" style="width: 80%;">
+            <!-- added validation - TODO VALIDATION-->
+            <div id="errorMessagePower" style="color:red; font-size: 16px;"></div>
+        </div>
+
+        <div class="selection">
+        
+            <label for="hours">How many hours in a day do you use the appliance?
+              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
+                <span class="hover-icon">&#9432</span>
+              </button>
+              <div id="popup" class="popup" style="text-align: center;">
+                <p style="font-size: 16px; text-align: left;">
+                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
+                  It is commonly referred to as brightness.<br><br>
+                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+                </p>
+              </div> -->
+            </label>
+            <input type="number" id="hours" name="hours" min="0" max="24" style="width: 80%;">
+            <!-- added validation - TODO VALIDATION-->
+            <div id="errorMessageHours" style="color:red; font-size: 16px;"></div>
+        </div>
+
+        <div class="selection">
+        
+            <label for="charge">How much is your energy provider charging you per kWh (in $)?
+              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
+                <span class="hover-icon">&#9432</span>
+              </button>
+              <div id="popup" class="popup" style="text-align: center;">
+                <p style="font-size: 16px; text-align: left;">
+                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
+                  It is commonly referred to as brightness.<br><br>
+                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+                </p>
+              </div> -->
+            </label>
+            <input type="number" id="charge" name="charge" min="0" style="width: 80%;">
+            <!-- added validation - TODO VALIDATION-->
+            <div id="errorMessageCharge" style="color:red; font-size: 16px;"></div>
+        </div>
+
+        <!-- TO DOOOOO -->
+        <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
+        <button type="button" id="checkButton" onclick="Calculate()">Calculate</button>
+
+        <br><br>
+
+        <div class="row">
+            <div id="thisDiv"></div>
+            <div id="hiddenContainer" style="color: white;">
+              
+              <div id="textField"></div>
             </div>
+            
         </div>
 
         
