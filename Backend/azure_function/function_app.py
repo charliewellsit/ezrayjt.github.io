@@ -193,7 +193,7 @@ def get_data_waste_facilities(req: func.HttpRequest):
 
 ### Iteration 3
 
-# Route to get refrigerators data for iteration 3
+# Route to get refrigerators data
 @app.route('get_refrigerators', methods=['GET'])
 def get_data_refrigerators(req: func.HttpRequest):
     db_manager_iteration3 = get_database_manager("iteration3")
@@ -231,7 +231,7 @@ def get_data_refrigerators(req: func.HttpRequest):
       mimetype="application/json"
     )
 
-# Route to get air conditioners data for iteration 2
+# Route to get air conditioners data
 @app.route('get_ac', methods=['GET'])
 def get_data_ac(req: func.HttpRequest):
     db_manager_iteration3 = get_database_manager("iteration3")
