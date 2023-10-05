@@ -1,0 +1,30 @@
+#appliances-container{
+    display: flex;
+    padding:20px;
+    padding-top: 100px;
+    padding-bottom: 0;
+    width: 100%;
+    /* height: 100vh; */
+    justify-content: center;
+    text-align: center;
+  }
+  
+#appliances{
+    margin: 40px;
+    margin-top: 0px;
+    }
+
+.selection{
+    flex-direction: column;
+    display: flex;
+    margin:30px 0;
+    align-items: center;
+    }
+
+.display-4 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    color: black;
+    padding-bottom: 2rem;
+    }

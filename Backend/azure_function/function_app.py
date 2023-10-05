@@ -193,26 +193,36 @@ def get_data_waste_facilities(req: func.HttpRequest):
 
 ### Iteration 3
 
-# Route to get refrigerators data for iteration 2
+# Route to get refrigerators data for iteration 3
 @app.route('get_refrigerators', methods=['GET'])
 def get_data_refrigerators(req: func.HttpRequest):
     db_manager_iteration3 = get_database_manager("iteration3")
 
     # SQL query to get data from the database
-    query = "SELECT brand, model_number, is_refrigerator, is_freezer, energy_usage_kwh_per_month, total_volume_litres, star_rating FROM Refrigerators"
+    # query = "SELECT brand, model_number, is_refrigerator, is_freezer, energy_usage_kwh_per_month, total_volume_litres, star_rating FROM Refrigerators"
+    query = "SELECT brand, CASE WHEN is_refrigerator = 1 AND is_freezer = 1 THEN 'Fridge&Freezer' WHEN is_refrigerator = 1 AND is_freezer = 0 THEN 'Fridge' ELSE 'Freezer' END AS 'type', AVG(energy_usage_kwh_per_month) AS average_energy_consumption, star_rating, CASE WHEN total_volume_litres <= 200 THEN 'Small' WHEN total_volume_litres <= 350 THEN 'Medium' WHEN total_volume_litres <= 500 THEN 'Large' ELSE 'Extra Large' END AS volume_category FROM Refrigerators GROUP BY brand, type, volume_category, star_rating ORDER BY count(*) DESC, brand, type, star_rating, volume_category"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration3.execute_query(query)
 
+    # # Process the query result and format it as JSON
+    # data = [{
+    #         'brand': each[0].title(),
+    #         'model': each[1],
+    #         'is_refrigerator':  each[2],
+    #         'is_freezer': each[3],
+    #         'energy_usage_kwh_per_month': float(each[4]),
+    #         'total_volume_litres': each[5],
+    #         'star_rating': float(each[6])
+    #     } for each in result]
+    
     # Process the query result and format it as JSON
     data = [{
             'brand': each[0].title(),
-            'model': each[1],
-            'is_refrigerator':  each[2],
-            'is_freezer': each[3],
-            'energy_usage_kwh_per_month': float(each[4]),
-            'total_volume_litres': each[5],
-            'star_rating': float(each[6])
+            'type': each[1],
+            'average_energy_consumption':  float(each[2]),
+            'star_rating': float(each[3]),
+            'volume_category': each[4].title()
         } for each in result]
 
     db_manager_iteration3.close()
