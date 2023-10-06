@@ -18,6 +18,7 @@ class cssFiles extends HTMLElement{
         <link rel="stylesheet" href="Front_end/CSS/section.css" />
         <link rel="stylesheet" href="Front_end/CSS/lights.css" />
         <link rel="stylesheet" href="Front_end/CSS/waste.css" />
+        <link rel="stylesheet" href="Front_end/CSS/wasteInfo.css" />
         `;
     }
 }
@@ -50,6 +51,7 @@ class navbar extends HTMLElement{
         <a href="lights.html">Assess Room's Lighting</a>
         <a href="lightbulb.html">Lightbulb Types</a>
         <a href="waste.html">Waste</a>
+        <a href="DIY.html">DIY project</a>
         </nav>
 
     </header>
