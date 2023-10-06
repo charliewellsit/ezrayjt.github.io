@@ -25,11 +25,11 @@ all_paths.forEach(path => {
     document.getElementById("map-tip").style.opacity = "0.7";
   });
 
-  path.addEventListener("mouseleave", function () {
+  path.addEventListener("mouseleave", () => {
     document.getElementById("map-tip").style.opacity = "0";
   });
   
-  path.addEventListener("click", function () {
+  path.addEventListener("click", () => {
     path.classList.toggle("selected");
     all_paths.forEach(region => {
       if (region != path && region.classList.contains("selected")) {
@@ -38,12 +38,11 @@ all_paths.forEach(path => {
     })
     state_name = path.id;
     updateChart();
-    document.getElementById("suggestion").style.opacity = 0;
+    document.getElementById("suggestion").style.opacity = "0";
   });
   });
 
 async function getData(){
-    
     const xs = [];
     const ys = [];
     const pieData = [];
@@ -139,7 +138,6 @@ data :{
 //   document.getElementById('chart1'),
 //   config
 // );
-
 
 async function updateChart(){
   const ausData = await getData();
