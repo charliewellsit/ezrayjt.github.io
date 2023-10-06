@@ -29,7 +29,7 @@ document.querySelectorAll(".paths").forEach((path) => {
   });
   
     path.addEventListener("click", function () {
-    path.classList.toggle('selected');
+     path.classList.toggle('selected');
     state_name = path.id;
     updateChart();
     document.getElementById("suggestion").style.opacity = 0;
