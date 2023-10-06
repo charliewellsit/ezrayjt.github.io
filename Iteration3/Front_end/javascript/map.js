@@ -10,7 +10,7 @@ async function init(){
 init();
 
 let all_paths = document.querySelectorAll(".paths");
-all_paths.forEach((path) => {
+all_paths.forEach(path => {
   path.addEventListener("mouseover", function (e) {
     const divElement = document.getElementById("aus-map");
     const rect = divElement.getBoundingClientRect();
