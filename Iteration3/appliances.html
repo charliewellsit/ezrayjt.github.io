@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appliances</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,800&family=Lilita+One&family=Quicksand:wght@300;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- use bootstrap for some icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- css files to stylise the page -->
+    <link rel="stylesheet" href="Front_end/CSS/general.css" />
+    <link rel="stylesheet" href="Front_end/CSS/navbar.css" />
+    <link rel="stylesheet" href="Front_end/CSS/appliances.css" />
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
+    
+        <nav>
+          <a href="index.html#home" class="active">Home</a>
+          <a href="index.html#article">Issues</a>
+          <a href="index.html#interactive-map">Electricity Usage</a>
+          <!-- <a href="index.html#Services">Services</a> -->
+          <a href="lights.html">Assess Room's Lighting</a>
+          <a href="lightbulb.html">Lightbulb Types</a>
+          <a href="waste.html">Waste</a>
+          <!-- <a href="#about">About</a> -->
+          <a href="appliances.html">Appliances</a>
+        </nav>
+    </header>
+
+    <div id="appliances-container">
+
+        <div id="appliances">
+            <br>
+            <h1 class="display-4">Energy Efficiency</h1>
+            <hr style="border: 2px solid green; ">
+            <br>
+            <h3>Appliance Energy Consumption by Star Rating, Type, and Brand</h3>
+            <br>
+            <!-- <p style="font-size: 18px;"><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p> -->
+            <br>
+
+            <div class="row">
+                <!-- <label for="appliance">Select an appliance:</label> 
+                    <select name="aappliance" id="appliance">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="AC">Air Conditioners</option> 
+                        <option value="Fridge">Refrigerator</option>
+                    </select> -->
+
+                <label for="type">Select a type:</label> 
+                <select name="type" id="type">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Freezer">Freezer</option> 
+                    <option value="Fridge">Fridge</option>
+                    <option value="Fridge&Freezer">Fridge & Freezer</option>
+                </select>
+
+                <label for="brand">Select a brand:</label> 
+                <select name="brand" id="brand">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Chiq">Chiq</option> 
+                    <option value="Fhiaba">Fhiaba</option>
+                    <option value="Fisher & Paykel">Fisher & Paykel</option>
+                    <option value="Haier">Haier</option> 
+                    <option value="Hisense">Hisense</option> 
+                    <option value="Hitachi">Hitachi</option>
+                    <option value="Inalto">Inalto</option>  
+                    <option value="Kogan">Kogan</option>
+                    <option value="Lg">LG</option>
+                    <option value="Midea">Midea</option>  
+                    <option value="Mitsubishi Electric">Mitsubishi Electric</option>
+                    <option value="Samsung Electronics">Samsung Electronics</option> 
+                    <option value="Smeg">Smeg</option>
+                    <option value="Sub-zero">Sub-Zero</option> 
+                    <option value="Westinghouse">Westinghouse</option>
+                </select>
+
+                <label for="volume">Select a volume category:</label> 
+                <select name="volume" id="volume">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Small">Small</option> 
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="Extra Large">Extra Large</option>
+                </select>
+
+                <div>
+                    <label for="star-rating">Select star ratings:</label>
+                    <div id="star-ratings">
+                        <label>
+                            <input type="checkbox" name="star-rating" value="1"> 1
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="1.5"> 1.5
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="2"> 2
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="2.5"> 2.5
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="3"> 3
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="3.5"> 3.5
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="4"> 4
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="4.5"> 4.5
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="5"> 5
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="5.5"> 5.5
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="6"> 6
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="6.5"> 6.5
+                        </label>
+                        <label>
+                            <input type="checkbox" name="star-rating" value="7"> 7
+                        </label>
+                    </div>
+                </div>
+            
+                <div>
+                    <canvas id="energy-consumption-chart"></canvas>
+                    <div id="textRes"></div>
+                </div>
+
+
+                </div>
+        </div>        
+    </div>
+
+    <div class="row" style="background-color: lightgrey;">
+        <br>
+        <h1 class="display-4">Cost Calculator for Appliances</h1>
+        <hr style="border: 2px solid white; margin:0px 10rem">
+        <br>
+        <h3>Find out how much your appliances energy cost in a month</h3>
+        <br>
+        <!-- <p style="font-size: 18px;"><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p> -->
+        <br>
+        <div class="selection">
+        
+            <label for="power">What is the power consumption of your appliances per month?
+              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
+                <span class="hover-icon">&#9432</span>
+              </button>
+              <div id="popup" class="popup" style="text-align: center;">
+                <p style="font-size: 16px; text-align: left;">
+                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
+                  It is commonly referred to as brightness.<br><br>
+                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+                </p>
+              </div> -->
+            </label>
+            <input type="number" id="power" name="power" min="0" style="width: 80%;">
+            <!-- added validation - TODO VALIDATION-->
+            <div id="errorMessagePower" style="color:red; font-size: 16px;"></div>
+        </div>
+
+        <div class="selection">
+        
+            <label for="hours">How many hours in a day do you use the appliance?
+              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
+                <span class="hover-icon">&#9432</span>
+              </button>
+              <div id="popup" class="popup" style="text-align: center;">
+                <p style="font-size: 16px; text-align: left;">
+                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
+                  It is commonly referred to as brightness.<br><br>
+                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+                </p>
+              </div> -->
+            </label>
+            <input type="number" id="hours" name="hours" min="0" max="24" style="width: 80%;">
+            <!-- added validation - TODO VALIDATION-->
+            <div id="errorMessageHours" style="color:red; font-size: 16px;"></div>
+        </div>
+
+        <div class="selection">
+        
+            <label for="charge">How much is your energy provider charging you per kWh (in $)?
+              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
+                <span class="hover-icon">&#9432</span>
+              </button>
+              <div id="popup" class="popup" style="text-align: center;">
+                <p style="font-size: 16px; text-align: left;">
+                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
+                  It is commonly referred to as brightness.<br><br>
+                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
+                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
+                </p>
+              </div> -->
+            </label>
+            <input type="number" id="charge" name="charge" min="0" style="width: 80%;">
+            <!-- added validation - TODO VALIDATION-->
+            <div id="errorMessageCharge" style="color:red; font-size: 16px;"></div>
+        </div>
+
+        <!-- TO DOOOOO -->
+        <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
+        <button type="button" id="checkButton" onclick="Calculate()">Calculate</button>
+
+        <br><br>
+
+        <div class="row">
+            <div id="thisDiv"></div>
+            <div id="hiddenContainer" style="color: white;">
+              
+              <div id="textField"></div>
+            </div>
+            
+        </div>
+
+        
+    </div>
+
+    <!--import scrips -->
+  <script src="Front_end/javascript/navbar.js"></script>
+  <script src="Front_end/javascript/general.js"></script>
+  <script src="Front_end/javascript/appliances.js"></script>
+  <script src="Front_end/javascript/passwordCheck.js"></script>
+  <script src="Front_end/javascript/appliances.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  
+
+</body>
+</html>
