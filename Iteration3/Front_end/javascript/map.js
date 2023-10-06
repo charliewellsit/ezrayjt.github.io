@@ -11,7 +11,7 @@ init();
 
 let all_paths = document.querySelectorAll(".paths");
 all_paths.forEach(path => {
-  path.addEventListener("mouseover", function (e) {
+  path.addEventListener("mouseover", e => {
     const divElement = document.getElementById("aus-map");
     const rect = divElement.getBoundingClientRect();
     
@@ -22,11 +22,11 @@ all_paths.forEach(path => {
     document.getElementById("map-tip").style.left = x - 120 + "px";
 
     document.getElementById("state-name").innerHTML = path.id;
-    document.getElementById("map-tip").style.opacity = 0.7;
+    document.getElementById("map-tip").style.opacity = "0.7";
   });
 
   path.addEventListener("mouseleave", function () {
-    document.getElementById("map-tip").style.opacity = 0;
+    document.getElementById("map-tip").style.opacity = "0";
   });
   
   path.addEventListener("click", function () {
@@ -41,8 +41,6 @@ all_paths.forEach(path => {
     document.getElementById("suggestion").style.opacity = 0;
   });
   });
-
-
 
 async function getData(){
     
@@ -65,7 +63,6 @@ async function getData(){
 
     return {xs, ys, pieData};
 }
-
 
 const ctx = document.getElementById('chart1');
 
