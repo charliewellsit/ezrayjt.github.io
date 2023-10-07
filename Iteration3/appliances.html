@@ -44,18 +44,17 @@
             <hr style="border: 2px solid green; ">
             <br>
             <h3>Appliance Energy Consumption by Star Rating, Type, and Brand</h3>
-            <br>
-            <!-- <p style="font-size: 18px;"><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p> -->
-            <br>
 
-            <div class="row">
-                <!-- <label for="appliance">Select an appliance:</label> 
-                    <select name="aappliance" id="appliance">
-                        <option value="none" selected disabled hidden>Select</option>
-                        <option value="AC">Air Conditioners</option> 
-                        <option value="Fridge">Refrigerator</option>
-                    </select> -->
-
+            <div class="selection">
+                <label for="appliance">Select an appliance:</label> 
+                <select name="aappliance" id="appliance">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="AC">Air Conditioners</option> 
+                    <option value="Fridge">Refrigerator</option>
+                </select>
+            </div>
+            
+            <div class="selection">
                 <label for="type">Select a type:</label> 
                 <select name="type" id="type">
                     <option value="none" selected disabled hidden>Select</option>
@@ -63,7 +62,9 @@
                     <option value="Fridge">Fridge</option>
                     <option value="Fridge&Freezer">Fridge & Freezer</option>
                 </select>
+            </div>
 
+            <div class="selection">
                 <label for="brand">Select a brand:</label> 
                 <select name="brand" id="brand">
                     <option value="none" selected disabled hidden>Select</option>
@@ -83,7 +84,9 @@
                     <option value="Sub-zero">Sub-Zero</option> 
                     <option value="Westinghouse">Westinghouse</option>
                 </select>
+            </div>
 
+            <div class="selection">
                 <label for="volume">Select a volume category:</label> 
                 <select name="volume" id="volume">
                     <option value="none" selected disabled hidden>Select</option>
@@ -92,60 +95,59 @@
                     <option value="Large">Large</option>
                     <option value="Extra Large">Extra Large</option>
                 </select>
+            </div>
 
-                <div>
-                    <label for="star-rating">Select star ratings:</label>
-                    <div id="star-ratings">
-                        <label>
-                            <input type="checkbox" name="star-rating" value="1"> 1
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="1.5"> 1.5
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="2"> 2
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="2.5"> 2.5
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="3"> 3
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="3.5"> 3.5
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="4"> 4
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="4.5"> 4.5
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="5"> 5
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="5.5"> 5.5
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="6"> 6
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="6.5"> 6.5
-                        </label>
-                        <label>
-                            <input type="checkbox" name="star-rating" value="7"> 7
-                        </label>
-                    </div>
+            <div class="selection">
+                <label for="star-rating">Select star ratings:</label>
+                <div id="star-ratings">
+                    <label>
+                        <input type="checkbox" name="star-rating" value="1"> 1
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="1.5"> 1.5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="2"> 2
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="2.5"> 2.5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="3"> 3
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="3.5"> 3.5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="4"> 4
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="4.5"> 4.5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="5"> 5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="5.5"> 5.5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="6"> 6
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="6.5"> 6.5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="star-rating" value="7"> 7
+                    </label>
                 </div>
+            </div>
+            <div>
+                <canvas id="energy-consumption-chart"></canvas>
+                <div id="textRes"></div>
+            </div>
             
-                <div>
-                    <canvas id="energy-consumption-chart"></canvas>
-                    <div id="textRes"></div>
-                </div>
-
-
-                </div>
-        </div>        
+        </div>    
+            
     </div>
 
     <div class="row" style="background-color: lightgrey;">
@@ -155,22 +157,51 @@
         <br>
         <h3>Find out how much your appliances energy cost in a month</h3>
         <br>
-        <!-- <p style="font-size: 18px;"><span>*</span>This is based on Australian Standard (AS/NZS 1680.1:2006)</p> -->
         <br>
+
         <div class="selection">
         
-            <label for="power">What is the power consumption of your appliances per month?
-              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
-                <span class="hover-icon">&#9432</span>
-              </button>
-              <div id="popup" class="popup" style="text-align: center;">
-                <p style="font-size: 16px; text-align: left;">
-                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
-                  It is commonly referred to as brightness.<br><br>
-                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
-                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
-                </p>
-              </div> -->
+            <label for="app-type">Select an appliance:</label>
+                <select name="app-type" id="app-type">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="AC">Air Conditioners</option>
+                    <option value="Fridge">Fridge</option></select>
+        </div>
+
+        <div class="selection">
+        
+            <label for="fridgeType">Select the type:</label>
+                <select name="fridgeType" id="fridgeType">
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="Freezer">Freezer</option> 
+                    <option value="Fridge">Fridge</option>
+                    <option value="Fridge&Freezer">Fridge & Freezer</option>
+                </select>
+        </div>
+
+        <div class="selection">
+            <label for="answer">Do you know the power consumption of your selected appliance?</label>
+            <form>
+                <label>
+                    <input type="radio" name="answer" value="yes" onclick="hideTable()">Yes
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="no" onclick="showTable()">No
+                </label>
+            </form>
+        </div>
+
+        <div id="table-container">
+            <div id="thisText"></div>
+            <table id="table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div> 
+           
+        <div class="selection">
+        
+            <label for="power">What is the power consumption of your appliances?
             </label>
             <input type="number" id="power" name="power" min="0" style="width: 80%;">
             <!-- added validation - TODO VALIDATION-->
@@ -180,17 +211,6 @@
         <div class="selection">
         
             <label for="hours">How many hours in a day do you use the appliance?
-              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
-                <span class="hover-icon">&#9432</span>
-              </button>
-              <div id="popup" class="popup" style="text-align: center;">
-                <p style="font-size: 16px; text-align: left;">
-                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
-                  It is commonly referred to as brightness.<br><br>
-                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
-                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
-                </p>
-              </div> -->
             </label>
             <input type="number" id="hours" name="hours" min="0" max="24" style="width: 80%;">
             <!-- added validation - TODO VALIDATION-->
@@ -199,18 +219,7 @@
 
         <div class="selection">
         
-            <label for="charge">How much is your energy provider charging you per kWh (in $)?
-              <!-- <button class="button1" type="button" onclick="openPopup('popup')">
-                <span class="hover-icon">&#9432</span>
-              </button>
-              <div id="popup" class="popup" style="text-align: center;">
-                <p style="font-size: 16px; text-align: left;">
-                  Luminous flux rating is typically indicated on the lightbulb packaging under the label 'Lumens'.<br>
-                  It is commonly referred to as brightness.<br><br>
-                  The higher the number of Lumens, the brighter the lightbulb is.<br><br>
-                  Don't know the Lumens but know the Watts (power)?<br><br>Refer to the table below for guidance!<br><br>
-                </p>
-              </div> -->
+            <label for="charge">How much is your energy provider billing you per kWh (in cents)?
             </label>
             <input type="number" id="charge" name="charge" min="0" style="width: 80%;">
             <!-- added validation - TODO VALIDATION-->
@@ -223,17 +232,52 @@
 
         <br><br>
 
-        <div class="row">
-            <div id="thisDiv"></div>
+        <!-- <div class="row"> -->
+            
             <div id="hiddenContainer" style="color: white;">
               
               <div id="textField"></div>
+              <div id="text2" style="background-color: white; padding-top: 2rem; flex-direction: column; justify-content: center; align-items: center;">
+                <h1 class="display-4">Check how you're doing!</h1>
+                <!-- <hr style="border: 2px solid green; "> -->
+                <h3 style="color: black;">Comparing your electricity cost with general appliance with the best star rating!</h3>
+                <br>
+                <div style="width: 60rem;">
+                    <canvas id="barChart" width = "100" height="50"></canvas>
+                </div>
+                <br>
+              </div>
+              <div id="text3" style="background-color: black; color: white;">
+                <div id="thisDiv"></div>
             </div>
+              
+            </div>
+
             
+            
+            
+        <!-- </div>         -->
+    </div>
+
+    <!-- <div id="appliances-container" style="padding-top: 1rem;">
+        <div id="appliances">
+            <br>
+            <h1 class="display-4">Check how you're doing!</h1>
+            <hr style="border: 2px solid green; ">
+            <br>
+            <h3>Comparing your electricity cost with general appliance with the best star rating!</h3>
+            <br>
+            <button onclick="compare()">Show me</button>
+            <br>
+
+        </div>
+        
+        <div>
+            <canvas id="barChart" width="400" height="200"></canvas>
         </div>
 
-        
-    </div>
+    </div> -->
+    
 
     <!--import scrips -->
   <script src="Front_end/javascript/navbar.js"></script>
