@@ -9,37 +9,40 @@ async function init(){
 
 init();
 
-document.querySelectorAll(".paths").forEach((path) => {
-  path.addEventListener("mouseover", function (e) {
+let all_paths = document.querySelectorAll(".paths");
+all_paths.forEach(path => {
+  path.addEventListener("mouseover", e => {
     const divElement = document.getElementById("aus-map");
     const rect = divElement.getBoundingClientRect();
     
-    x = e.clientX - rect.left; // Calculate x relative to the div
-    y = e.clientY - rect.top;
+    let x = e.clientX - rect.left; // Calculate x relative to the div
+    let y = e.clientY - rect.top;
     
     document.getElementById("map-tip").style.top = y - 120 + "px";
     document.getElementById("map-tip").style.left = x - 120 + "px";
 
     document.getElementById("state-name").innerHTML = path.id;
-    document.getElementById("map-tip").style.opacity = 0.7;
+    document.getElementById("map-tip").style.opacity = "0.7";
   });
 
-  path.addEventListener("mouseleave", function () {
-    document.getElementById("map-tip").style.opacity = 0;
+  path.addEventListener("mouseleave", () => {
+    document.getElementById("map-tip").style.opacity = "0";
   });
   
-    path.addEventListener("click", function () {
-    path.classList.toggle('selected');
+  path.addEventListener("click", () => {
+    path.classList.toggle("selected");
+    all_paths.forEach(region => {
+      if (region != path && region.classList.contains("selected")) {
+        region.classList.remove("selected")
+      }
+    })
     state_name = path.id;
     updateChart();
-    document.getElementById("suggestion").style.opacity = 0;
+    document.getElementById("suggestion").style.opacity = "0";
   });
   });
-
-
 
 async function getData(){
-    
     const xs = [];
     const ys = [];
     const pieData = [];
@@ -59,7 +62,6 @@ async function getData(){
 
     return {xs, ys, pieData};
 }
-
 
 const ctx = document.getElementById('chart1');
 
@@ -136,7 +138,6 @@ data :{
 //   document.getElementById('chart1'),
 //   config
 // );
-
 
 async function updateChart(){
   const ausData = await getData();
