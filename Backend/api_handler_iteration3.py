@@ -16,6 +16,10 @@ db_manager_iteration3 = DatabaseManager(
     database="iteration3"
 )
 
+
+# ---------------------------------------------------- fridge data
+
+
 # Route to get refrigerators data for iteration 3
 @app.route('/api/get_refrigerators', methods=['GET'])
 def get_data_refrigerators():
@@ -102,11 +106,14 @@ def get_fridge_highest_rating_consumption():
     result_json = json.dumps(data)
     return result_json
 
+# ---------------------------------------------------- air conditioners data
+
 # Route to get air conditioners data for iteration 3
-@app.route('/api/get_ac', methods=['GET'])
-def get_data_ac():
+@app.route('/api/get_ac_cooling', methods=['GET'])
+def get_ac_cooling():
     # SQL query to get data from the database
-    query = "SELECT brand, model_number, cooling_usage_kw, heating_usage_kw, ROUND(cooling_star_rating,1), ROUND(heating_star_rating,1) FROM air_conditioners"
+    # query = "SELECT brand, model_number, cooling_usage_kw, heating_usage_kw, ROUND(cooling_star_rating,1), ROUND(heating_star_rating,1) FROM air_conditioners"
+    query = "SELECT brand, ROUND(AVG(cooling_usage_kw),3)*30, ROUND(cooling_star_rating,1) FROM air_conditioners GROUP BY brand, cooling_star_rating"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration3.execute_query(query)
@@ -115,19 +122,134 @@ def get_data_ac():
     data = []
     for each in result:
         brand = each[0].title()
-        model_number = each[1]
-        cooling_usage_kw = float(each[2])
-        heating_usage_kw = float(each[3])
-        cooling_star_rating = float(each[4])
-        heating_star_rating = float(each[5])
+        average_energy_consumption = float(each[1])
+        star_rating = float(each[2])
 
         data.append({
             'brand': brand,
-            'model': model_number,
-            'cooling_usage_kw': cooling_usage_kw,
-            'heating_usage_kw': heating_usage_kw,
-            'cooling_star_rating': cooling_star_rating,
-            'heating_star_rating': heating_star_rating
+            'average_energy_consumption':average_energy_consumption,
+            'star_rating': star_rating
+        })
+
+    result_json = json.dumps(data)
+    return result_json
+
+# Route to get air conditioners data for iteration 3
+@app.route('/api/get_ac_heating', methods=['GET'])
+def get_ac_heating():
+    # SQL query to get data from the database
+    query = "SELECT brand, ROUND(AVG(heating_usage_kw),3), ROUND(heating_star_rating,1) FROM air_conditioners GROUP BY brand, heating_star_rating"
+
+    # Execute the query using the DatabaseManager
+    result = db_manager_iteration3.execute_query(query)
+
+    # Process the query result and format it as JSON
+    data = []
+    for each in result:
+        brand = each[0].title()
+        average_energy_consumption = float(each[1])
+        star_rating = float(each[2])
+
+        data.append({
+            'brand': brand,
+            'average_energy_consumption': average_energy_consumption,
+            'star_rating': star_rating
+        })
+
+    result_json = json.dumps(data)
+    return result_json
+
+# Route to get ac data for iteration 3
+@app.route('/api/get_ac_cooling_avg_consumption', methods=['GET'])
+def get_ac_cooling_avg_consumption():
+    # SQL query to get data from the database
+
+    query = "SELECT ROUND(AVG(cooling_usage_kw), 3) AS average_energy_consumption, ROUND(cooling_star_rating,1) AS cooling_star_rating FROM air_conditioners GROUP BY cooling_star_rating HAVING cooling_star_rating >= 1.0 ORDER BY cooling_star_rating"
+
+    # Execute the query using the DatabaseManager
+    result = db_manager_iteration3.execute_query(query)
+
+    # Process the query result and format it as JSON
+    data = []
+    for each in result:
+        average_energy_consumption = float(each[0])
+        star_rating = float(each[1])
+
+        data.append({
+            'Star Rating': star_rating,
+            'Average Energy Consumption (kW)' : average_energy_consumption,
+        })
+
+    result_json = json.dumps(data)
+    return result_json
+
+# Route to get ac data for iteration 3
+@app.route('/api/get_ac_heating_avg_consumption', methods=['GET'])
+def get_ac_heating_avg_consumption():
+    # SQL query to get data from the database
+
+    query = "SELECT ROUND(AVG(heating_usage_kw), 3) AS average_energy_consumption, ROUND(heating_star_rating,1) AS heating_star_rating FROM air_conditioners GROUP BY heating_star_rating HAVING heating_star_rating >= 1.0 ORDER BY heating_star_rating"
+
+    # Execute the query using the DatabaseManager
+    result = db_manager_iteration3.execute_query(query)
+
+    # Process the query result and format it as JSON
+    data = []
+    for each in result:
+        average_energy_consumption = float(each[0])
+        star_rating = float(each[1])
+
+        data.append({
+            'Star Rating': star_rating,
+            'Average Energy Consumption (kW)' : average_energy_consumption,
+        })
+
+    result_json = json.dumps(data)
+    return result_json
+
+# Route to get ac data for iteration 3
+@app.route('/api/get_ac_heating_highest_rating_consumption', methods=['GET'])
+def get_ac_heating_highest_rating_consumption():
+    # SQL query to get data from the database
+
+    query = "SELECT ROUND(AVG(heating_usage_kw), 3) AS average_energy_consumption, ROUND(heating_star_rating,1) AS heating_star_rating FROM air_conditioners GROUP BY heating_star_rating HAVING heating_star_Rating >= 1.0 ORDER BY heating_star_rating DESC LIMIT 1"
+
+    # Execute the query using the DatabaseManager
+    result = db_manager_iteration3.execute_query(query)
+
+    # Process the query result and format it as JSON
+    data = []
+    for each in result:
+        average_energy_consumption = float(each[0])
+        star_rating = float(each[1])
+
+        data.append({
+            'Star Rating': star_rating,
+            'Average Energy Consumption (kW)' : average_energy_consumption,
+        })
+
+    result_json = json.dumps(data)
+    return result_json
+
+# Route to get ac data for iteration 3
+@app.route('/api/get_ac_cooling_highest_rating_consumption', methods=['GET'])
+def get_ac_cooling_highest_rating_consumption():
+    # SQL query to get data from the database
+
+    query = "SELECT ROUND(AVG(cooling_usage_kw), 3) AS average_energy_consumption, ROUND(cooling_star_rating,1) AS cooling_star_rating FROM air_conditioners GROUP BY cooling_star_rating HAVING cooling_star_Rating >= 1.0 ORDER BY cooling_star_rating DESC LIMIT 1"
+
+    # Execute the query using the DatabaseManager
+    result = db_manager_iteration3.execute_query(query)
+
+    # Process the query result and format it as JSON
+    data = []
+    for each in result:
+        average_energy_consumption = float(each[0])
+        star_rating = float(each[1])
+
+        data.append({
+            'Star Rating': star_rating,
+            'Average Energy Consumption (kW)' : average_energy_consumption,
         })
 
     result_json = json.dumps(data)

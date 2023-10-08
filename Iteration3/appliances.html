@@ -47,55 +47,91 @@
 
             <div class="selection">
                 <label for="appliance">Select an appliance:</label> 
-                <select name="aappliance" id="appliance">
+                <select name="appliance" id="appliance" onchange="showOptionsVis1()">
                     <option value="none" selected disabled hidden>Select</option>
                     <option value="AC">Air Conditioners</option> 
                     <option value="Fridge">Refrigerator</option>
                 </select>
             </div>
             
-            <div class="selection">
-                <label for="type">Select a type:</label> 
-                <select name="type" id="type">
-                    <option value="none" selected disabled hidden>Select</option>
-                    <option value="Freezer">Freezer</option> 
-                    <option value="Fridge">Fridge</option>
-                    <option value="Fridge&Freezer">Fridge & Freezer</option>
-                </select>
+            <div id="fridgeSelections">
+                <div class="selection">
+                    <label for="type">Select a type:</label> 
+                    <select name="type" id="type">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="Freezer">Freezer</option> 
+                        <option value="Fridge">Fridge</option>
+                        <option value="Fridge&Freezer">Fridge & Freezer</option>
+                    </select>
+                </div>
+    
+                <div class="selection">
+                    <label for="brand">Select a brand:</label> 
+                    <select name="brand" id="brand">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="Chiq">Chiq</option> 
+                        <option value="Fhiaba">Fhiaba</option>
+                        <option value="Fisher & Paykel">Fisher & Paykel</option>
+                        <option value="Haier">Haier</option> 
+                        <option value="Hisense">Hisense</option> 
+                        <option value="Hitachi">Hitachi</option>
+                        <option value="Inalto">Inalto</option>  
+                        <option value="Kogan">Kogan</option>
+                        <option value="Lg">LG</option>
+                        <option value="Midea">Midea</option>  
+                        <option value="Mitsubishi Electric">Mitsubishi Electric</option>
+                        <option value="Samsung Electronics">Samsung Electronics</option> 
+                        <option value="Smeg">Smeg</option>
+                        <option value="Sub-zero">Sub-Zero</option> 
+                        <option value="Westinghouse">Westinghouse</option>
+                    </select>
+                </div>
+    
+                <div class="selection">
+                    <label for="volume">Select a volume category:</label> 
+                    <select name="volume" id="volume">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="Small">Small</option> 
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra Large">Extra Large</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="selection">
-                <label for="brand">Select a brand:</label> 
-                <select name="brand" id="brand">
-                    <option value="none" selected disabled hidden>Select</option>
-                    <option value="Chiq">Chiq</option> 
-                    <option value="Fhiaba">Fhiaba</option>
-                    <option value="Fisher & Paykel">Fisher & Paykel</option>
-                    <option value="Haier">Haier</option> 
-                    <option value="Hisense">Hisense</option> 
-                    <option value="Hitachi">Hitachi</option>
-                    <option value="Inalto">Inalto</option>  
-                    <option value="Kogan">Kogan</option>
-                    <option value="Lg">LG</option>
-                    <option value="Midea">Midea</option>  
-                    <option value="Mitsubishi Electric">Mitsubishi Electric</option>
-                    <option value="Samsung Electronics">Samsung Electronics</option> 
-                    <option value="Smeg">Smeg</option>
-                    <option value="Sub-zero">Sub-Zero</option> 
-                    <option value="Westinghouse">Westinghouse</option>
-                </select>
+            <div id="AcSelections">
+                <div class="selection">
+                    <label for="acType">Select a type:</label> 
+                    <select name="acType" id="acType">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="Cooling">Cooling</option> 
+                        <option value="Heating">Heating</option>
+                    </select>
+                </div>
+    
+                <div class="selection">
+                    <label for="acBrand">Select a brand:</label> 
+                    <select name="acBrand" id="acBrand">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="Akai">Akai</option> 
+                        <option value="Bonaire">Bonaire</option>
+                        <option value="Daikin">Daikin</option>
+                        <option value="Esatto">Esatto</option> 
+                        <option value="Gree">Gree</option> 
+                        <option value="Haier">Haier</option>
+                        <option value="Kelvinator">Kelvinator</option>  
+                        <option value="Lennox">Lennox</option>
+                        <option value="Lg">LG</option>
+                        <option value="Midea">Midea</option>  
+                        <option value="Mitsubishi Electric">Mitsubishi Electric</option>
+                        <option value="Panasonic">Panasonic</option>
+                        <option value="Samsung Electronics">Samsung Electronics</option>
+                        <option value="Tcl">TCL</option> 
+                        <option value="Teco">Teco</option>
+                    </select>
+                </div>
             </div>
-
-            <div class="selection">
-                <label for="volume">Select a volume category:</label> 
-                <select name="volume" id="volume">
-                    <option value="none" selected disabled hidden>Select</option>
-                    <option value="Small">Small</option> 
-                    <option value="Medium">Medium</option>
-                    <option value="Large">Large</option>
-                    <option value="Extra Large">Extra Large</option>
-                </select>
-            </div>
+            
 
             <div class="selection">
                 <label for="star-rating">Select star ratings:</label>
@@ -150,6 +186,11 @@
             
     </div>
 
+
+<!-- ----------------- ----------------- ----------------- ----------------- ----------------- ----------------- ----------------- ----------------- -->
+
+
+    <!-- Cost Calculator Feature -->
     <div class="row" style="background-color: lightgrey;">
         <br>
         <h1 class="display-4">Cost Calculator for Appliances</h1>
@@ -160,80 +201,124 @@
         <br>
 
         <div class="selection">
-        
             <label for="app-type">Select an appliance:</label>
-                <select name="app-type" id="app-type">
+                <select name="app-type" id="app-type" onchange="showCalculatorQuestions()">
                     <option value="none" selected disabled hidden>Select</option>
                     <option value="AC">Air Conditioners</option>
                     <option value="Fridge">Fridge</option></select>
         </div>
 
-        <div class="selection">
-        
-            <label for="fridgeType">Select the type:</label>
-                <select name="fridgeType" id="fridgeType">
-                    <option value="none" selected disabled hidden>Select</option>
-                    <option value="Freezer">Freezer</option> 
-                    <option value="Fridge">Fridge</option>
-                    <option value="Fridge&Freezer">Fridge & Freezer</option>
-                </select>
-        </div>
-
-        <div class="selection">
-            <label for="answer">Do you know the power consumption of your selected appliance?</label>
-            <form>
-                <label>
-                    <input type="radio" name="answer" value="yes" onclick="hideTable()">Yes
+        <!-- fridge section for calculator -->
+        <div id = "fridgeCalculatorSection">
+            <div class="selection">
+                <label for="fridgeType">Select the type:</label>
+                    <select name="fridgeType" id="fridgeType">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="Freezer">Freezer</option> 
+                        <option value="Fridge">Fridge</option>
+                        <option value="Fridge&Freezer">Fridge & Freezer</option>
+                    </select>
+            </div>
+    
+            <div class="selection">
+                <label for="answer">Do you know the power consumption of your fridge per month?</label>
+                <form>
+                    <label>
+                        <input type="radio" name="answer" value="yes" onclick="hideTable()">Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="answer" value="no" onclick="showTable()">No
+                    </label>
+                </form>
+            </div>
+    
+            <div id="table-container-fridge">
+                <div id="thisTextFridge"></div>
+                <table id="table">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div> 
+               
+            <div class="selection">
+                <label for="power">What is the power consumption of your appliances per month?
                 </label>
-                <label>
-                    <input type="radio" name="answer" value="no" onclick="showTable()">No
+                <input type="number" id="power" name="power" min="0" style="width: 80%;">
+                <div id="errorMessagePower" style="color:red; font-size: 16px;"></div>
+            </div>
+        </div>
+
+
+
+        <!-- AC section for calculator -->
+        <div id = "AcCalculatorSection">
+            <div class="selection">
+                <label for="AcType">Select the type:</label>
+                    <select name="AcType" id="AcType">
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="Cooling">Cooling</option> 
+                        <option value="Heating">Heating</option>
+                    </select>
+            </div>
+    
+            <div class="selection">
+                <label for="acAnswer">Do you know the power consumption of your Air Conditioner per hour?</label>
+                <form>
+                    <label>
+                        <input type="radio" name="acAnswer" value="yes" onclick="hideTable()">Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="acAnswer" value="no" onclick="showTable()">No
+                    </label>
+                </form>
+            </div>
+    
+            <div id="table-container-AC">
+                <div id="thisTextAC"></div>
+                <table id="tableAC">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div> 
+               
+            <div class="selection">
+                <label for="acPower">What is the power consumption of your appliances per hour?
                 </label>
-            </form>
-        </div>
+                <input type="number" id="acPower" name="acPower" min="0" style="width: 80%;">
+                <div id="errorMessageAcPower" style="color:red; font-size: 16px;"></div>
+            </div>
 
-        <div id="table-container">
-            <div id="thisText"></div>
-            <table id="table">
-                <thead></thead>
-                <tbody></tbody>
-            </table>
-        </div> 
-           
-        <div class="selection">
-        
-            <label for="power">What is the power consumption of your appliances?
-            </label>
-            <input type="number" id="power" name="power" min="0" style="width: 80%;">
-            <!-- added validation - TODO VALIDATION-->
-            <div id="errorMessagePower" style="color:red; font-size: 16px;"></div>
+            <div class="selection">
+                <label for="hours">How many hours in a day do you use the appliance?
+                </label>
+                <input type="number" id="hours" name="hours" min="0" max="24" style="width: 80%;">
+                <div id="errorMessageHours" style="color:red; font-size: 16px;"></div>
+            </div>
         </div>
+        
 
-        <div class="selection">
+
+
+
+
         
-            <label for="hours">How many hours in a day do you use the appliance?
-            </label>
-            <input type="number" id="hours" name="hours" min="0" max="24" style="width: 80%;">
-            <!-- added validation - TODO VALIDATION-->
-            <div id="errorMessageHours" style="color:red; font-size: 16px;"></div>
-        </div>
+
+
+
 
         <div class="selection">
         
             <label for="charge">How much is your energy provider billing you per kWh (in cents)?
             </label>
             <input type="number" id="charge" name="charge" min="0" style="width: 80%;">
-            <!-- added validation - TODO VALIDATION-->
             <div id="errorMessageCharge" style="color:red; font-size: 16px;"></div>
         </div>
 
-        <!-- TO DOOOOO -->
         <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
-        <button type="button" id="checkButton" onclick="Calculate()">Calculate</button>
+        <button type="button" id="checkButton">Calculate</button>
 
         <br><br>
 
-        <!-- <div class="row"> -->
-            
             <div id="hiddenContainer" style="color: white;">
               
               <div id="textField"></div>
@@ -242,8 +327,8 @@
                 <!-- <hr style="border: 2px solid green; "> -->
                 <h3 style="color: black;">Comparing your electricity cost with general appliance with the best star rating!</h3>
                 <br>
-                <div style="width: 60rem;">
-                    <canvas id="barChart" width = "100" height="50"></canvas>
+                <div style="width: 40rem;">
+                    <canvas id="barChart" width = "60" height="30"></canvas>
                 </div>
                 <br>
               </div>
@@ -251,33 +336,10 @@
                 <div id="thisDiv"></div>
             </div>
               
-            </div>
+        </div>
 
-            
-            
-            
-        <!-- </div>         -->
     </div>
-
-    <!-- <div id="appliances-container" style="padding-top: 1rem;">
-        <div id="appliances">
-            <br>
-            <h1 class="display-4">Check how you're doing!</h1>
-            <hr style="border: 2px solid green; ">
-            <br>
-            <h3>Comparing your electricity cost with general appliance with the best star rating!</h3>
-            <br>
-            <button onclick="compare()">Show me</button>
-            <br>
-
-        </div>
-        
-        <div>
-            <canvas id="barChart" width="400" height="200"></canvas>
-        </div>
-
-    </div> -->
-    
+   
 
     <!--import scrips -->
   <script src="Front_end/javascript/navbar.js"></script>

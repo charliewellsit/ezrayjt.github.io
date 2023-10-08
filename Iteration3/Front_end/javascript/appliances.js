@@ -1,19 +1,26 @@
+// ---------- Vis 1--------------
 async function FetchAppliancesAPI(){
-    let selectedType = document.getElementById('appliance').value;
+    let selectedAppliance = document.getElementById('appliance').value;
+    let selectedAcMode = document.getElementById('acType').value;
 
-    if (selectedType === 'AC'){
-        return fetchAcDataFromAPI();
+    if (selectedAppliance === 'AC'){
+        if (selectedAcMode === 'Cooling'){
+            return fetchAcCoolingDataFromAPI();
+        }
+        else {
+            return fetchAcHeatingDataFromAPI();
+        }
     }
-    else if (selectedType === 'Fridge'){
+    else if (selectedAppliance === 'Fridge'){
         return fetchFridgeDataFromAPI();
     }
 }
 
 // Function to fetch data from the API
-async function fetchAcDataFromAPI() {
+async function fetchAcCoolingDataFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_AC');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_AC')
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -25,6 +32,21 @@ async function fetchAcDataFromAPI() {
     }
 }
 
+// Function to fetch data from the API
+async function fetchAcHeatingDataFromAPI() {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating')
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+    }
+}
 
 // Function to fetch data from the API
 async function fetchFridgeDataFromAPI() {
@@ -39,6 +61,23 @@ async function fetchFridgeDataFromAPI() {
     } catch (error) {
         console.error('Error fetching data:', error);
         return [];
+    }
+}
+// ------------- show Table API ---------------------
+async function fetchSuitableTable(){
+    let selectedAppliance = document.getElementById('app-type').value;
+    let selectedAcMode = document.getElementById('AcType').value;
+
+    if (selectedAppliance === 'AC'){
+        if (selectedAcMode === 'Cooling'){
+            return fetchAcCoolingConsumptionFromAPI();
+        }
+        else {
+            return fetchAcHeatingConsumptionFromAPI();
+        }
+    }
+    else if (selectedAppliance === 'Fridge'){
+        return fetchFridgeConsumptionFromAPI();
     }
 }
 
@@ -59,7 +98,58 @@ async function fetchFridgeConsumptionFromAPI() {
 }
 
 // Function to fetch data from the API
-async function fetchFridgeHighestConsumptionFromAPI() {
+async function fetchAcCoolingConsumptionFromAPI() {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_avg_consumption');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_avg_consumption')
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+    }
+}
+
+// Function to fetch data from the API
+async function fetchAcHeatingConsumptionFromAPI() {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_avg_consumption');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_avg_consumption')
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+    }
+}
+
+
+// ---------- Vis 2--------------
+async function fetchAppliancesHighestStarRatingAPI(){
+    let selectedAppliance = document.getElementById('app-type').value;
+    let selectedAcMode = document.getElementById('AcType').value;
+
+    if (selectedAppliance === 'AC'){
+        if (selectedAcMode === 'Cooling'){
+            return fetchAcCoolingHighestStarRating();
+        }
+        else {
+            return fetchAcHeatingHighestStarRating();
+        }
+    }
+    else if (selectedAppliance === 'Fridge'){
+        return fetchFridgeHighestStarRatingAPI();
+    }
+}
+
+// Function to fetch data from the API
+async function fetchFridgeHighestStarRatingAPI() {
     try {
         const response = await fetch('http://127.0.0.1:5000/api/get_fridge_highest_rating_consumption');
         // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_fridge_highest_rating_consumption')
@@ -74,6 +164,40 @@ async function fetchFridgeHighestConsumptionFromAPI() {
     }
 }
 
+// Function to fetch data from the API
+async function fetchAcCoolingHighestStarRating() {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_highest_rating_consumption');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_highest_rating_consumption')
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+    }
+}
+
+// Function to fetch data from the API
+async function fetchAcHeatingHighestStarRating() {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_highest_rating_consumption');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_highest_rating_consumption')
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+    }
+}
+
+
+// ---------- Vis 1--------------
 // Initialize Chart.js
 const ctx = document.getElementById('energy-consumption-chart').getContext('2d');
 let chart = null; // Declare the chart variable
@@ -97,6 +221,13 @@ async function updateGraph() {
             // If the chart exists, destroy it to clear any existing data
             existingChart.destroy();
         }
+        let selectedAppliance = document.getElementById('appliance').value;
+
+        if (selectedAppliance === 'AC'){
+            labelText = 'Average Energy Consumption per hour';
+        } else {
+            labelText = 'Average Energy Consumption per month';
+        }
 
         const labels = data.map(item => item.star_rating.toString());
         const chartData = data.map(item => item.average_energy_consumption);
@@ -107,7 +238,7 @@ async function updateGraph() {
                 labels: labels,
                 datasets: [
                     {
-                        label: 'Average Energy Consumption per month',
+                        label: labelText,
                         data: chartData,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -121,22 +252,13 @@ async function updateGraph() {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Average Energy Consumption per month'
+                            text: labelText
                         }
                     }
                 }
             }
         });
     }
-
-    // Fetch data from the API
-    // const jsonData = await FetchAppliancesAPI();
-    // const jsonData = await fetchFridgeDataFromAPI();
-
-    // Get selected options
-    const selectedType = document.getElementById('type').value;
-    const selectedBrand = document.getElementById('brand').value;
-    const selectedVolume = document.getElementById('volume').value;
 
     // Get selected star ratings
     const selectedStarRatings = Array.from(document.querySelectorAll('input[name="star-rating"]:checked')).map(checkbox => parseFloat(checkbox.value));
@@ -149,17 +271,36 @@ async function updateGraph() {
         return a.star_rating - b.star_rating;
     });
 
-    // Filter the data based on selections
-    const filteredData = jsonData.filter(item => 
-        (!selectedType || item.type === selectedType) &&
-        (!selectedBrand || item.brand === selectedBrand) &&
-        (!selectedBrand || item.volume_category === selectedVolume) &&
-        (selectedStarRatings.length === 0 || selectedStarRatings.includes(item.star_rating))
-    );
+    let selectedAppliance = document.getElementById('appliance').value;
 
-    console.log('filteredData length:', filteredData.length);
+    const selectedAcBrand = document.getElementById('acBrand').value;
+    const selectedType = document.getElementById('type').value;
+    const selectedBrand = document.getElementById('brand').value;
+    const selectedVolume = document.getElementById('volume').value;
 
-    if (filteredData.length === 0) {
+
+    if (selectedAppliance === 'AC'){
+        
+        // Filter the data based on selections
+        const filteredData = jsonData.filter(item => 
+            (!selectedAcBrand || item.brand === selectedAcBrand) &&
+            (selectedStarRatings.length === 0 || selectedStarRatings.includes(item.star_rating))
+        );
+        theData = filteredData;
+    } else {
+        // Filter the data based on selections
+        const filteredData = jsonData.filter(item => 
+            (!selectedType || item.type === selectedType) &&
+            (!selectedBrand || item.brand === selectedBrand) &&
+            (!selectedVolume || item.volume_category === selectedVolume) &&
+            (selectedStarRatings.length === 0 || selectedStarRatings.includes(item.star_rating))
+        );
+        theData = filteredData;
+    }
+
+    // console.log('theData length:', theData.length);
+
+    if (theData.length === 0) {
         // Display a message when there are no appliances based on the selection
         if (chart) {
             // If the chart exists, destroy it to clear any existing data
@@ -169,7 +310,7 @@ async function updateGraph() {
         return;
     } else {
         // Initialize or update the chart
-        chart = initializeOrUpdateChart(chart, ctx, filteredData);
+        chart = initializeOrUpdateChart(chart, ctx, theData);
         document.getElementById('textRes').textContent = '';
     }
 }
@@ -179,10 +320,14 @@ function removeEventListeners() {
     const typeElement = document.getElementById('type');
     const brandElement = document.getElementById('brand');
     const volumeElement = document.getElementById('volume');
+    const acTypeElement = document.getElementById('acType');
+    const acBrandElement = document.getElementById('acBrand');
     const starRatingCheckboxes = document.querySelectorAll('input[name="star-rating"]');
 
     typeElement.removeEventListener('change', updateGraph);
     brandElement.removeEventListener('change', updateGraph);
+    acTypeElement.addEventListener('change', updateGraph);
+    acBrandElement.addEventListener('change', updateGraph);
     volumeElement.removeEventListener('change', updateGraph);
 
     starRatingCheckboxes.forEach(checkbox => {
@@ -195,10 +340,14 @@ function addEventListeners() {
     const typeElement = document.getElementById('type');
     const brandElement = document.getElementById('brand');
     const volumeElement = document.getElementById('volume');
+    const acTypeElement = document.getElementById('acType');
+    const acBrandElement = document.getElementById('acBrand');
     const starRatingCheckboxes = document.querySelectorAll('input[name="star-rating"]');
 
     typeElement.addEventListener('change', updateGraph);
     brandElement.addEventListener('change', updateGraph);
+    acTypeElement.addEventListener('change', updateGraph);
+    acBrandElement.addEventListener('change', updateGraph);
     volumeElement.addEventListener('change', updateGraph);
 
     starRatingCheckboxes.forEach(checkbox => {
@@ -210,12 +359,17 @@ function addEventListeners() {
 addEventListeners();
 updateGraph();
 
+
+
+
+
 // ------------------ calculate section ------------------ 
 
 function clearErrorMessages(){
     // Clear all error messages by setting their innerHTML to an empty string
     document.getElementById("errorMessageAllFields").innerHTML = "";
     document.getElementById("errorMessagePower").innerHTML = "";
+    document.getElementById("errorMessageAcPower").innerHTML = "";
     document.getElementById("errorMessageHours").innerHTML = "";
     document.getElementById("errorMessageCharge").innerHTML = "";
   }
@@ -227,53 +381,69 @@ function clearErrorMessages(){
 
 function Calculate(){
     let conditionsMet = true;
+
+    let thisAppliance = document.getElementById("app-type").value;
   
     let power = parseFloat(document.getElementById("power").value);
+    let acPower = parseFloat(document.getElementById("acPower").value);
     let hours = parseFloat(document.getElementById("hours").value);
     let charge = parseFloat(document.getElementById("charge").value);
   
-    
-    if (!power){
-        displayErrorMessage("errorMessagePower", "Please enter the power consumption");
-        conditionsMet = false;
-    } else if (!hours){
-        displayErrorMessage("errorMessageHours", "Please enter the hours of usage");
-        conditionsMet = false;
-    } else if (!charge){
-        displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
-        conditionsMet = false;
-    } else if (!power || !hours || !charge) {
-        displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Calculate'");
-        conditionsMet = false;}
-  
-    if (conditionsMet){
-      clearErrorMessages();
-      let total = parseFloat((power * hours * charge / 100).toFixed(2));
-  
-      console.log(total);
-  
-      let resultText = "";
-
-      resultText = `<br><br><span class="large-text">Your Result</span><br><br>
-      <span class="med-text">Your total electricity cost per month would be $${total}.</span><br><br>`      
-  
-      const hiddenContainer = document.getElementById("hiddenContainer");
-    //   hiddenContainer.style.backgroundImage = 'url("Front_end/images/bg_lights2.jpg")';
-      hiddenContainer.style.backgroundColor = 'olive';
-  
-      const textField = document.getElementById("textField");
-      textField.innerHTML = resultText;
-  
-      // Scroll to the "thisDiv" element
-      const thisDiv = document.getElementById("thisDiv");
-      thisDiv.scrollIntoView({ behavior: "smooth" });
-  
-      const showText2 = document.getElementById("text2");
-      showText2.style.display = 'flex';
-      
-      compare(total);
+    if (thisAppliance === 'AC'){
+        if (!acPower){
+            displayErrorMessage("errorMessageAcPower", "Please enter the power consumption");
+            conditionsMet = false;
+        } else if (!hours){
+            displayErrorMessage("errorMessageHours", "Please enter the hours of usage");
+            conditionsMet = false;
+        } else if (!charge){
+            displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
+            conditionsMet = false;
+        } else if (!acPower || !hours || !charge) {
+            displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Calculate'");
+            conditionsMet = false;}
+    } else {
+        if (!power){
+            displayErrorMessage("errorMessagePower", "Please enter the power consumption");
+            conditionsMet = false;
+        } else if (!charge){
+            displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
+            conditionsMet = false;
+        } else if (!power || !charge) {
+            displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Calculate'");
+            conditionsMet = false;}
     }
-  }
+    
+    if (conditionsMet && thisAppliance === 'AC'){
+        clearErrorMessages();
+        total = parseFloat((acPower * hours * charge * 30 / 100).toFixed(2));
+    } else if (conditionsMet && thisAppliance === 'Fridge'){
+        clearErrorMessages();
+        total = parseFloat((power * charge / 100).toFixed(2));
+    }
+
+        console.log(total);
+        let resultText = "";
+
+        resultText = `<br><br><span class="large-text">Your Result</span><br><br>
+        <span class="med-text">Your total electricity cost per month would be $${total}.</span><br><br>`      
+    
+        const hiddenContainer = document.getElementById("hiddenContainer");
+
+        hiddenContainer.style.backgroundColor = 'green';
+    
+        const textField = document.getElementById("textField");
+        textField.innerHTML = resultText;
+    
+        // Scroll to the "thisDiv" element
+        const thisDiv = document.getElementById("thisDiv");
+        thisDiv.scrollIntoView({ behavior: "smooth" });
+    
+        const showText2 = document.getElementById("text2");
+        showText2.style.display = 'flex';
+        
+        compare(total);
+}
 
 function hideTable(){
     const tableContainer = document.getElementById("table-container");
@@ -282,21 +452,30 @@ function hideTable(){
 
 async function showTable(){
     let appType = document.getElementById("app-type").value;
-    let fridgeType = document.getElementById("fridgeType").value;
+    let fridgeType = document.getElementById("fridgeType").value;  
 
-    const tableContainer = document.getElementById("table-container");
-    const thisText = document.getElementById("thisText");
+    const jsonData = await fetchSuitableTable();
 
-    const jsonData = await fetchFridgeConsumptionFromAPI();
-    let filteredData = jsonData.filter(item => item.type === fridgeType); // Filter data based on fridgeType
+    if (appType === 'Fridge'){
+        tableContainer = document.getElementById("table-container-fridge");
+        thisText = document.getElementById("thisTextFridge");
+        filteredData = jsonData.filter(item => item.type === fridgeType); // Filter data based on fridgeType
+        keysToDisplay = Object.keys(filteredData[0]).filter(key => key !== "type");
+    } else {
+        tableContainer = document.getElementById("table-container-AC");
+        thisText = document.getElementById("thisTextAC");
+        filteredData = jsonData;
+        keysToDisplay = Object.keys(filteredData[0]);
+    }
+    
     console.log(filteredData);
 
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
 
-    // Create an array of keys (column names) to be displayed in the table
-    const keysToDisplay = Object.keys(filteredData[0]).filter(key => key !== "type");
+    // // Create an array of keys (column names) to be displayed in the table
+    // const keysToDisplay = Object.keys(filteredData[0]).filter(key => key !== "type");
 
     // Create table header without the "type" column
     const headerRow = document.createElement("tr");
@@ -364,17 +543,33 @@ async function compare(result){
 
     const appType = document.getElementById("app-type").value;
     const fridgeType = document.getElementById("fridgeType").value;
+    const AcType = document.getElementById("AcType").value;
     const hours = document.getElementById("hours").value;
     const charge = document.getElementById("charge").value;
     
-    const jsonData = await fetchFridgeHighestConsumptionFromAPI();
+    const jsonData = await fetchAppliancesHighestStarRatingAPI();
+    console.log(jsonData);
 
-    // Filter the JSON data based on the selected fridge type
-    const filteredData = jsonData.filter(item => item.type === fridgeType);
+    if (appType === 'Fridge'){
+        // Filter the JSON data based on the selected fridge type
+        filteredData = jsonData.filter(item => item.type === fridgeType);
+    } else {
+        filteredData = jsonData;
+    }
+    
+    console.log(filteredData);
 
     // Extract the energy consumption and star rating from the filtered data
     const energyConsumptionData = filteredData.map(item => item["Average Energy Consumption (kW)"]);
-    const calcCost = energyConsumptionData * charge * hours / 100;
+
+    console.log(energyConsumptionData);
+
+    if (appType === 'AC'){
+        calcCost = energyConsumptionData * charge * hours * 30 / 100;
+    } else {
+        calcCost = energyConsumptionData * charge / 100;
+    }
+
     console.log(`charge is ${calcCost}`);
 
     const savedMoney = document.getElementById('text3');
@@ -419,4 +614,34 @@ async function compare(result){
             }
         }
     });
+}
+
+document.getElementById("checkButton").addEventListener("click", Calculate);
+
+function showOptionsVis1(){
+    var selectedOption = document.getElementById('appliance');
+    var fridgeSelections = document.getElementById('fridgeSelections');
+    var AcSelections = document.getElementById('AcSelections');
+    
+    if (selectedOption.value === 'Fridge') {
+        fridgeSelections.style.display = 'block';
+        AcSelections.style.display = 'none';
+    } else {
+        fridgeSelections.style.display = 'none';
+        AcSelections.style.display = 'block';
+    }
+}
+
+function showCalculatorQuestions(){
+    var thisAppliance = document.getElementById("app-type");
+    var fridgeCalculatorSection = document.getElementById("fridgeCalculatorSection");
+    var AcCalculatorSection = document.getElementById("AcCalculatorSection");
+
+    if (thisAppliance.value === 'AC'){
+        AcCalculatorSection.style.display = 'block';
+        fridgeCalculatorSection.style.display = 'none';
+    } else {
+        AcCalculatorSection.style.display = 'none';
+        fridgeCalculatorSection.style.display = 'block';
+    }
 }
