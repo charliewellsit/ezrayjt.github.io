@@ -22,6 +22,15 @@
     width: 550px; 
 }
 
+.wasteInfo #img5{
+    width: 660px; 
+}
+
+.wasteInfo #img6{
+    width: 560px; 
+    float: left;
+}
+
 .wasteInfo p{
     margin: 10px;
 }
