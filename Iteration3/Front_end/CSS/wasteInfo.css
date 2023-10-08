@@ -2,16 +2,24 @@
     padding: 90px 90px;
 }
 
-.wasteInfo #img1{
-    width: 750px;
+.wasteInfo img{
     float: right;
     padding: 20px;
+}
+.wasteInfo #img1{
+    width: 750px; 
 }
 
 .wasteInfo #img2{
     width: 400px;
-    float: right;
-    padding: 20px;
+}
+
+.wasteInfo #img3{
+    width: 700px; 
+}
+
+.wasteInfo #img4{
+    width: 550px; 
 }
 
 .wasteInfo p{
