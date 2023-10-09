@@ -49,7 +49,6 @@ async function getData(){
     const pieDataRenew = [];
 
     const regionName = state_name;
-    console.log(regionName);
     const regionData = aus_data.filter(entry => entry.region === regionName);
 
     const financialYears = regionData.map(entry => entry["financial year"]);
@@ -144,7 +143,6 @@ data :{
 
 async function updateChart(){
   const ausData = await getData();
-  console.log(ausData);
   myChart.config.data.datasets[0].data = ausData.ys;
   myChart.config.data.labels = ausData.xs;
   myChart.update();
@@ -153,6 +151,5 @@ async function updateChart(){
   let renew = ausData.pieDataRenew;
 
   myChart2.config.data.datasets[0].data = [nonRenew[nonRenew.length - 1], renew[renew.length - 1]];
-  console.log(nonRenew[nonRenew.length - 1], renew[renew.length - 1]);
   myChart2.update();
 }
