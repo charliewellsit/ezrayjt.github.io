@@ -182,10 +182,10 @@ i{
 .services-lights{
   flex:1;
   padding: 10%;
-  width: 300px;
+  width: 200px;
   height: 200px;
   background-color:#182628;
-  margin-right: 5%;
+  margin-right: 2%;
   margin-bottom: 5%;
   margin-top: 5%;
   border-radius: 5%;
@@ -221,10 +221,10 @@ i{
 .services-waste{
   flex:1;
   padding: 10%;
-  width: 300px;
+  width: 200px;
   height: 200px;
-  background-color:#182628;
-  margin-right: 5%;
+  background-color: #182628;
+  margin-right: 2%;
   margin-top: 5%;
   margin-bottom: 5%;
   border-radius: 5%;
