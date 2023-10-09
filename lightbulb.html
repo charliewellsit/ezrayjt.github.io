@@ -22,23 +22,7 @@
     <link rel="stylesheet" href="Front_end/CSS/lightbulb.css" />
 </head>
 <body>
-    <div>
-        <!-- navbar -->
-      <header>
-          <a href="#" class="logo"><img src="Front_end/images/logo.png"></a>
-
-          <nav>
-          <a href="index.html#home" class="active">Home</a>
-          <a href="index.html#article">Issues</a>
-          <a href="index.html#interactive-map">Electricity Usage</a>
-          <!-- <a href="index.html#Services">Services</a> -->
-          <a href="lights.html">Assess Room's Lighting</a>
-          <a href="lightbulb.html">Lightbulb Types</a>
-          <a href="waste.html">Waste</a>
-          <!-- <a href="#about">About</a> -->
-          </nav>
-      </header>
-    </div>
+    <nav-bar></nav-bar>
     <div id="container1">
         <!-- <h2>Compare Light Bulb</h2> -->
         <div class="lightbulb-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -57,7 +41,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="card mb-4" onclick="redirectToCFL()">
-              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block; " src="Front_end/images/CFL.jpg">
+              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block; background-color: limegreen;" src="Front_end/images/CFL.jpg">
               <div class="card-body">
                 <h4>Compact Fluorescent Lamp (CFL)</h4>
                 <div class="d-flex justify-content-between align-items-center">
@@ -67,7 +51,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4" onclick="redirectToIncandescents()">
-              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block;" src="Front_end/images/incands.jpg">
+              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block; background-color: limegreen;" src="Front_end/images/incands.jpg">
               <div class="card-body">
                 <h4>Incandescent Lamp</h4>
                 <div class="d-flex justify-content-between align-items-center">
@@ -77,7 +61,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4" onclick="redirectToLed()">
-              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block;" src="Front_end/images/led bulb.jpg">
+              <img class="card-img-top" alt="Card image cap" style="height: 225px; width: 100%; display: block; background-color: limegreen;" src="Front_end/images/led bulb.jpg">
               <div class="card-body">
                 <h4>Light Emitting Diode (LED)</h4>
                 <div class="d-flex justify-content-between align-items-center">
@@ -94,5 +78,6 @@
   <script src="Front_end/javascript/general.js"></script>
   <script src="Front_end/javascript/lights.js"></script>
   <script src="Front_end/javascript/passwordCheck.js"></script>
+  <script src="Front_end/javascript/myTemplate.js"></script>
 </body>
 </html>
