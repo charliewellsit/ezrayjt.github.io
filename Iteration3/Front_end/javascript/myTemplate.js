@@ -45,13 +45,21 @@ class navbar extends HTMLElement {
         <a href="index.html" class="logo"><img src="Front_end/images/logo.png"></a>
 
         <nav>
-        <a href="home.html">Home</a>
-        <a href="lights.html">Assess Room's Lighting</a>
-        <a href="lightbulb.html">Lightbulb Types</a>
-        <a href="waste.html">Waste</a>
-        <a href="appliances.html">Appliances</a>
-        <a href="DIY.html">DIY</a>
+          <a href="home.html">Home</a>
+          
+          <div class="dropdown-container">
+              <a href="#" class="dropdown1">Light</a>
+              <div class="sub">
+                  <a href="lights.html">Assess Room's Lighting</a>
+                  <a href="lightbulb.html">Lightbulb Types</a>
+              </div>
+          </div>
+          
+          <a href="waste.html">Waste</a>
+          <a href="appliances.html">Appliances</a>
+          <a href="DIY.html">DIY</a>
       </nav>
+
 
     </header>
         `;
