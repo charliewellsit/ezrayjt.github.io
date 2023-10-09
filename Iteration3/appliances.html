@@ -177,10 +177,10 @@
                     </label>
                 </div>
             </div>
-            <div>
+            <div id="vis1" style="display: none;">
                 <canvas id="energy-consumption-chart"></canvas>
-                <div id="textRes"></div>
             </div>
+            <div id="textRes"></div>
             
         </div>    
             
@@ -191,14 +191,13 @@
 
 
     <!-- Cost Calculator Feature -->
-    <div class="row" style="background-color: lightgrey;">
-        <br>
+    <div id="appliances-container" style="background-color: lightgrey; padding-top: 50px;">
+
+        <div id="appliances">
         <h1 class="display-4">Cost Calculator for Appliances</h1>
-        <hr style="border: 2px solid white; margin:0px 10rem">
+        <hr style="border: 2px solid white">
         <br>
         <h3>Find out how much your appliances energy cost in a month</h3>
-        <br>
-        <br>
 
         <div class="selection">
             <label for="app-type">Select an appliance:</label>
@@ -243,7 +242,7 @@
             <div class="selection">
                 <label for="power">What is the power consumption of your appliances per month?
                 </label>
-                <input type="number" id="power" name="power" min="0" style="width: 80%;">
+                <input type="number" id="power" name="power" min="0">
                 <div id="errorMessagePower" style="color:red; font-size: 16px;"></div>
             </div>
         </div>
@@ -284,27 +283,18 @@
             <div class="selection">
                 <label for="acPower">What is the power consumption of your appliances per hour?
                 </label>
-                <input type="number" id="acPower" name="acPower" min="0" style="width: 80%;">
+                <input type="number" id="acPower" name="acPower" min="0">
                 <div id="errorMessageAcPower" style="color:red; font-size: 16px;"></div>
             </div>
 
             <div class="selection">
                 <label for="hours">How many hours in a day do you use the appliance?
                 </label>
-                <input type="number" id="hours" name="hours" min="0" max="24" style="width: 80%;">
+                <input type="number" id="hours" name="hours" min="0" max="24">
                 <div id="errorMessageHours" style="color:red; font-size: 16px;"></div>
             </div>
         </div>
         
-
-
-
-
-
-        
-
-
-
 
         <div class="selection">
         
@@ -320,7 +310,7 @@
                         <table id="resultsTable" class="custom-table" style="font-size: 16px;">
                              <!-- Table headers  -->
                             <thead>
-                                <tr style="background-color: #3b945e; font-weight: bold; color: oldlace">
+                                <tr style="background-color: green; font-weight: bold; color: white">
                                     <th scope="col">State</td>
                                     <th scope="col">Average price (in cents/kwh)</th>
                                 </tr>
@@ -370,7 +360,7 @@
                     <button type="button" onclick="closePopup('popup1')">Close</button>
                   </div>
             </label>
-            <input type="number" id="charge" name="charge" min="0" style="width: 80%;">
+            <input type="number" id="charge" name="charge" min="0">
             <div id="errorMessageCharge" style="color:red; font-size: 16px;"></div>
         </div>
 
@@ -379,25 +369,28 @@
 
         <br><br>
 
-            <div id="hiddenContainer" style="color: white;">
+        </div>
+    </div>
+       
+    <div class="row">
+        <div id="hiddenContainer" style="color: white;">
               
-              <div id="textField"></div>
-              <div id="text2" style="background-color: white; padding-top: 2rem; flex-direction: column; justify-content: center; align-items: center;">
-                <h1 class="display-4">Check how you're doing!</h1>
-                <!-- <hr style="border: 2px solid green; "> -->
-                <h3 style="color: black;">Comparing your electricity cost with general appliance with the best star rating!</h3>
-                <br>
-                <div style="width: 40rem;">
-                    <canvas id="barChart" width = "60" height="30"></canvas>
-                </div>
-                <br>
+            <div id="textField"></div>
+            <div id="text2" style="background-color: white; padding-top: 2rem; flex-direction: column; justify-content: center; align-items: center;">
+              <h1 class="display-4">Check how you're doing!</h1>
+              <!-- <hr style="border: 2px solid green; "> -->
+              <h3 style="color: black;">Comparing your electricity cost with general appliance with the best star rating!</h3>
+              <br>
+              <div style="width: 40rem;">
+                  <canvas id="barChart" width = "60" height="30"></canvas>
               </div>
-              <div id="text3" style="background-color: black; color: white;">
-                <div id="thisDiv"></div>
+              <br>
             </div>
+            <div id="text3" style="background-color: green; color: white;">
+              <div id="thisDiv"></div>
+          </div>
               
         </div>
-
     </div>
    
 

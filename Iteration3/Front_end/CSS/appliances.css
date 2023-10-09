@@ -10,8 +10,8 @@
   }
   
 #appliances{
-    margin: 40px;
-    margin-top: 0px;
+    margin: 0 40px;
+    /* margin-top: 0px; */
 }
 
 #star-ratings label {
@@ -22,7 +22,7 @@
     flex-direction: column;
     display: flex;
     margin:30px 0;
-    align-items: center;
+    align-items: stretch;
 }
 
 .display-4 {
@@ -100,7 +100,7 @@ label {
     width: 80%;
 } */
 
-#table-container, #text2, #fridgeSelections, #AcSelections, #fridgeCalculatorSection, #AcCalculatorSection{
+#table-container-AC, #table-container-fridfe, #text2, #fridgeSelections, #AcSelections, #fridgeCalculatorSection, #AcCalculatorSection, #vis1{
   display: none;
 }
 
@@ -134,4 +134,24 @@ label {
   border: 1px solid #ccc;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 1;
+}
+
+p, ul, li, label, input, select {
+  font-size: 20px;
+}
+
+h3 {
+  font-size:24px;
+}
+
+.large-text{
+  font-size: 32px;
+}
+
+.med-text{
+  font-size: 24px;
+}
+
+.small-text{
+  font-size: 20px;
 }

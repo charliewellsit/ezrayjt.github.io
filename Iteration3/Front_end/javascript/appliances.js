@@ -307,11 +307,19 @@ async function updateGraph() {
             chart.destroy();
         }
         document.getElementById('textRes').textContent = 'Nothing to show based on your selection';
+        document.getElementById('textRes').style.fontSize = '20px';
+
+        // Hide vis1 div when there's no data to show
+        document.getElementById('vis1').style.display = 'none';
+
         return;
     } else {
         // Initialize or update the chart
         chart = initializeOrUpdateChart(chart, ctx, theData);
         document.getElementById('textRes').textContent = '';
+
+        // Show vis1 div when data is available
+        document.getElementById('vis1').style.display = 'block';
     }
 }
 
@@ -353,7 +361,12 @@ function addEventListeners() {
     starRatingCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', updateGraph);
     });
+
+    // const vis1 = document.getElementById("vis1");
+    // vis1.style.display = 'block';
 }
+
+document.getElementById('vis1').style.display = 'none';
 
 // Initialize the graph with event listeners
 addEventListeners();
@@ -426,11 +439,11 @@ function Calculate(){
         let resultText = "";
 
         resultText = `<br><br><span class="large-text">Your Result</span><br><br>
-        <span class="med-text">Your total electricity cost per month would be $${total}.</span><br><br>`      
+        <span class="med-text">Your total electricity cost per month from this appliance would be $${total}.</span><br><br>`      
     
         const hiddenContainer = document.getElementById("hiddenContainer");
 
-        hiddenContainer.style.backgroundColor = 'green';
+        hiddenContainer.style.backgroundColor = 'black';
     
         const textField = document.getElementById("textField");
         textField.innerHTML = resultText;
@@ -446,8 +459,10 @@ function Calculate(){
 }
 
 function hideTable(){
-    const tableContainer = document.getElementById("table-container");
-    tableContainer.style.display = 'none';
+    const tableContainerFridge = document.getElementById("table-container-fridge");
+    const tableContainerAc = document.getElementById("table-container-AC");
+    tableContainerFridge.style.display = 'none';
+    tableContainerAc.style.display = 'none';
 }
 
 async function showTable(){
@@ -485,6 +500,8 @@ async function showTable(){
         headerRow.appendChild(th);
     });
     thead.appendChild(headerRow);
+    thead.style.backgroundColor = 'green';
+    thead.style.color = 'white';
 
     // Create table body rows without the "type" column
     filteredData.forEach(item => {
@@ -503,7 +520,8 @@ async function showTable(){
 
     // Append the table to the container
     tableContainer.innerHTML = ''; // Clear previous content
-    thisText.innerHTML = `Use the table below to assist you!`;
+    thisText.innerHTML = `<span class="small-text">Use the table below to assist you!</span>`;
+    thisText.style.paddingBottom = '20px';
     tableContainer.appendChild(thisText);
     tableContainer.appendChild(table);
 
@@ -574,8 +592,8 @@ async function compare(result){
 
     const savedMoney = document.getElementById('text3');
     const savings = (result - calcCost).toFixed(2);
-    savedMoney.innerHTML = `You could've saved $${savings} per month by using the highest star rating appliance!`
-    savedMoney.style.padding = '3rem';
+    savedMoney.innerHTML = `<br><br><span class="med-text">You could've saved $${savings} per month by using the highest star rating appliance!</span><br><br>`
+    savedMoney.style.padding = '2rem';
 
     // Create labels for the x-axis
     const labels = ["You", "Highest Star Rating Appliance"];
