@@ -105,6 +105,33 @@ label {
 }
 
 .highlighted-row {
-  background-color: lightblue; /* Add your desired highlight color */
+  background-color: lightgoldenrodyellow; /* Add your desired highlight color */
   color: black; /* Add your desired text color */
+}
+
+.custom-table {
+  border: 1px solid #dee2e6; /* Add desired border style here */
+  border-collapse: collapse; /* Optional: Collapses table borders */
+  width: 100%; /* Optional: Set table width as needed */
+  text-align: left;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #000000; /* Add desired border style here */
+    padding: 8px; /* Optional: Add padding for better spacing */
+    text-align: left;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }

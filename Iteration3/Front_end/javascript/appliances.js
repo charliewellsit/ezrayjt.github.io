@@ -645,3 +645,33 @@ function showCalculatorQuestions(){
         fridgeCalculatorSection.style.display = 'block';
     }
 }
+
+function openPopup(popupId) {
+    var popup = document.getElementById(popupId);
+    if (popup) {
+      popup.style.display = 'block';
+    }
+  }
+  
+  function closePopup(popupId) {
+    var popup = document.getElementById(popupId);
+    if (popup) {
+      popup.style.display = 'none';
+    }
+  }
+
+// Get all table rows
+const rows = document.querySelectorAll("#resultsTable tbody tr");
+
+// Add mouseover and mouseout event listeners to each row
+rows.forEach((row) => {
+  row.addEventListener("mouseover", function () {
+    // Add a CSS class to highlight the row on mouseover
+    row.classList.add("highlighted-row");
+  });
+
+  row.addEventListener("mouseout", function () {
+    // Remove the CSS class to remove the highlight on mouseout
+    row.classList.remove("highlighted-row");
+  });
+});
