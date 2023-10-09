@@ -9,14 +9,13 @@ async function init(){
 
 init();
 
-let all_paths = document.querySelectorAll(".paths");
-all_paths.forEach((path) => {
+document.querySelectorAll(".paths").forEach((path) => {
   path.addEventListener("mouseover", function (e) {
     const divElement = document.getElementById("aus-map");
     const rect = divElement.getBoundingClientRect();
     
-    let x = e.clientX - rect.left; // Calculate x relative to the div
-    let y = e.clientY - rect.top;
+    x = e.clientX - rect.left; // Calculate x relative to the div
+    y = e.clientY - rect.top;
     
     document.getElementById("map-tip").style.top = y - 120 + "px";
     document.getElementById("map-tip").style.left = x - 120 + "px";
@@ -29,13 +28,8 @@ all_paths.forEach((path) => {
     document.getElementById("map-tip").style.opacity = 0;
   });
   
-  path.addEventListener("click", function () {
-    path.classList.toggle("selected");
-    all_paths.forEach(region => {
-      if (region != path && region.classList.contains("selected")) {
-        region.classList.remove("selected")
-      }
-    })
+    path.addEventListener("click", function () {
+     path.classList.toggle('selected');
     state_name = path.id;
     updateChart();
     document.getElementById("suggestion").style.opacity = 0;

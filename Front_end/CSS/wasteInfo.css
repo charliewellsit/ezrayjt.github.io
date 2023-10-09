@@ -1,0 +1,44 @@
+.wasteInfo{
+    padding: 90px 90px;
+}
+
+.wasteInfo img{
+    float: right;
+    padding: 20px;
+}
+.wasteInfo #img1{
+    width: 750px; 
+}
+
+.wasteInfo #img2{
+    width: 400px;
+}
+
+.wasteInfo #img3{
+    width: 700px; 
+}
+
+.wasteInfo #img4{
+    width: 550px; 
+}
+
+.wasteInfo #img5{
+    width: 660px; 
+}
+
+.wasteInfo #img6{
+    width: 560px; 
+    float: left;
+}
+
+.wasteInfo p{
+    margin: 10px;
+}
+
+.wasteInfo hr{
+    margin: 30px 10px;
+}
+
+.wasteInfo li{
+    margin: 10px 40px;
+}

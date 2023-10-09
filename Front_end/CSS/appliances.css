@@ -2,23 +2,27 @@
     display: flex;
     padding:20px;
     padding-top: 100px;
-    padding-bottom: 0;
+    padding-bottom: 20px;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: center;
     text-align: center;
   }
   
-/* #appliances{
-    margin: 40px;
-    margin-top: 0px;
-} */
+#appliances{
+    margin: 0 40px;
+    /* margin-top: 0px; */
+}
+
+#star-ratings label {
+  margin: 0.3rem;
+}
 
 .selection{
     flex-direction: column;
     display: flex;
     margin:30px 0;
-    align-items: center;
+    align-items: stretch;
 }
 
 .display-4 {
@@ -31,6 +35,8 @@
 
 .row{
     text-align: center;
+    justify-content: space-around;
+    
 }
 
 button {
@@ -93,3 +99,59 @@ label {
 /* input, select{
     width: 80%;
 } */
+
+#table-container-AC, #table-container-fridfe, #text2, #fridgeSelections, #AcSelections, #fridgeCalculatorSection, #AcCalculatorSection, #vis1{
+  display: none;
+}
+
+.highlighted-row {
+  background-color: lightgoldenrodyellow; /* Add your desired highlight color */
+  color: black; /* Add your desired text color */
+}
+
+.custom-table {
+  border: 1px solid #dee2e6; /* Add desired border style here */
+  border-collapse: collapse; /* Optional: Collapses table borders */
+  width: 100%; /* Optional: Set table width as needed */
+  text-align: left;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #000000; /* Add desired border style here */
+    padding: 8px; /* Optional: Add padding for better spacing */
+    text-align: left;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+p, ul, li, label, input, select {
+  font-size: 20px;
+}
+
+h3 {
+  font-size:24px;
+}
+
+.large-text{
+  font-size: 32px;
+}
+
+.med-text{
+  font-size: 24px;
+}
+
+.small-text{
+  font-size: 20px;
+}
