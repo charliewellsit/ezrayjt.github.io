@@ -19,8 +19,8 @@ async function FetchAppliancesAPI(){
 // Function to fetch data from the API
 async function fetchAcCoolingDataFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -35,8 +35,8 @@ async function fetchAcCoolingDataFromAPI() {
 // Function to fetch data from the API
 async function fetchAcHeatingDataFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -51,8 +51,8 @@ async function fetchAcHeatingDataFromAPI() {
 // Function to fetch data from the API
 async function fetchFridgeDataFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_refrigerators');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_refrigerators')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_refrigerators');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_refrigerators')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -84,8 +84,8 @@ async function fetchSuitableTable(){
 // Function to fetch data from the API
 async function fetchFridgeConsumptionFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_fridge_avg_consumption');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_fridge_avg_consumption')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_fridge_avg_consumption');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_fridge_avg_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -100,8 +100,8 @@ async function fetchFridgeConsumptionFromAPI() {
 // Function to fetch data from the API
 async function fetchAcCoolingConsumptionFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_avg_consumption');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_avg_consumption')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_avg_consumption');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_avg_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -116,8 +116,8 @@ async function fetchAcCoolingConsumptionFromAPI() {
 // Function to fetch data from the API
 async function fetchAcHeatingConsumptionFromAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_avg_consumption');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_avg_consumption')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_avg_consumption');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_avg_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -151,8 +151,8 @@ async function fetchAppliancesHighestStarRatingAPI(){
 // Function to fetch data from the API
 async function fetchFridgeHighestStarRatingAPI() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_fridge_highest_rating_consumption');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_fridge_highest_rating_consumption')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_fridge_highest_rating_consumption');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_fridge_highest_rating_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -167,8 +167,8 @@ async function fetchFridgeHighestStarRatingAPI() {
 // Function to fetch data from the API
 async function fetchAcCoolingHighestStarRating() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_highest_rating_consumption');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_highest_rating_consumption')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_highest_rating_consumption');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_highest_rating_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -183,8 +183,8 @@ async function fetchAcCoolingHighestStarRating() {
 // Function to fetch data from the API
 async function fetchAcHeatingHighestStarRating() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_highest_rating_consumption');
-        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_highest_rating_consumption')
+        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_highest_rating_consumption');
+        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_highest_rating_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
