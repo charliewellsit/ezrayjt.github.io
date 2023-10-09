@@ -183,7 +183,7 @@ i{
   flex:1;
   padding: 10%;
   width: 200px;
-  height: 200px;
+  height: 100px;
   background-color:#182628;
   margin-right: 2%;
   margin-bottom: 5%;
@@ -191,13 +191,17 @@ i{
   border-radius: 5%;
   position: relative;
   cursor:pointer;
-  border: 2px solid greenyellow;
+  border: 2px  solid #182628;
   transition: border 0.3s;
   vertical-align: bottom;
   justify-content: center;
   display: flex;
 }
-.bi-lightbulb-fill{
+.services-lights:hover{
+ box-shadow: 5px 5px 50px  green;
+  transform: scale(1.2);
+}
+/* .bi-lightbulb-fill{
   color: green;
   font-size: 50px;
   box-sizing: 0px;
@@ -207,7 +211,7 @@ i{
 .bi-lightbulb-fill:hover{
   color: yellow;
   text-shadow: 1px 1px 50px yellow;
-}
+} */
 
 .services-lights a{
 	text-transform:capitalize;
@@ -222,7 +226,7 @@ i{
   flex:1;
   padding: 10%;
   width: 200px;
-  height: 200px;
+  height: 100px;
   background-color: #182628;
   margin-right: 2%;
   margin-top: 5%;
@@ -230,15 +234,26 @@ i{
   border-radius: 5%;
   position: relative;
   cursor:pointer;
-  border: 2px solid greenyellow;
+  border: 2px solid #182628;
   transition: border 0.3s;
   vertical-align: bottom;
   justify-content: center;
-  display: flex;
+  display: flex;  
 }
-
-
-.bi-trash-fill{
+.services-waste:hover{
+  box-shadow: 5px 5px 50px  green;
+  transform: scale(1.2);
+}
+.material-icons{
+  font-size: 48px;
+  color: green;
+  transition: all 0.3s;
+}
+.material-icons:hover{
+  size: 150px ;
+  transform: scale(1.1);
+}
+/* .bi-trash-fill{
   color: green;
   font-size: 50px;
   position:absolute;
@@ -248,7 +263,7 @@ i{
 .bi-trash-fill:hover{
   color: yellow;
   text-shadow: 1px 1px 50px yellow;
-}
+} */
 .services-waste a{
 	text-transform:capitalize;
 	color: #ffffff;
@@ -256,6 +271,7 @@ i{
 }
 .services-waste h4{
   font-size: 20px;
+  white-space: nowrap;
 }
 
 .footer{
