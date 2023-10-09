@@ -57,30 +57,3 @@ nav a:hover,
 nav a.active {
   color: #3b945e;
 }
-
-.dropdown1 {
-  position: relative;
-}
-
-.dropdown-container {
-  position: relative; /* This is crucial for the absolute positioning of the dropdown */
-  display: inline-block; /* Ensures the container doesn't take full width */
-}
-
-.sub {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background-color: black;
-}
-
-.sub a {
-  display: block;
-  padding: 20px 40px;
-}
-
-.dropdown-container:hover .sub {
-  display: block;
-}
-

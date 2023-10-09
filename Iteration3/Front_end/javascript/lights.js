@@ -106,6 +106,39 @@ function redirectToLed() {
   window.location.href = "led.html";
 }
 
+// // Assuming you have an array of data objects
+// const data = [
+//   { roomType: 'Bedroom', small: 10, large: 20 },
+//   { roomType: 'Toilet', small: 4, large: 9 },
+//   { roomType: 'Kitchen', small: 8, large:  18}
+// ];
+
+// // Get a reference to the table body
+// const tbody = document.querySelector('#resultsTable tbody');
+
+// // Iterate through the data and add rows
+// data.forEach(item => {
+//   const row = document.createElement('tr');
+
+//   // Create and populate the cells (columns)
+//   const roomTypeCell = document.createElement('td');
+//   roomTypeCell.textContent = item.roomType;
+
+//   const smallCell = document.createElement('td');
+//   smallCell.textContent = item.small;
+
+//   const largeCell = document.createElement('td');
+//   largeCell.textContent = item.large;
+
+//   // Append cells to the row
+//   row.appendChild(roomTypeCell);
+//   row.appendChild(smallCell);
+//   row.appendChild(largeCell);
+
+//   // Append the row to the table body
+//   tbody.appendChild(row);
+// });
+
 // Get all table rows
 const rows = document.querySelectorAll("#resultsTable tbody tr");
 
