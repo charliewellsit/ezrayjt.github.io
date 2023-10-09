@@ -2,7 +2,7 @@ let state_name;
 let aus_data;
 
 async function init(){
-  const aus_url='https://ta21-2023-s2.azurewebsites.net/api/get_data'
+  const aus_url = 'https://ta21-2023-s2.azurewebsites.net/api/get_data';
   const response = await fetch(aus_url);
   aus_data = await response.json();
 }
@@ -33,7 +33,7 @@ all_paths.forEach(path => {
     path.classList.toggle("selected");
     all_paths.forEach(region => {
       if (region != path && region.classList.contains("selected")) {
-        region.classList.remove("selected")
+        region.classList.remove("selected");
       }
     })
     state_name = path.id;
@@ -45,7 +45,8 @@ all_paths.forEach(path => {
 async function getData(){
     const xs = [];
     const ys = [];
-    const pieData = [];
+    const pieDataNonRenew = [];
+    const pieDataRenew = [];
 
     const regionName = state_name;
     console.log(regionName);
@@ -54,13 +55,16 @@ async function getData(){
     const financialYears = regionData.map(entry => entry["financial year"]);
     xs.push(...financialYears);
 
-    const electricityGenerated = regionData.map(entry => entry["total_electricity_generated"]);
-    pieData.push(...electricityGenerated);
-
     const electricityUsage = regionData.map(entry => entry["electricity_usage"]);
     ys.push(...electricityUsage);
 
-    return {xs, ys, pieData};
+    const nonRenewElectricityGenerated = regionData.map(entry => entry["non_renewable_source_electricity_generated"]);
+    pieDataNonRenew.push(...nonRenewElectricityGenerated);
+
+    const renewElectricityGenerated = regionData.map(entry => entry["renewable_source_electricity_generated"]);
+    pieDataRenew.push(...renewElectricityGenerated);
+
+    return {xs, ys, pieDataNonRenew, pieDataRenew};
 }
 
 const ctx = document.getElementById('chart1');
@@ -91,15 +95,14 @@ options: {
 }
 });
 
-
 const ctx2 = document.getElementById('chart2');
 
 const myChart2 = new Chart(ctx2, {
 type: 'doughnut',
 data :{
   labels: [
-    'Electricity Generated',
-    'Electricity Consumption'
+    'Non-renewable sources',
+    'Renewable sources'
   ],
   datasets: [{
     label: '',
@@ -146,7 +149,10 @@ async function updateChart(){
   myChart.config.data.labels = ausData.xs;
   myChart.update();
 
-  myChart2.config.data.datasets[0].data = [ausData.pieData[ausData.pieData.length - 1], ausData.ys[ausData.ys.length - 1]];
-  console.log(ausData.pieData[ausData.pieData.length - 1], ausData.ys[ausData.ys.length - 1]);
+  let nonRenew = ausData.pieDataNonRenew;
+  let renew = ausData.pieDataRenew;
+
+  myChart2.config.data.datasets[0].data = [nonRenew[nonRenew.length - 1], renew[renew.length - 1]];
+  console.log(nonRenew[nonRenew.length - 1], renew[renew.length - 1]);
   myChart2.update();
 }
