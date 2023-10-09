@@ -76,7 +76,7 @@ data: {
     label: 'Electricity Consumption',
     data: [],
     fill: false,
-    bordercolor: 'rgb(255, 99, 132)',
+    bordercolor: 'rgb(24, 38, 40)',
     tension: 0.1
     }]
 },
@@ -107,8 +107,8 @@ data :{
     label: '',
     data: [],
     backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)'
+      'rgb(165, 42, 42)',
+      'rgb(0, 128, 0)'
     ],
     hoverOffset: 4
   }]
