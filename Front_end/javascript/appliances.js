@@ -634,7 +634,12 @@ async function compare(result){
     });
 }
 
-document.getElementById("checkButton").addEventListener("click", Calculate);
+function CalculateAndCompare() {
+    Calculate();
+    Compare();
+}
+
+document.getElementById("checkButton").addEventListener("click", CalculateAndCompare);
 
 function showOptionsVis1(){
     var selectedOption = document.getElementById('appliance');
