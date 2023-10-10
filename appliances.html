@@ -42,7 +42,7 @@
             
             <div id="fridgeSelections">
                 <div class="selection">
-                    <p>Select a type:</p>
+                    <p style="padding-bottom: 0.5em;">Select a type:</p>
                     <form onchange="updateGraph()">
                         <input type="radio" id="Freezer" name="type" value="Freezer"/>
                         <label for="Freezer" style="padding-right: 10%;">Freezer</label>
@@ -76,25 +76,29 @@
                 </div>
     
                 <div class="selection">
-                    <label for="volume">Select a volume category:</label> 
-                    <select name="volume" id="volume">
-                        <option value="none" selected disabled hidden>Select</option>
-                        <option value="Small">Small</option> 
-                        <option value="Medium">Medium</option>
-                        <option value="Large">Large</option>
-                        <option value="Extra Large">Extra Large</option>
-                    </select>
+                    <p style="padding-bottom: 0.5em;">Select a volume category:</p>
+                    <form onchange="updateGraph()">
+                        <input type="radio" id="Small" name="volume" value="Small"/>
+                        <label for="Small" style="padding-right: 10%;">Small</label>
+                        <input type="radio" id="Medium" name="volume" value="Medium"/>
+                        <label for="Medium" style="padding-right: 10%;">Medium</label>
+                        <input type="radio" id="Large" name="volume" value="Large"/>
+                        <label for="Large" style="padding-right: 10%;">Large</label>
+                        <input type="radio" id="ExtraLarge" name="volume" value="Extra Large"/>
+                        <label for="ExtraLarge">Extra Large</label>
+                    </form>
                 </div>
             </div>
 
             <div id="AcSelections">
                 <div class="selection">
-                    <label for="acType">Select a type:</label> 
-                    <select name="acType" id="acType">
-                        <option value="none" selected disabled hidden>Select</option>
-                        <option value="Cooling">Cooling</option> 
-                        <option value="Heating">Heating</option>
-                    </select>
+                    <p style="padding-bottom: 0.5em;">Select a type:</p>
+                    <form onchange="updateGraph()">
+                        <input type="radio" id="Cooling" name="acType" value="Cooling"/>
+                        <label for="Cooling" style="padding-right: 10%;">Cooling</label>
+                        <input type="radio" id="Heating" name="acType" value="Heating"/>
+                        <label for="Heating">Heating</label>
+                    </form>
                 </div>
     
                 <div class="selection">
@@ -119,7 +123,6 @@
                     </select>
                 </div>
             </div>
-            
 
             <div class="selection">
                 <label for="star-rating">Select star ratings:</label>
@@ -189,23 +192,27 @@
         <h3>Find out how much your appliances energy cost in a month</h3>
 
         <div class="selection">
-            <label for="app-type">Select an appliance:</label>
-                <select name="app-type" id="app-type" onchange="showCalculatorQuestions()">
-                    <option value="none" selected disabled hidden>Select</option>
-                    <option value="AC">Air Conditioners</option>
-                    <option value="Fridge">Fridge</option></select>
+            <p style="padding-bottom: 0.5em;">Select an appliance:</p>
+            <form onchange="showCalculatorQuestions()">
+                <input type="radio" id="app-type-AC" name="app-type" value="AC"/>
+                <label for="app-type-AC" style="padding-right: 10%;">Air Conditioners</label>
+                <input type="radio" id="app-type-Fridge" name="app-type" value="Fridge"/>
+                <label for="app-type-Fridge">Refrigerator</label>
+            </form>
         </div>
 
         <!-- fridge section for calculator -->
         <div id = "fridgeCalculatorSection">
             <div class="selection">
-                <label for="fridgeType">Select the type:</label>
-                    <select name="fridgeType" id="fridgeType">
-                        <option value="none" selected disabled hidden>Select</option>
-                        <option value="Freezer">Freezer</option> 
-                        <option value="Fridge">Fridge</option>
-                        <option value="Fridge&Freezer">Fridge & Freezer</option>
-                    </select>
+                <p style="padding-bottom: 0.5em;">Select the type:</p>                    
+                <form>
+                    <input type="radio" id="Freezer2" name="fridgeType" value="Freezer"/>
+                    <label for="Freezer2" style="padding-right: 10%;">Freezer</label>
+                    <input type="radio" id="Fridge2" name="fridgeType" value="Fridge"/>
+                    <label for="Fridge2" style="padding-right: 10%;">Fridge</label>
+                    <input type="radio" id="Fridge&Freezer2" name="fridgeType" value="Fridge&Freezer"/>
+                    <label for="Fridge&Freezer2">Fridge &amp; Freezer</label>
+                </form>
             </div>
     
             <div class="selection">
@@ -239,12 +246,13 @@
         <!-- AC section for calculator -->
         <div id = "AcCalculatorSection">
             <div class="selection">
-                <label for="AcType">Select the type:</label>
-                    <select name="AcType" id="AcType">
-                        <option value="none" selected disabled hidden>Select</option>
-                        <option value="Cooling">Cooling</option> 
-                        <option value="Heating">Heating</option>
-                    </select>
+                <p style="padding-bottom: 0.5em;">Select the type:</p>                    
+                <form>
+                    <input type="radio" id="Cooling2" name="AcType" value="Cooling"/>
+                    <label for="Cooling2" style="padding-right: 10%;">Cooling</label>
+                    <input type="radio" id="Heating2" name="AcType" value="Heating"/>
+                    <label for="Heating2">Heating</label>
+                </form>
             </div>
     
             <div class="selection">

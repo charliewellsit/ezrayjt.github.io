@@ -10,7 +10,7 @@ function get_selected_radio_option(name) {
 // ---------- Vis 1--------------
 async function FetchAppliancesAPI(){
     let selectedAppliance = get_selected_radio_option('appliance');
-    let selectedAcMode = document.getElementById('acType').value;
+    let selectedAcMode = get_selected_radio_option('acType');
 
     if (selectedAppliance === 'AC'){
         if (selectedAcMode === 'Cooling'){
@@ -74,8 +74,8 @@ async function fetchFridgeDataFromAPI() {
 }
 // ------------- show Table API ---------------------
 async function fetchSuitableTable(){
-    let selectedAppliance = document.getElementById('app-type').value;
-    let selectedAcMode = document.getElementById('AcType').value;
+    let selectedAppliance = get_selected_radio_option('app-type');
+    let selectedAcMode = get_selected_radio_option('AcType');
 
     if (selectedAppliance === 'AC'){
         if (selectedAcMode === 'Cooling'){
@@ -141,8 +141,8 @@ async function fetchAcHeatingConsumptionFromAPI() {
 
 // ---------- Vis 2--------------
 async function fetchAppliancesHighestStarRatingAPI(){
-    let selectedAppliance = document.getElementById('app-type').value;
-    let selectedAcMode = document.getElementById('AcType').value;
+    let selectedAppliance = get_selected_radio_option('app-type');
+    let selectedAcMode = get_selected_radio_option('AcType');
 
     if (selectedAppliance === 'AC'){
         if (selectedAcMode === 'Cooling'){
@@ -283,11 +283,9 @@ async function updateGraph() {
     const selectedAcBrand = document.getElementById('acBrand').value;
     const selectedType = get_selected_radio_option('type');
     const selectedBrand = document.getElementById('brand').value;
-    const selectedVolume = document.getElementById('volume').value;
-
+    const selectedVolume = get_selected_radio_option("volume");
 
     if (selectedAppliance === 'AC'){
-        
         // Filter the data based on selections
         const filteredData = jsonData.filter(item => 
             (!selectedAcBrand || item.brand === selectedAcBrand) &&
@@ -352,18 +350,12 @@ function removeEventListeners() {
 
 // Function to add event listeners
 function addEventListeners() {
-    const typeElement = document.getElementById('type');
     const brandElement = document.getElementById('brand');
-    const volumeElement = document.getElementById('volume');
-    const acTypeElement = document.getElementById('acType');
     const acBrandElement = document.getElementById('acBrand');
     const starRatingCheckboxes = document.querySelectorAll('input[name="star-rating"]');
 
-    // typeElement.addEventListener('change', updateGraph);
     brandElement.addEventListener('change', updateGraph);
-    acTypeElement.addEventListener('change', updateGraph);
     acBrandElement.addEventListener('change', updateGraph);
-    volumeElement.addEventListener('change', updateGraph);
 
     starRatingCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', updateGraph);
@@ -402,7 +394,7 @@ function clearErrorMessages(){
 async function Calculate(){    
     let conditionsMet = true;
 
-    let thisAppliance = document.getElementById("app-type").value;
+    let thisAppliance = get_selected_radio_option("app-type");
   
     let power = parseFloat(document.getElementById("power").value);
     let acPower = parseFloat(document.getElementById("acPower").value);
@@ -473,8 +465,8 @@ function hideTable(){
 }
 
 async function showTable(){
-    let appType = document.getElementById("app-type").value;
-    let fridgeType = document.getElementById("fridgeType").value;  
+    let appType = get_selected_radio_option("app-type");
+    let fridgeType = get_selected_radio_option("fridgeType");
 
     const jsonData = await fetchSuitableTable();
 
@@ -567,9 +559,9 @@ async function showTable(){
 async function compare(result){
     console.log(`result is ${result}`);
 
-    const appType = document.getElementById("app-type").value;
-    const fridgeType = document.getElementById("fridgeType").value;
-    const AcType = document.getElementById("AcType").value;
+    const appType = get_selected_radio_option("app-type");
+    const fridgeType = get_selected_radio_option("fridgeType");
+    const AcType = get_selected_radio_option("AcType");
     const hours = document.getElementById("hours").value;
     const charge = document.getElementById("charge").value;
     
@@ -664,11 +656,11 @@ function showOptionsVis1(){
 }
 
 function showCalculatorQuestions(){
-    var thisAppliance = document.getElementById("app-type");
+    var thisAppliance = get_selected_radio_option("app-type");
     var fridgeCalculatorSection = document.getElementById("fridgeCalculatorSection");
     var AcCalculatorSection = document.getElementById("AcCalculatorSection");
 
-    if (thisAppliance.value === 'AC'){
+    if (thisAppliance === 'AC'){
         AcCalculatorSection.style.display = 'block';
         fridgeCalculatorSection.style.display = 'none';
     } else {
