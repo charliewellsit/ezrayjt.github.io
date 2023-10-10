@@ -1,10 +1,15 @@
-function get_value_of_select(name) {
-    return Array.from(document.getElementsByName(name)).filter(opt => opt.checked)[0].id
+function get_selected_radio_option(name) {
+    let radios = document.getElementsByName(name);
+    for (const option of radios) {
+        if (option instanceof HTMLInputElement && option.checked) {
+            return option.value;
+        }
+    }
 }
 
 // ---------- Vis 1--------------
 async function FetchAppliancesAPI(){
-    let selectedAppliance = get_value_of_select('appliance');
+    let selectedAppliance = get_selected_radio_option('appliance');
     let selectedAcMode = document.getElementById('acType').value;
 
     if (selectedAppliance === 'AC'){
@@ -15,7 +20,7 @@ async function FetchAppliancesAPI(){
             return fetchAcHeatingDataFromAPI();
         }
     }
-    else if (selectedAppliance === 'app_Fridge'){
+    else if (selectedAppliance === 'Fridge'){
         return fetchFridgeDataFromAPI();
     }
 }
@@ -273,10 +278,10 @@ async function updateGraph() {
         return a.star_rating - b.star_rating;
     });
 
-    let selectedAppliance = get_value_of_select('appliance');
+    let selectedAppliance = get_selected_radio_option('appliance');
 
     const selectedAcBrand = document.getElementById('acBrand').value;
-    const selectedType = get_value_of_select('type');
+    const selectedType = get_selected_radio_option('type');
     const selectedBrand = document.getElementById('brand').value;
     const selectedVolume = document.getElementById('volume').value;
 
@@ -645,15 +650,14 @@ function CalculateAndCompare() {
 document.getElementById("checkButton").addEventListener("click", CalculateAndCompare);
 
 function showOptionsVis1(){
-    let radio_ac = document.getElementById('AC');
-    let radio_fridge = document.getElementById('app_Fridge');
+    let selectedOption = get_selected_radio_option("appliance");
     var fridgeSelections = document.getElementById('fridgeSelections');
     var AcSelections = document.getElementById('AcSelections');
     
-    if (radio_fridge.checked) {
+    if (selectedOption == "Fridge") {
         fridgeSelections.style.display = 'block';
         AcSelections.style.display = 'none';
-    } else if (radio_ac.checked) {
+    } else if (selectedOption == "AC") {
         fridgeSelections.style.display = 'none';
         AcSelections.style.display = 'block';
     }

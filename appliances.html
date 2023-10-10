@@ -33,9 +33,9 @@
             <div class="selection">
                 <p style="padding-bottom: 0.5em;">Select an appliance:</p>
                 <form onchange="showOptionsVis1()">
-                    <input type="radio" id="AC" name="appliance"/>
+                    <input type="radio" id="AC" name="appliance" value="AC"/>
                     <label for="AC" style="padding-right: 10%;">Air Conditioners</label>
-                    <input type="radio" id="app_Fridge" name="appliance"/>
+                    <input type="radio" id="app_Fridge" name="appliance" value="Fridge"/>
                     <label for="app_Fridge">Refrigerator</label>
                 </form>
             </div>
@@ -44,11 +44,11 @@
                 <div class="selection">
                     <p>Select a type:</p>
                     <form onchange="updateGraph()">
-                        <input type="radio" id="Freezer" name="type"/>
+                        <input type="radio" id="Freezer" name="type" value="Freezer"/>
                         <label for="Freezer" style="padding-right: 10%;">Freezer</label>
-                        <input type="radio" id="Fridge" name="type"/>
+                        <input type="radio" id="Fridge" name="type" value="Fridge"/>
                         <label for="Fridge" style="padding-right: 10%;">Fridge</label>
-                        <input type="radio" id="Fridge&Freezer" name="type"/>
+                        <input type="radio" id="Fridge&Freezer" name="type" value="Fridge&Freezer"/>
                         <label for="Fridge&Freezer">Fridge &amp; Freezer</label>
                     </form>
                 </div>
