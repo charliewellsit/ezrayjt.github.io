@@ -151,8 +151,8 @@ async function fetchAppliancesHighestStarRatingAPI(){
 // Function to fetch data from the API
 async function fetchFridgeHighestStarRatingAPI() {
     try {
-        // const response = await fetch('http://127.0.0.1:5000/api/get_fridge_highest_rating_consumption');
-        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_fridge_highest_rating_consumption')
+        const response = await fetch('http://127.0.0.1:5000/api/get_fridge_highest_rating_consumption');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_fridge_highest_rating_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -167,8 +167,8 @@ async function fetchFridgeHighestStarRatingAPI() {
 // Function to fetch data from the API
 async function fetchAcCoolingHighestStarRating() {
     try {
-        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_highest_rating_consumption');
-        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_highest_rating_consumption')
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_cooling_highest_rating_consumption');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_cooling_highest_rating_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -183,8 +183,8 @@ async function fetchAcCoolingHighestStarRating() {
 // Function to fetch data from the API
 async function fetchAcHeatingHighestStarRating() {
     try {
-        // const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_highest_rating_consumption');
-        const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_highest_rating_consumption')
+        const response = await fetch('http://127.0.0.1:5000/api/get_ac_heating_highest_rating_consumption');
+        // const response = await fetch('https://ta21-2023-s2.azurewebsites.net/api/get_ac_heating_highest_rating_consumption')
         if (!response.ok) {
             throw new Error('API request failed');
         }
@@ -392,7 +392,16 @@ function clearErrorMessages(){
     document.getElementById(elementId).innerHTML = message;
   }
 
-function Calculate(){
+async function Calculate(){
+    try {
+        const jsonData = await fetchAppliancesHighestStarRatingAPI();
+        console.log(jsonData);
+
+        // ... (rest of your code)
+    } catch (error) {
+        console.error(error);
+    }
+
     let conditionsMet = true;
 
     let thisAppliance = document.getElementById("app-type").value;
@@ -449,13 +458,13 @@ function Calculate(){
         textField.innerHTML = resultText;
     
         // Scroll to the "thisDiv" element
-        const thisDiv = document.getElementById("thisDiv");
-        thisDiv.scrollIntoView({ behavior: "smooth" });
+        // const thisDiv = document.getElementById("thisDiv");
+        // thisDiv.scrollIntoView({ behavior: "smooth" });
     
         const showText2 = document.getElementById("text2");
         showText2.style.display = 'flex';
         
-        compare(total);
+        await compare(total);
 }
 
 function hideTable(){
@@ -558,6 +567,7 @@ async function showTable(){
 }
 
 async function compare(result){
+    console.log(`result is ${result}`);
 
     const appType = document.getElementById("app-type").value;
     const fridgeType = document.getElementById("fridgeType").value;
@@ -634,12 +644,7 @@ async function compare(result){
     });
 }
 
-function CalculateAndCompare() {
-    Calculate();
-    Compare();
-}
-
-document.getElementById("checkButton").addEventListener("click", CalculateAndCompare);
+document.getElementById("checkButton").addEventListener("click", Calculate);
 
 function showOptionsVis1(){
     var selectedOption = document.getElementById('appliance');
