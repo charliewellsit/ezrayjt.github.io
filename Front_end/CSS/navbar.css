@@ -8,7 +8,7 @@ header {
   justify-content: space-between;
   align-items: center;
   /* background-color: lightslategray; */
-  background-color: black;
+  background-color: #182628;
   z-index: 100;
   transition: all 0.3s ease;
 }
@@ -16,7 +16,7 @@ header {
 header.sticky {
   /* padding: 20px 120px; */
   /* background: linear-gradient(to bottom, lightslategray,#363945); */
-  background-color: black;
+  background-color: #182628;
   /* box-shadow: 0 8px 40px rgba(0,0,0,0.5),
                 inset 0 4px 4px rgba(255,255,255,0.2),
                 inset 0 -4px 4px rgba(255,255,255,0.2); */
@@ -40,7 +40,7 @@ header.sticky nav a.active {
 } */
 
 .logo img {
-  width: 200px;
+  width: 500px;
   height: 40px;
 }
 
