@@ -31,23 +31,26 @@
             <h3>Appliance Energy Consumption by Star Rating, Type, and Brand</h3>
 
             <div class="selection">
-                <label for="appliance">Select an appliance:</label> 
-                <select name="appliance" id="appliance" onchange="showOptionsVis1()">
-                    <option value="none" selected disabled hidden>Select</option>
-                    <option value="AC">Air Conditioners</option> 
-                    <option value="Fridge">Refrigerator</option>
-                </select>
+                <p style="padding-bottom: 0.5em;">Select an appliance:</p>
+                <form onchange="showOptionsVis1()">
+                    <input type="radio" id="AC" name="appliance"/>
+                    <label for="AC" style="padding-right: 10%;">Air Conditioners</label>
+                    <input type="radio" id="app_Fridge" name="appliance"/>
+                    <label for="app_Fridge">Refrigerator</label>
+                </form>
             </div>
             
             <div id="fridgeSelections">
                 <div class="selection">
-                    <label for="type">Select a type:</label> 
-                    <select name="type" id="type">
-                        <option value="none" selected disabled hidden>Select</option>
-                        <option value="Freezer">Freezer</option> 
-                        <option value="Fridge">Fridge</option>
-                        <option value="Fridge&Freezer">Fridge & Freezer</option>
-                    </select>
+                    <p>Select a type:</p>
+                    <form onchange="updateGraph()">
+                        <input type="radio" id="Freezer" name="type"/>
+                        <label for="Freezer" style="padding-right: 10%;">Freezer</label>
+                        <input type="radio" id="Fridge" name="type"/>
+                        <label for="Fridge" style="padding-right: 10%;">Fridge</label>
+                        <input type="radio" id="Fridge&Freezer" name="type"/>
+                        <label for="Fridge&Freezer">Fridge &amp; Freezer</label>
+                    </form>
                 </div>
     
                 <div class="selection">

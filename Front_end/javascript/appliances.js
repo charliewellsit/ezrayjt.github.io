@@ -1,6 +1,10 @@
+function get_value_of_select(name) {
+    return Array.from(document.getElementsByName(name)).filter(opt => opt.checked)[0].id
+}
+
 // ---------- Vis 1--------------
 async function FetchAppliancesAPI(){
-    let selectedAppliance = document.getElementById('appliance').value;
+    let selectedAppliance = get_value_of_select('appliance');
     let selectedAcMode = document.getElementById('acType').value;
 
     if (selectedAppliance === 'AC'){
@@ -11,7 +15,7 @@ async function FetchAppliancesAPI(){
             return fetchAcHeatingDataFromAPI();
         }
     }
-    else if (selectedAppliance === 'Fridge'){
+    else if (selectedAppliance === 'app_Fridge'){
         return fetchFridgeDataFromAPI();
     }
 }
@@ -196,7 +200,6 @@ async function fetchAcHeatingHighestStarRating() {
     }
 }
 
-
 // ---------- Vis 1--------------
 // Initialize Chart.js
 const ctx = document.getElementById('energy-consumption-chart').getContext('2d');
@@ -221,12 +224,11 @@ async function updateGraph() {
             // If the chart exists, destroy it to clear any existing data
             existingChart.destroy();
         }
-        let selectedAppliance = document.getElementById('appliance').value;
 
-        if (selectedAppliance === 'AC'){
-            labelText = 'Average Energy Consumption per hour';
+        if (document.getElementById("AC").checked){
+            var labelText = 'Average Energy Consumption per hour';
         } else {
-            labelText = 'Average Energy Consumption per month';
+            var labelText = 'Average Energy Consumption per month';
         }
 
         const labels = data.map(item => item.star_rating.toString());
@@ -271,10 +273,10 @@ async function updateGraph() {
         return a.star_rating - b.star_rating;
     });
 
-    let selectedAppliance = document.getElementById('appliance').value;
+    let selectedAppliance = get_value_of_select('appliance');
 
     const selectedAcBrand = document.getElementById('acBrand').value;
-    const selectedType = document.getElementById('type').value;
+    const selectedType = get_value_of_select('type');
     const selectedBrand = document.getElementById('brand').value;
     const selectedVolume = document.getElementById('volume').value;
 
@@ -352,7 +354,7 @@ function addEventListeners() {
     const acBrandElement = document.getElementById('acBrand');
     const starRatingCheckboxes = document.querySelectorAll('input[name="star-rating"]');
 
-    typeElement.addEventListener('change', updateGraph);
+    // typeElement.addEventListener('change', updateGraph);
     brandElement.addEventListener('change', updateGraph);
     acTypeElement.addEventListener('change', updateGraph);
     acBrandElement.addEventListener('change', updateGraph);
@@ -643,14 +645,15 @@ function CalculateAndCompare() {
 document.getElementById("checkButton").addEventListener("click", CalculateAndCompare);
 
 function showOptionsVis1(){
-    var selectedOption = document.getElementById('appliance');
+    let radio_ac = document.getElementById('AC');
+    let radio_fridge = document.getElementById('app_Fridge');
     var fridgeSelections = document.getElementById('fridgeSelections');
     var AcSelections = document.getElementById('AcSelections');
     
-    if (selectedOption.value === 'Fridge') {
+    if (radio_fridge.checked) {
         fridgeSelections.style.display = 'block';
         AcSelections.style.display = 'none';
-    } else {
+    } else if (radio_ac.checked) {
         fridgeSelections.style.display = 'none';
         AcSelections.style.display = 'block';
     }
