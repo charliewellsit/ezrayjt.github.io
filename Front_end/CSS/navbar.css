@@ -73,7 +73,7 @@ nav a.active {
   position: absolute;
   left: 0;
   top: 100%;
-  background-color: black;
+  background-color: #182628;
   z-index: 102;
 }
 
