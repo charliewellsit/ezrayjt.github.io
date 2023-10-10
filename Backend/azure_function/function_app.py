@@ -351,7 +351,7 @@ def get_ac_cooling_avg_consumption(req: func.HttpRequest):
     db_manager_iteration3 = get_database_manager("iteration3")
 
     # SQL query to get data from the database
-    query = "SELECT ROUND(AVG(cooling_usage_kw), 3) AS average_energy_consumption, ROUND(cooling_star_rating,1) AS cooling_star_rating FROM air_conditioners GROUP BY cooling_star_rating HAVING cooling_star_rating >= 1.0 ORDER BY cooling_star_rating"
+    query = "SELECT ROUND(AVG(cooling_usage_kw), 3) AS average_energy_consumption, ROUND(cooling_star_rating,1) AS cooling_star_rating FROM air_conditioners GROUP BY cooling_star_rating ORDER BY cooling_star_rating"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration3.execute_query(query)
@@ -378,7 +378,7 @@ def get_ac_heating_avg_consumption(req: func.HttpRequest):
     db_manager_iteration3 = get_database_manager("iteration3")
 
     # SQL query to get data from the database
-    query = "SELECT ROUND(AVG(heating_usage_kw), 3) AS average_energy_consumption, ROUND(heating_star_rating,1) AS heating_star_rating FROM air_conditioners GROUP BY heating_star_rating HAVING heating_star_rating >= 1.0 ORDER BY heating_star_rating"
+    query = "SELECT ROUND(AVG(heating_usage_kw), 3) AS average_energy_consumption, ROUND(heating_star_rating,1) AS heating_star_rating FROM air_conditioners GROUP BY heating_star_rating ORDER BY heating_star_rating"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration3.execute_query(query)
@@ -405,7 +405,7 @@ def get_ac_heating_highest_rating_consumption(req: func.HttpRequest):
     db_manager_iteration3 = get_database_manager("iteration3")
 
     # SQL query to get data from the database
-    query = "SELECT ROUND(AVG(heating_usage_kw), 3) AS average_energy_consumption, ROUND(heating_star_rating,1) AS heating_star_rating FROM air_conditioners GROUP BY heating_star_rating HAVING heating_star_Rating >= 1.0 ORDER BY heating_star_rating DESC LIMIT 1"
+    query = "SELECT ROUND(AVG(heating_usage_kw), 3) AS average_energy_consumption, ROUND(heating_star_rating,1) AS heating_star_rating FROM air_conditioners GROUP BY heating_star_rating ORDER BY heating_star_rating DESC LIMIT 1"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration3.execute_query(query)
@@ -432,7 +432,7 @@ def get_ac_cooling_highest_rating_consumption(req: func.HttpRequest):
     db_manager_iteration3 = get_database_manager("iteration3")
 
     # SQL query to get data from the database
-    query = "SELECT ROUND(AVG(cooling_usage_kw), 3) AS average_energy_consumption, ROUND(cooling_star_rating,1) AS cooling_star_rating FROM air_conditioners GROUP BY cooling_star_rating HAVING cooling_star_Rating >= 1.0 ORDER BY cooling_star_rating DESC LIMIT 1"
+    query = "SELECT ROUND(AVG(cooling_usage_kw), 3) AS average_energy_consumption, ROUND(cooling_star_rating,1) AS cooling_star_rating FROM air_conditioners GROUP BY cooling_star_rating ORDER BY cooling_star_rating DESC LIMIT 1"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration3.execute_query(query)
