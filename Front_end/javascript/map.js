@@ -18,15 +18,28 @@ all_paths.forEach(path => {
     let x = e.clientX - rect.left; // Calculate x relative to the div
     let y = e.clientY - rect.top;
     
-    document.getElementById("map-tip").style.top = y - 120 + "px";
-    document.getElementById("map-tip").style.left = x - 120 + "px";
+    let maptip_style = document.getElementById("map-tip").style;
+    maptip_style.display = "block";
+    maptip_style.top = y - 120 + "px";
+    maptip_style.left = x - 120 + "px";
+    // A 1ms delay is enough to ensure the fade-in animation happens - otherwise it doesn't
+    setTimeout(() => {
+      maptip_style.opacity = "0.7";  
+    }, 1);
 
     document.getElementById("state-name").innerHTML = path.id;
-    document.getElementById("map-tip").style.opacity = "0.7";
   });
 
   path.addEventListener("mouseleave", () => {
-    document.getElementById("map-tip").style.opacity = "0";
+    let maptip_style = document.getElementById("map-tip").style;
+    maptip_style.opacity = "0";
+    // Wait for the animation to finish before hiding the box
+    setTimeout(() => {
+      // Bug fix: If the cursor has moved to a different state then we shouldn't remove the box
+      if (maptip_style.opacity == "0"){  
+        maptip_style.display = "none";
+      }
+    }, 500);
   });
   
   path.addEventListener("click", () => {
