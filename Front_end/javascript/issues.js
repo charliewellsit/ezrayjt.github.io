@@ -7,7 +7,7 @@ function openPopupById(popupId) {
 
     if (popup && overlay) {
         popup.style.display = "block";
-        document.body.style.overflow = "hidden";
+        // document.body.style.overflow = "hidden";
     }
 }
 

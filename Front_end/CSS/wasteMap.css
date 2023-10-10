@@ -1,4 +1,5 @@
 #wasteMap{
     height: 480px;
     width: 480px;
+    z-index: 1;
 }

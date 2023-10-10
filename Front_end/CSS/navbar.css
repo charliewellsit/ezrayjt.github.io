@@ -65,6 +65,7 @@ nav a.active {
 .dropdown-container {
   position: relative; /* This is crucial for the absolute positioning of the dropdown */
   display: inline-block; /* Ensures the container doesn't take full width */
+  z-index: 101;
 }
 
 .sub {
@@ -73,6 +74,7 @@ nav a.active {
   left: 0;
   top: 100%;
   background-color: black;
+  z-index: 102;
 }
 
 .sub a {
@@ -82,5 +84,6 @@ nav a.active {
 
 .dropdown-container:hover .sub {
   display: block;
+  z-index: 105;
 }
 
