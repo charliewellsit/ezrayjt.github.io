@@ -1,16 +1,25 @@
 // Function to open the popup by ID
 function openPopupById(popupId) {
     const popup = document.getElementById(popupId);
-    if (popup) {
+    const overlay =document.createElement("div");
+    overlay.className ="overlay";
+    document.body.appendChild(overlay);
+
+    if (popup && overlay) {
         popup.style.display = "block";
+        document.body.style.overflow = "hidden";
     }
 }
 
 // Function to close the popup by ID
 function closePopupById(popupId) {
     const popup = document.getElementById(popupId);
+    const overlay = document.querySelector(".overlay");
     if (popup) {
         popup.style.display = "none";
+    }
+    if (overlay){
+        document.body.removeChild(overlay);
     }
 }
 
