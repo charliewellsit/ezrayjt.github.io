@@ -328,26 +328,6 @@ async function updateGraph() {
     }
 }
 
-// Function to remove event listeners
-function removeEventListeners() {
-    const typeElement = document.getElementById('type');
-    const brandElement = document.getElementById('brand');
-    const volumeElement = document.getElementById('volume');
-    const acTypeElement = document.getElementById('acType');
-    const acBrandElement = document.getElementById('acBrand');
-    const starRatingCheckboxes = document.querySelectorAll('input[name="star-rating"]');
-
-    typeElement.removeEventListener('change', updateGraph);
-    brandElement.removeEventListener('change', updateGraph);
-    acTypeElement.addEventListener('change', updateGraph);
-    acBrandElement.addEventListener('change', updateGraph);
-    volumeElement.removeEventListener('change', updateGraph);
-
-    starRatingCheckboxes.forEach(checkbox => {
-        checkbox.removeEventListener('change', updateGraph);
-    });
-}
-
 // Function to add event listeners
 function addEventListeners() {
     const brandElement = document.getElementById('brand');
