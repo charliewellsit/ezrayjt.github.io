@@ -27,12 +27,11 @@ customElements.define("css-files", cssFiles);
 
 class jsFiles extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `
-        <script src="Front_end/javascript/navbar.js"></script>
-    <script src="Front_end/javascript/map.js"></script>
-    <script src="Front_end/javascript/chart.js"></script>
-    <script src="Front_end/javascript/lights.js"></script>
-        `;
+    for (let source of ["navbar", "map", "chart", "lights"]) {
+      let script = document.createElement('script');
+      script.src = `Front_end/javascript/${source}.js`;
+      document.head.appendChild(script);
+    }
   }
 }
 
@@ -59,8 +58,6 @@ class navbar extends HTMLElement {
           <a href="appliances.html">Appliances</a>
           <a href="DIY.html">DIY</a>
       </nav>
-
-
     </header>
         `;
   }
