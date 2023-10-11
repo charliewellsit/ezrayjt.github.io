@@ -72,7 +72,7 @@ class dropdown extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <header>
-        <a href="index.html" class="logo"><img src="Front_end/images/SustainUrban-logos_white.png"></a>
+        <a href="index.html" class="logo"><img src="Front_end/images/Logo1.png"></a>
 
         <nav>
         <a href="index.html#home">Home</a>
