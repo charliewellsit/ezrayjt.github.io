@@ -189,12 +189,11 @@ button:hover {
   transition: transform 0.3s;
 }
 
-/* Optional: Style hover effect */
-.box:hover {
+/* .box:hover {
   background-color: #182628;
   color: oldlace;
   transform: scale(1.05);
-}
+} */
 
 #hiddenContainer{
   background-color: black;
