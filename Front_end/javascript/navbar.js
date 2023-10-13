@@ -7,7 +7,7 @@ function highlightNavSection() {
   const lightsNavLink = document.querySelector("header nav a[href='lights.html']");
   const lightBulbNavLink = document.querySelector("header nav a[href='lightbulb.html']");
   const wasteNavLink = document.querySelector("header nav a[href='waste.html']");
-  const homeNavLink = document.querySelector("header nav a[href='index.html#home']");
+  const homeNavLink = document.querySelector("header nav a[href='home.html']");
   if (lightPage) {
     lightsNavLink.classList.add("active");
     lightBulbNavLink.classList.remove("active");
