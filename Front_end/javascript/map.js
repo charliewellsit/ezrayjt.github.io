@@ -93,8 +93,8 @@ data: {
       label: 'Electricity Consumption',
       data: [],
       fill: false,
-      backgroundColor: 'rgb(10, 70, 220)',
-      borderColor: 'rgb(10, 70, 220)',
+      backgroundColor: 'rgb(24, 38, 40)',
+      borderColor: 'rgb(24, 38, 40)',
       tension: 0.1
     }]
 },
