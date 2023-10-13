@@ -104,10 +104,10 @@ label {
   display: none;
 }
 
-.highlighted-row {
-  background-color: lightgoldenrodyellow; /* Add your desired highlight color */
-  color: black; /* Add your desired text color */
-}
+/* .highlighted-row {
+  background-color: lightgoldenrodyellow;
+  color: black;
+} */
 
 .custom-table {
   border: 1px solid #dee2e6; /* Add desired border style here */

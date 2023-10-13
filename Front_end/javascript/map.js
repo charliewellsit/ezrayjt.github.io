@@ -74,9 +74,10 @@ async function getData(){
     regionData.map(entry => {
       let non_renew = entry["non_renewable_source_electricity_generated"];
       let renew = entry["renewable_source_electricity_generated"];
+      let total_generation = non_renew + renew;
 
-      pieDataNonRenew.push(non_renew / (non_renew + renew) * 100);
-      pieDataRenew.push(renew / (non_renew + renew) * 100);
+      pieDataNonRenew.push(non_renew / total_generation * 100);
+      pieDataRenew.push(renew / total_generation * 100);
     });
 
     return {xs, ys, pieDataNonRenew, pieDataRenew};
@@ -92,8 +93,8 @@ data: {
       label: 'Electricity Consumption',
       data: [],
       fill: false,
-      backgroundColor: 'rgb(10, 70, 220)',
-      borderColor: 'rgb(10, 70, 220)',
+      backgroundColor: 'rgb(24, 38, 40)',
+      borderColor: 'rgb(24, 38, 40)',
       tension: 0.1
     }]
 },
@@ -127,12 +128,14 @@ data :{
     label: 'Non-renewable sources',
     data: [],
     backgroundColor: 'rgb(165, 42, 42)',
+    borderColor: 'rgb(165, 42, 42)',
     hoverOffset: 4
   },
   {
     label: 'Renewable sources',
     data: [],
     backgroundColor: 'rgb(0, 128, 0)',
+    borderColor: 'rgb(0, 128, 0)',
     hoverOffset: 4
   }]
 },
