@@ -84,8 +84,9 @@ section:nth-child(odd) {
   margin-right: 20%;;
   border: 5px;
   box-shadow: 5px 5px 50px green;
-  border-radius: 5px;
+  border-radius: 10%;
 }
+
 .popup-content img{
   height: 200px;
   width:200px;
@@ -181,11 +182,11 @@ i{
 .services-con{
   display: flex;
 }
-.services-lights{
+.services-sec{
   flex:1;
   padding: 10%;
   width: 200px;
-  height: 100px;
+  height: 200px;
   background-color:#182628;
   margin-right: 2%;
   margin-bottom: 5%;
@@ -195,11 +196,10 @@ i{
   cursor:pointer;
   border: 2px  solid #182628;
   transition: border 0.3s;
-  vertical-align: bottom;
-  justify-content: center;
-  display: flex;
+  display: inline-flex;
+  /* justify-content: center; */
 }
-.services-lights:hover{
+.services-sec:hover{
  box-shadow: 5px 5px 50px  green;
   transform: scale(1.2);
 }
@@ -215,16 +215,18 @@ i{
   text-shadow: 1px 1px 50px yellow;
 } */
 
-.services-lights a{
+.services-sec a{
 	text-transform:capitalize;
 	color: #ffffff;
 	text-decoration: none;
 }
-.services-lights h4{
+.services-sec h4{
   font-size: 20px;
+  white-space: wrap;
+  text-align: left;
 }
 
-.services-waste{
+/* .services-waste{
   flex:1;
   padding: 10%;
   width: 200px;
@@ -241,11 +243,11 @@ i{
   vertical-align: bottom;
   justify-content: center;
   display: flex;  
-}
-.services-waste:hover{
+} */
+/* .services-waste:hover{
   box-shadow: 5px 5px 50px  green;
   transform: scale(1.2);
-}
+} */
 .material-icons{
   font-size: 48px;
   color: green;
@@ -266,7 +268,7 @@ i{
   color: yellow;
   text-shadow: 1px 1px 50px yellow;
 } */
-.services-waste a{
+/* .services-waste a{
 	text-transform:capitalize;
 	color: #ffffff;
 	text-decoration: none;
@@ -274,7 +276,7 @@ i{
 .services-waste h4{
   font-size: 20px;
   white-space: nowrap;
-}
+} */
 
 .footer{
   background-color:#182628;
