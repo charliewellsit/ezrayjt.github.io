@@ -74,9 +74,10 @@ async function getData(){
     regionData.map(entry => {
       let non_renew = entry["non_renewable_source_electricity_generated"];
       let renew = entry["renewable_source_electricity_generated"];
+      let total_generation = non_renew + renew;
 
-      pieDataNonRenew.push(non_renew / (non_renew + renew) * 100);
-      pieDataRenew.push(renew / (non_renew + renew) * 100);
+      pieDataNonRenew.push(non_renew / total_generation * 100);
+      pieDataRenew.push(renew / total_generation * 100);
     });
 
     return {xs, ys, pieDataNonRenew, pieDataRenew};
