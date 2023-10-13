@@ -152,10 +152,10 @@ button:hover {
     text-align: left;
 }
 
-.highlighted-row {
-  background-color: lightgoldenrodyellow; /* Add your desired highlight color */
-  color: black; /* Add your desired text color */
-}
+/* .highlighted-row {
+  background-color: lightgoldenrodyellow;
+  color: black;
+} */
 
 /* CSS for the flex container */
 .compare-button-container, .boxesContainer {
