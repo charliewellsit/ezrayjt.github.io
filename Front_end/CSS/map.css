@@ -71,6 +71,7 @@ path:hover{
   border: 3px solid #e9ecef;
   transition: all 0.5s ease;
   border-radius: 10px;
+  color: white;
 }
 
 
