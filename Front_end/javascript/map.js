@@ -128,12 +128,14 @@ data :{
     label: 'Non-renewable sources',
     data: [],
     backgroundColor: 'rgb(165, 42, 42)',
+    borderColor: 'rgb(165, 42, 42)',
     hoverOffset: 4
   },
   {
     label: 'Renewable sources',
     data: [],
     backgroundColor: 'rgb(0, 128, 0)',
+    borderColor: 'rgb(0, 128, 0)',
     hoverOffset: 4
   }]
 },
