@@ -11,7 +11,7 @@ body{
   display: none;
 }
 
-p2 {
+.p2 {
   color: #6c757d;
 }
 
@@ -42,7 +42,7 @@ h1 {
   color: white;
 }
 
-.home .p8 {
+#home p9 {
   font-size: 30px;
   color: white;
 }

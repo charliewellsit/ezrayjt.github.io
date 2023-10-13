@@ -39,8 +39,9 @@ header.sticky nav a.active {
 } */
 
 .logo img {
-  width: 100px;
-  height: 60px;
+  padding-top: 5px;
+  width: 50px;
+  height: 40px;
 }
 
 nav a {

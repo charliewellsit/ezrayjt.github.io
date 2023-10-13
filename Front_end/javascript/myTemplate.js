@@ -41,7 +41,7 @@ class navbar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <header>
-        <a href="index.html" class="logo"><img src="Front_end/images/logo2.png"></a>
+        <a href="index.html" class="logo"><img src="Front_end/images/Logo1.png"></a>
 
         <nav>
           <a href="home.html">Home</a>
