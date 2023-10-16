@@ -14,6 +14,11 @@ function highlightNavSection() {
   const appliancesNavLink = document.querySelector("header nav a[href='appliances.html']");
   const diyNavLink = document.querySelector("header nav a[href='DIY.html']");
 
+{/* <div class="sub">
+                  <a href="lights.html">Assess Room's Lighting</a>
+                  <a href="lightbulb.html">Lightbulb Types</a>
+              </div> */}
+
   if (lightPage) {
     lightsNavLink.classList.add("active");
     // lightBulbNavLink.classList.remove("active");
