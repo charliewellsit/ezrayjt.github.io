@@ -11,6 +11,7 @@
 .waste h1,
 .waste p8 {
   color: black;
+  text-align: center;
 }
 
 .waste h1 {
@@ -19,6 +20,7 @@
 
 .waste p8 {
   font-size: 25px;
+  
 }
 
 .waste h2 {
@@ -36,8 +38,10 @@
     padding: 20px;
     padding-top: 50px;
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
 .wasteCategory {
     display: flex;
     flex-direction: column;
