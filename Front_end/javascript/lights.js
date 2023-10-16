@@ -36,12 +36,8 @@ function calculateAndToggle(){
     conditionsMet = false;
   }
   // validations for lumens
-  else if (isNaN(lumens)){
-    displayErrorMessage("errorMessageLumens", "Please fill in the amount of the luminuous flux rating");
-    conditionsMet = false;
-  }
   else if (!isInteger(lumens)){
-    displayErrorMessage("errorMessageLumens", "Please only enter numeric value");
+    displayErrorMessage("errorMessageLumens", "Please enter numeric value");
     conditionsMet = false;
   }
   else if (lumens > 3000 || lumens < 1) {
@@ -49,12 +45,8 @@ function calculateAndToggle(){
     conditionsMet = false;
   }
   // validation for area size
-  else if (isNaN(areaSize)){
-    displayErrorMessage("errorMessageArea", "Please fill in the area size");
-    conditionsMet = false;
-  }
   else if (!isInteger(areaSize)){
-    displayErrorMessage("errorMessageArea", "Please only enter numeric value");
+    displayErrorMessage("errorMessageArea", "Please enter numeric value");
     conditionsMet = false;
   }
   else if (areaSize > 3000 || areaSize < 1) {
@@ -62,12 +54,8 @@ function calculateAndToggle(){
     conditionsMet = false;
   }
   // validation for number of lightbulbs
-  else if (isNaN(numberOfLightBulb)){
-    displayErrorMessage("errorMessageLumens", "Please fill in the number of lightbulbs");
-    conditionsMet = false;
-  }
   else if (!isInteger(numberOfLightBulb)){
-    displayErrorMessage("errorMessageBulbs", "Please only enter numeric value");
+    displayErrorMessage("errorMessageBulbs", "Please enter numeric value");
     conditionsMet = false;
   }
   else if (numberOfLightBulb > 20 || numberOfLightBulb < 1) {

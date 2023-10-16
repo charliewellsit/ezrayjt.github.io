@@ -5,19 +5,13 @@
 		<css-files></css-files>
 		<link rel="stylesheet" href="Front_end/CSS/navbar.css" />
 		<link rel="stylesheet" href="Front_end/CSS/general.css" />
+		
 		<js-files></js-files>
     	<script src="Front_end/javascript/myTemplate.js"></script>
 		<style>
 			body {
 				display: block;
 				padding-top: 100px;
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-			div {
-				padding-top: 1em;
-				line-height: 1.6;
-				font-size: 20px;
 			}
 			h1 {
 				padding-top: 0.5em;
@@ -32,26 +26,40 @@
 			a {
 				text-decoration: none;
 			}
+			#containerr{
+				display: flex;
+				padding:20px;
+				padding-bottom: 20px;
+				width: 100%;
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body>
 		<nav-bar></nav-bar>
-		<h1>Attributions</h1>
-		<hr /><br />
-		<div>Open data is sourced from the following sites:<br /><br />
-		<ul>
-			<li><a href="https://www.energy.gov.au/publications/australian-energy-update-2022">Gas and electricity consumption and generation data</a> from the Australian Department of Energy, available under a </span><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC BY 4.0) license.</li>
-			<li><a href="https://reg.energyrating.gov.au/comparator/">Lightbulb electricity usage and home appliance data</a> from Energy Rating, a joint initiative of the Australian and New Zealand Governments. Data is available under a </span><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC BY 4.0) license.</li>
-			<li><a href="https://digital.atlas.gov.au/datasets/digitalatlas::waste-management-facilities/explore">Map of waste management facilities</a> from Digital Atlas of Australia, a website by Geoscience Australia. Data is available under a </span><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC BY 4.0) license.</li>
-		</ul></div>
-	</body>
-	<footer class="footer" style="padding: 1rem 0; background-color: #182628;">
-        <div class="row">
-            <a href="Attributions.html" class="footer-link">Attributions</a>
-        </div>
-        <br>
-        <div class="row" style="color: white;">
-            <h4>Copyright <span>&copy;</span> 2023 SustainUrban</h4>
-        </div>
-    </footer>
+
+		<div style="padding: 0 4rem; line-height: 1.6; font-size: 20px; height: 90vh;">
+			<h1>Attributions</h1>
+			<hr /><br>
+			<div>
+				Open data is sourced from the following sites:<br><br>
+				<ul>
+					<li><a href="https://www.energy.gov.au/publications/australian-energy-update-2022">Gas and electricity consumption and generation data</a> from the Australian Department of Energy, available under a </span><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC BY 4.0) license.</li>
+					<li><a href="https://reg.energyrating.gov.au/comparator/">Lightbulb electricity usage and home appliance data</a> from Energy Rating, a joint initiative of the Australian and New Zealand Governments. Data is available under a </span><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC BY 4.0) license.</li>
+					<li><a href="https://digital.atlas.gov.au/datasets/digitalatlas::waste-management-facilities/explore">Map of waste management facilities</a> from Digital Atlas of Australia, a website by Geoscience Australia. Data is available under a </span><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC BY 4.0) license.</li>
+				</ul>
+			</div>
+		</div>
+		<footer class="footer" style="padding: 1rem 0; background-color: #182628;">
+			<div class="row" style="color: white;">
+				<h4>Copyright <span>&copy;</span> 2023 SustainUrban</h4>
+			</div>
+		</footer>
+		
+	<script src="Front_end/javascript/navbar.js"></script>
+	<script src="Front_end/javascript/general.js"></script>
+	<script src="Front_end/javascript/passwordCheck.js"></script>
+	<script src="Front_end/javascript/myTemplate.js"></script>
+</body>
+	
 </html>

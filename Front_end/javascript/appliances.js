@@ -385,7 +385,7 @@ async function Calculate(){
     // different validation for different appliance
     if (thisAppliance === 'AC'){
         if (acPower === "" || isNaN(parseFloat(acPower))){
-            displayErrorMessage("errorMessageAcPower", "Please enter the power consumption");
+            displayErrorMessage("errorMessageAcPower", "Please enter the power consumption in numeric value");
             conditionsMet = false;
         } else if (hours === "" || isNaN(parseFloat(hours))){
             displayErrorMessage("errorMessageHours", "Please enter the hours of usage");
@@ -401,7 +401,7 @@ async function Calculate(){
             conditionsMet = false;}
     } else {
         if (power === "" || isNaN(parseFloat(power))){
-            displayErrorMessage("errorMessagePower", "Please enter the power consumption");
+            displayErrorMessage("errorMessagePower", "Please enter the power consumption in numeric value");
             conditionsMet = false;
         } else if (charge === "" || isNaN(parseFloat(charge))){
             displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
