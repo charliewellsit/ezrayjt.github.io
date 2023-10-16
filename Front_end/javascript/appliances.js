@@ -386,6 +386,9 @@ async function Calculate(){
     if (thisAppliance === 'AC'){
         if (acPower === "" || isNaN(parseFloat(acPower))){
             displayErrorMessage("errorMessageAcPower", "Please enter the power consumption in numeric value");
+            conditionsMet = false;  
+        } else if (acPower > 10 || acPower < 0){
+            displayErrorMessage("errorMessageAcPower", "Please check the power consumption you've inputted");
             conditionsMet = false;
         } else if (hours === "" || isNaN(parseFloat(hours))){
             displayErrorMessage("errorMessageHours", "Please enter the hours of usage");
@@ -396,6 +399,9 @@ async function Calculate(){
         } else if (charge === "" || isNaN(parseFloat(charge))){
             displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
             conditionsMet = false;
+        } else if (charge > 100 || charge < 0){
+            displayErrorMessage("errorMessageAcPower", "Please check the amount you've inputted");
+            conditionsMet = false;
         } else if (!acPower || !hours || !charge) {
             displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Calculate'");
             conditionsMet = false;}
@@ -403,13 +409,21 @@ async function Calculate(){
         if (power === "" || isNaN(parseFloat(power))){
             displayErrorMessage("errorMessagePower", "Please enter the power consumption in numeric value");
             conditionsMet = false;
+        } else if (power > 10 || power < 0){
+            displayErrorMessage("errorMessagePower", "Please check the power consumption you've inputted");
+            conditionsMet = false;
         } else if (charge === "" || isNaN(parseFloat(charge))){
             displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
+            conditionsMet = false;
+        } else if (charge > 100 || charge < 0){
+            displayErrorMessage("errorMessageAcPower", "Please check the amount you've inputted");
             conditionsMet = false;
         } else if (!power || !charge) {
             displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Calculate'");
             conditionsMet = false;}
     }
+
+    clearErrorMessages();
     
     if (conditionsMet && thisAppliance === 'AC'){
         clearErrorMessages();
