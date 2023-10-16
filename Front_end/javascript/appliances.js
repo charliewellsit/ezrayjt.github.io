@@ -371,6 +371,7 @@ function clearErrorMessages(){
     document.getElementById(elementId).innerHTML = message;
   }
 
+//   calculate function
 async function Calculate(){    
     let conditionsMet = true;
 
@@ -381,24 +382,28 @@ async function Calculate(){
     let hours = parseFloat(document.getElementById("hours").value);
     let charge = parseFloat(document.getElementById("charge").value);
   
+    // different validation for different appliance
     if (thisAppliance === 'AC'){
-        if (!acPower){
+        if (acPower === "" || isNaN(parseFloat(acPower))){
             displayErrorMessage("errorMessageAcPower", "Please enter the power consumption");
             conditionsMet = false;
-        } else if (!hours){
+        } else if (hours === "" || isNaN(parseFloat(hours))){
             displayErrorMessage("errorMessageHours", "Please enter the hours of usage");
             conditionsMet = false;
-        } else if (!charge){
+        } else if (hours > 24 || hours < 0){
+            displayErrorMessage("errorMessageHours", "Please check the number of hours you've inputted");
+            conditionsMet = false;
+        } else if (charge === "" || isNaN(parseFloat(charge))){
             displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
             conditionsMet = false;
         } else if (!acPower || !hours || !charge) {
             displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Calculate'");
             conditionsMet = false;}
     } else {
-        if (!power){
+        if (power === "" || isNaN(parseFloat(power))){
             displayErrorMessage("errorMessagePower", "Please enter the power consumption");
             conditionsMet = false;
-        } else if (!charge){
+        } else if (charge === "" || isNaN(parseFloat(charge))){
             displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
             conditionsMet = false;
         } else if (!power || !charge) {
@@ -462,14 +467,9 @@ async function showTable(){
         keysToDisplay = Object.keys(filteredData[0]);
     }
     
-    console.log(filteredData);
-
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
-
-    // // Create an array of keys (column names) to be displayed in the table
-    // const keysToDisplay = Object.keys(filteredData[0]).filter(key => key !== "type");
 
     // Create table header without the "type" column
     const headerRow = document.createElement("tr");
@@ -656,12 +656,12 @@ function openPopup(popupId) {
     }
   }
   
-  function closePopup(popupId) {
+function closePopup(popupId) {
     var popup = document.getElementById(popupId);
     if (popup) {
-      popup.style.display = 'none';
+        popup.style.display = 'none';
     }
-  }
+}
 
 // Get all table rows
 const rows = document.querySelectorAll("#resultsTable tbody tr");

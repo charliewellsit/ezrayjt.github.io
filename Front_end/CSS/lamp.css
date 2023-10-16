@@ -55,20 +55,18 @@ h1{
     margin-right: 0;
     display: flex;
     align-content: center;
-    /* flex-wrap: wrap; */
 }
 
 button {
     background-color: rgb(0, 89, 255); /* Blue background color */
     color: white; /* White font color */
     border: none; /* Remove border */
-    /* border-radius: 24px; */
+    border-radius: 24px; /* Rounded corners */
     width: 10em;
     padding:10px;
     cursor: pointer; /* Add a pointer cursor on hover */
 }
-  
-/* Optional: Style hover effect */
+
 button:hover {
     background-color: darkblue; /* Darker blue on hover */
 }
@@ -114,21 +112,17 @@ button:hover {
 }
 
 .custom-table {
-    border: 1px solid #dee2e6; /* Add desired border style here */
-    border-collapse: collapse; /* Optional: Collapses table borders */
-    width: 100%; /* Optional: Set table width as needed */
+    border: 1px solid #dee2e6;
+    border-collapse: collapse; 
+    width: 100%; 
     text-align: left;
 }
 
 .custom-table th,
 .custom-table td {
-    border: 1px solid #000000; /* Add desired border style here */
-    padding: 8px; /* Optional: Add padding for better spacing */
+    border: 1px solid #000000; 
+    padding: 8px; 
     text-align: left;
-}
-
-.custom-table tbody tr:hover {
-    background-color: lightblue; /* Change this to your desired highlight color */
 }
 
 #hiddenContainer {

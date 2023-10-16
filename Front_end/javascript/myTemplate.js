@@ -45,17 +45,19 @@ class navbar extends HTMLElement {
 
         <nav>
           <a href="home.html">Home</a>
-          
+
           <div class="dropdown-container">
-              <a href="#" class="dropdown1">Light</a>
+              <a href="lights.html" class="dropdown1">Lights</a>
               <div class="sub">
                   <a href="lights.html">Assess Room's Lighting</a>
                   <a href="lightbulb.html">Lightbulb Types</a>
               </div>
           </div>
+
+          <a href="appliances.html">Appliances</a>
           
           <a href="waste.html">Waste</a>
-          <a href="appliances.html">Appliances</a>
+          
           <a href="DIY.html">DIY</a>
       </nav>
     </header>

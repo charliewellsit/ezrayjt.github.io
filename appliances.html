@@ -22,9 +22,23 @@
 <body>
     <nav-bar></nav-bar>
     <div id="appliances-container">
-
-        <div id="appliances">
+        <div class="appliances" style="color:black; padding-top: 6rem; padding-bottom: 4rem;">
+            <h1 class="display-4">Appliances Energy Insights Unleashed:</h1>
+            <hr style="border: 2px solid #182628; "><br>
+            <h3>Compare Appliances' Energy Efficiency or Calculate Your Cost</h3><br><br>
+            <p>
+                For a comprehensive understanding, explore our <a href="#energyEfficiencyFeature" class="lightbulb-link">Energy Efficiency</a> feature to assess each brand's performance in energy consumption.<br><br>
+                If you're only interested in evaluating your specific appliance, navigate to our <a href="#costCalculatorFeature" class="lightbulb-link">Cost Calculator</a> feature for personalized insights.
+            </p>
             <br>
+        </div>
+    </div>
+    
+
+    <div id="appliances-container" style="background-color: whitesmoke;">
+
+        <div class="appliances" id="energyEfficiencyFeature">
+            <br><br><br><br><br>
             <h1 class="display-4">Energy Efficiency</h1>
             <hr style="border: 2px solid green; ">
             <br>
@@ -125,7 +139,19 @@
             </div>
 
             <div class="selection">
-                <label for="star-rating">Select star ratings:</label>
+                <label for="star-rating">Select star ratings:
+                    <button class="button1" type="button" onclick="openPopup('popup4')" style="margin:0; padding: 0;">
+                        <span class="hover-icon" style="margin:5px; padding: 0;">&#9432</span>
+                    </button>
+                    <div id="popup4" class="popup" style="text-align: center;">
+                        <p style="font-size: 16px; text-align: left;">
+                            Star rating refers to the energy efficiency of a product in comparison to similar items.<br><br>
+                            A higher star rating signifies greater efficiency when compared to other models of similar size and features.
+                            <br><br>
+                        </p>
+                        <button type="button" onclick="closePopup('popup4')">Close</button>
+                    </div>
+                </label>
                 <div id="star-ratings">
                     <label>
                         <input type="checkbox" name="star-rating" value="0"> 0
@@ -175,7 +201,7 @@
                 <canvas id="energy-consumption-chart"></canvas>
             </div>
             <div id="textRes"></div>
-            
+            <br><br><br>
         </div>    
             
     </div>
@@ -184,8 +210,8 @@
 
     <!-- Cost Calculator Feature -->
     <div id="appliances-container" style="background-color: lightgrey; padding-top: 50px;">
-
-        <div id="appliances">
+        <div class="appliances" id="costCalculatorFeature">
+        <br><br><br>
         <h1 class="display-4">Cost Calculator for Appliances</h1>
         <hr style="border: 2px solid white">
         <br>
@@ -238,7 +264,7 @@
             <div class="selection">
                 <label for="power">What is the power consumption of your appliances per month (in kWh)?
                 </label>
-                <input type="number" id="power" name="power" min="0">
+                <input type="text" id="power" name="power">
                 <div id="errorMessagePower" style="color:red; font-size: 16px;"></div>
             </div>
         </div>
@@ -278,14 +304,14 @@
             <div class="selection">
                 <label for="acPower">What is the power consumption of your appliances per hour?
                 </label>
-                <input type="number" id="acPower" name="acPower" min="0">
+                <input type="text" id="acPower" name="acPower">
                 <div id="errorMessageAcPower" style="color:red; font-size: 16px;"></div>
             </div>
 
             <div class="selection">
                 <label for="hours">How many hours in a day do you use the appliance?
                 </label>
-                <input type="number" id="hours" name="hours" min="0" max="24">
+                <input type="text" id="hours" name="hours">
                 <div id="errorMessageHours" style="color:red; font-size: 16px;"></div>
             </div>
         </div>
@@ -355,14 +381,14 @@
                     <button type="button" onclick="closePopup('popup1')">Close</button>
                   </div>
             </label>
-            <input type="number" id="charge" name="charge" min="0">
+            <input type="text" id="charge" name="charge">
             <div id="errorMessageCharge" style="color:red; font-size: 16px;"></div>
         </div>
 
         <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
         <button type="button" id="checkButton">Calculate</button>
 
-        <br><br>
+        <br><br><br>
         </div>
     </div>
        
@@ -386,6 +412,16 @@
               
         </div>
     </div>
+
+<footer class="footer" style="padding: 1rem 0; background-color: #182628;">
+    <div class="row">
+        <a href="Attributions.html" class="footer-link">Attributions</a>
+    </div>
+    <br>
+    <div class="row" style="color: white;">
+        <h4>Copyright <span>&copy;</span> 2023 SustainUrban</h4>
+    </div>
+    </footer>
    
 
     <!--import scrips -->

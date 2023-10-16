@@ -52,3 +52,12 @@ h2 {
   font-size: 35px;
   padding: 10px;
 }
+
+.footer-link {
+  color: white; /* Default link color */
+  text-decoration: none; /* Remove underline from the link */
+}
+.footer-link:hover {
+  color: yellow; /* Link color changes on hover */
+  text-decoration: underline; /* Underline the link on hover */
+}

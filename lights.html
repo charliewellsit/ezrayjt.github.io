@@ -35,12 +35,13 @@
       <h3>Verify Whether Your Room's Lighting Choices Complies with the Recommended Standards<span>*</span></h3>
       <br>
       <p style="font-size: 18px;"><span>*</span>This is based on Australian/ New Zealand Standard (AS/NZS 1680.1:2006)</p>
+      <br><br>
+      <p>If you're uncertain about the various types of lightbulbs, feel free to explore our page on <a href="lightbulb.html" class="lightbulb-link">Lightbulb Types!</a></p>
       <br>
-
       <div class="lighting-selection">
         
         <label for="lumens">What is the luminous flux rating of the lightbulb you are going to purchase/ use?
-          <!-- <span class="tooltip" title="Luminous flux rating is typically indicated on the light bulb packaging under the label 'Lumens'. It is commonly referred as brightness.">&#9432;</span> -->
+          <!-- to show the popup -->
           <button class="button1" type="button" onclick="openPopup('popup')">
             <span class="hover-icon">&#9432</span>
           </button>
@@ -100,13 +101,15 @@
             <button type="button" onclick="closePopup('popup')">Close</button>
           </div>
         </label>
-        <input type="number" id="lumens" name="lumens" min="1" max="3000">
-        <!-- added validation -->
+        <!-- for the input box -->
+        <input type="text" id="lumens" name="lumens">
         <div id="errorMessageLumens" style="color:red; font-size: 16px;"></div>
+
       </div>
           
       <div class="lighting-selection">
         <label for="area-names">Select an area you would like to check:</label> 
+        <!-- to show the selection -->
           <select name="area-names" id="area-names">
               <option value="none" selected disabled hidden>Select</option>
               <option value="Bedroom">Bedroom</option> 
@@ -114,11 +117,13 @@
               <option value="Kitchen">Kitchen</option>
               <option value="Toilet">Toilet</option> 
           </select>
+          <!-- to show the error message -->
+          <div id="errorMessageAreaName" style="color:red; font-size: 16px;"></div>
       </div>
 
       <div class="lighting-selection">
         <label for="size">What is the approximate size of your selected area in m²?
-          <!-- <span class="tooltip" title="Need some clarity? Feel free to refer to the table for personalized guidance!">&#9432;</span> -->
+          <!-- to show the popup -->
           <button class="button1" type="button" onclick="openPopup('popup1')">
             <span class="hover-icon">&#9432</span>
           </button>
@@ -163,25 +168,25 @@
             <button type="button" onclick="closePopup('popup1')">Close</button>
           </div>
         </label>
-          <input type="number" id="size" name="size" min="1" max="3000">
+          <input type="text" id="size" name="size">
           <!-- added validation -->
           <div id="errorMessageArea" style="color:red; font-size: 16px;"></div>
       </div>
 
       <div class="lighting-selection">
         <label for="numberOfLightBulb">How many light bulbs are you going to install for this area?</label>
-        <input type="number" id="numberOfLightBulb" name="numberOfLightBulb" min="1" max="20">
+        <input type="text" id="numberOfLightBulb" name="numberOfLightBulb">
         <!-- added validation -->
         <div id="errorMessageBulbs" style="color:red; font-size: 16px;"></div>
       </div>
 
-      <!-- <button type="button" onclick="calculate()">Check</button> -->
       <div id="errorMessageAllFields" style="color: red; font-size: 16px;"></div>
       <button type="button" id="checkButton" onclick="calculateAndToggle()">Check</button>
     </div>
   </div>
 
   <div class="row">
+    <br>
     <div id="thisDiv"></div>
     <div id="hiddenContainer" style="color: white;">
       
@@ -223,6 +228,16 @@
         </div>
     </div>
   </div>
+
+  <footer class="footer" style="padding: 1rem 0; background-color: #182628;">
+    <div class="row">
+        <a href="Attributions.html" class="footer-link">Attributions</a>
+    </div>
+    <br>
+    <div class="row" style="color: white;">
+        <h4>Copyright <span>&copy;</span> 2023 SustainUrban</h4>
+    </div>
+</footer>
 
   <!--import scrips -->
   <script src="Front_end/javascript/navbar.js"></script>

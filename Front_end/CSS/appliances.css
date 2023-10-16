@@ -1,17 +1,14 @@
 #appliances-container{
     display: flex;
     padding:20px;
-    padding-top: 100px;
     padding-bottom: 20px;
     width: 100%;
-    /* height: 100vh; */
     justify-content: center;
     text-align: center;
   }
   
-#appliances{
+.appliances{
     margin: 0 40px;
-    /* margin-top: 0px; */
 }
 
 #star-ratings label {
@@ -95,31 +92,22 @@ button:hover {
 label {
     margin-bottom: 10px;
   }
-  
-/* input, select{
-    width: 80%;
-} */
 
 #table-container-AC, #table-container-fridfe, #text2, #fridgeSelections, #AcSelections, #fridgeCalculatorSection, #AcCalculatorSection, #vis1{
   display: none;
 }
 
-/* .highlighted-row {
-  background-color: lightgoldenrodyellow;
-  color: black;
-} */
-
 .custom-table {
-  border: 1px solid #dee2e6; /* Add desired border style here */
-  border-collapse: collapse; /* Optional: Collapses table borders */
-  width: 100%; /* Optional: Set table width as needed */
+  border: 1px solid #dee2e6; 
+  border-collapse: collapse; 
+  width: 100%; 
   text-align: left;
 }
 
 .custom-table th,
 .custom-table td {
-    border: 1px solid #000000; /* Add desired border style here */
-    padding: 8px; /* Optional: Add padding for better spacing */
+    border: 1px solid #000000; 
+    padding: 8px; 
     text-align: left;
 }
 
@@ -154,4 +142,14 @@ h3 {
 
 .small-text{
   font-size: 20px;
+}
+
+.lightbulb-link{
+  color: green; /* Default link color */
+  text-decoration: none; /* Remove underline from the link */
+}
+
+.lightbulb-link:hover{
+  color: blue; /* Link color changes on hover */
+  text-decoration: underline; /* Underline the link on hover*/
 }

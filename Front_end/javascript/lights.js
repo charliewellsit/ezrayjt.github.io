@@ -4,6 +4,7 @@ function clearErrorMessages(){
   document.getElementById("errorMessageLumens").innerHTML = "";
   document.getElementById("errorMessageBulbs").innerHTML = "";
   document.getElementById("errorMessageArea").innerHTML = "";
+  document.getElementById("errorMessageAreaName").innerHTML = "";
 }
 
 function displayErrorMessage(elementId, message) {
@@ -11,7 +12,12 @@ function displayErrorMessage(elementId, message) {
   document.getElementById(elementId).innerHTML = message;
 }
 
+function isInteger(value) {
+  return /^-?\d+$/.test(value);
+}
+
 function calculateAndToggle(){
+  clearErrorMessages();
   let conditionsMet = true;
 
   let lumens = parseFloat(document.getElementById("lumens").value);
@@ -19,23 +25,53 @@ function calculateAndToggle(){
   let areaName = document.getElementById("area-names").value;
   let areaSize = parseFloat(document.getElementById("size").value);
 
-  if (!lumens || isNaN(numberOfLightBulb) || areaName === "none" || !areaSize) {
+  // check all values
+  if (!lumens && isNaN(numberOfLightBulb) && areaName === "none" && !areaSize) {
     displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Check'");
     conditionsMet = false;
   }
-
+  // validation for area name
+  else if (areaName == "none"){
+    displayErrorMessage("errorMessageAreaName", "Please select the area");
+    conditionsMet = false;
+  }
+  // validations for lumens
+  else if (isNaN(lumens)){
+    displayErrorMessage("errorMessageLumens", "Please fill in the amount of the luminuous flux rating");
+    conditionsMet = false;
+  }
+  else if (!isInteger(lumens)){
+    displayErrorMessage("errorMessageLumens", "Please only enter numeric value");
+    conditionsMet = false;
+  }
   else if (lumens > 3000 || lumens < 1) {
     displayErrorMessage("errorMessageLumens", "Please only enter between 1 to 3000");
     conditionsMet = false;
   }
-
-  else if (numberOfLightBulb > 20 || numberOfLightBulb < 1) {
-    displayErrorMessage("errorMessageBulbs", "Please only enter between 1 to 20");
+  // validation for area size
+  else if (isNaN(areaSize)){
+    displayErrorMessage("errorMessageArea", "Please fill in the area size");
     conditionsMet = false;
   }
-
+  else if (!isInteger(areaSize)){
+    displayErrorMessage("errorMessageArea", "Please only enter numeric value");
+    conditionsMet = false;
+  }
   else if (areaSize > 3000 || areaSize < 1) {
     displayErrorMessage("errorMessageArea", "Please only enter between 1 to 3000");
+    conditionsMet = false;
+  }
+  // validation for number of lightbulbs
+  else if (isNaN(numberOfLightBulb)){
+    displayErrorMessage("errorMessageLumens", "Please fill in the number of lightbulbs");
+    conditionsMet = false;
+  }
+  else if (!isInteger(numberOfLightBulb)){
+    displayErrorMessage("errorMessageBulbs", "Please only enter numeric value");
+    conditionsMet = false;
+  }
+  else if (numberOfLightBulb > 20 || numberOfLightBulb < 1) {
+    displayErrorMessage("errorMessageBulbs", "Please only enter between 1 to 20");
     conditionsMet = false;
   }
 
@@ -49,31 +85,31 @@ function calculateAndToggle(){
     if (areaName === "Bedroom" || areaName === "Toilet" || areaName === "Kitchen"){
       if (lux > 160){
         resultText = `
-          <br><br><span class="large-text-lights">Your Result</span><br><br>
+          <br><br><br><br><span class="large-text-lights">Your Result</span><br><br>
           <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
-          <span class="small-text-lights">It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br></span>`
+          <span class="small-text-lights">It appears that your room's lighting design exceeds the recommended level of illuminance (160 Lux).<br><br><br><br></span>`
           ;
       }
       // }
       else{
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br>
+        resultText = `<br><br><br><br><span class="large-text-lights">Your Result</span><br><br>
         <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
         <span class="small-text-lights">Congratulations on your excellent work!<br><br>
-        Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br>
+        Your chosen lighting option is within the recommended level of illuminance (160 Lux).<br><br><br><br>
         </span>`;
       }
     } else {
       if (lux > 40){
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br>
+        resultText = `<br><br><br><br><span class="large-text-lights">Your Result</span><br><br>
         <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
-        <span class="small-text-lights">It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br>
+        <span class="small-text-lights">It appears that your room's lighting design exceeds the recommended level of illuminance (40 Lux).<br><br><br><br>
         </span>`;
       }
       else{
-        resultText = `<br><br><span class="large-text-lights">Your Result</span><br><br>
+        resultText = `<br><br><br><br><span class="large-text-lights">Your Result</span><br><br>
         <span class="med-text-lights">Your total illuminance (lighting level) is ${lux} Lux.</span><br><br>
         <span class="small-text-lights">Congratulations on your excellent work!<br><br>
-        Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br>
+        Your chosen lighting option is within the recommended level of illuminance (40 Lux).<br><br><br><br>
         </span>`;
       }
     }

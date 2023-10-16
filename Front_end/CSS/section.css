@@ -40,7 +40,8 @@ section:nth-child(odd) {
 .issue-container {
   display: flex;
   flex-direction: row;
-  height: 570px;
+  margin-bottom: 5rem;
+  /* height: 570px; */
   text-align: center;
 } 
 
