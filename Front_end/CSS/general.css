@@ -61,3 +61,7 @@ h2 {
   color: yellow; /* Link color changes on hover */
   text-decoration: underline; /* Underline the link on hover */
 }
+
+footer{
+  text-align: center;
+}
