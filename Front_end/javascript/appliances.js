@@ -215,7 +215,7 @@ async function updateGraph() {
     // Fetch data from the API
     const jsonData = await FetchAppliancesAPI(); // Await here to get the actual data
 
-    console.log('jsonData:', jsonData);
+    // console.log('jsonData:', jsonData);
 
     if (!Array.isArray(jsonData)) {
         // Handle the case where jsonData is not an array
@@ -433,7 +433,7 @@ async function Calculate(){
         total = parseFloat((power * charge / 100).toFixed(2));
     }
 
-        console.log(total);
+        // console.log(total);
         let resultText = "";
 
         resultText = `<br><br><span class="large-text">Your Result</span><br><br>
@@ -569,12 +569,12 @@ async function compare(result){
         filteredData = jsonData;
     }
     
-    console.log(filteredData);
+    // console.log(filteredData);
 
     // Extract the energy consumption and star rating from the filtered data
     const energyConsumptionData = filteredData.map(item => item["Average Energy Consumption (kW)"]);
 
-    console.log(energyConsumptionData);
+    // console.log(energyConsumptionData);
 
     if (appType === 'AC'){
         calcCost = energyConsumptionData * charge * hours * 30 / 100;
@@ -582,7 +582,7 @@ async function compare(result){
         calcCost = energyConsumptionData * charge / 100;
     }
 
-    console.log(`charge is ${calcCost}`);
+    // console.log(`charge is ${calcCost}`);
 
     const savedMoney = document.getElementById('text3');
     const savings = (result - calcCost).toFixed(2);
