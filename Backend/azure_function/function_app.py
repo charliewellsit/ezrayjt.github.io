@@ -293,7 +293,7 @@ def get_ac_cooling(req: func.HttpRequest):
 
     # SQL query to get data from the database
     # query = "SELECT brand, model_number, cooling_usage_kw, heating_usage_kw, ROUND(cooling_star_rating,1), ROUND(heating_star_rating,1) FROM air_conditioners"
-    query = "SELECT brand, ROUND(AVG(cooling_usage_kw),3)*30, ROUND(cooling_star_rating,1) FROM air_conditioners GROUP BY brand, cooling_star_rating"
+    query = "SELECT brand, ROUND(AVG(cooling_usage_kw),3), ROUND(cooling_star_rating,1) FROM air_conditioners GROUP BY brand, cooling_star_rating"
 
     # Execute the query using the DatabaseManager
     result = db_manager_iteration3.execute_query(query)

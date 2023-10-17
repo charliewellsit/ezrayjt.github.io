@@ -231,9 +231,9 @@ async function updateGraph() {
         }
 
         if (document.getElementById("AC").checked){
-            var labelText = 'Average Energy Consumption per hour';
+            var labelText = 'Average Energy Consumption per hour (kWh)';
         } else {
-            var labelText = 'Average Energy Consumption per month';
+            var labelText = 'Average Energy Consumption per month (kWh)';
         }
 
         const labels = data.map(item => item.star_rating.toString());
