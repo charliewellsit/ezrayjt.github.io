@@ -375,47 +375,54 @@ function clearErrorMessages(){
 async function Calculate(){    
     let conditionsMet = true;
 
+    // let total = 0;
+
     let thisAppliance = get_selected_radio_option("app-type");
   
     let power = parseFloat(document.getElementById("power").value);
     let acPower = parseFloat(document.getElementById("acPower").value);
     let hours = parseFloat(document.getElementById("hours").value);
     let charge = parseFloat(document.getElementById("charge").value);
+
+    console.log(power);
+    console.log(acPower);
+    console.log(hours);
+    console.log(charge);
   
     // different validation for different appliance
     if (thisAppliance === 'AC'){
-        if (acPower === "" || isNaN(parseFloat(acPower))){
-            displayErrorMessage("errorMessageAcPower", "Please enter the power consumption in numeric value");
-            conditionsMet = false;  
-        } else if (acPower > 10 || acPower < 0){
+        // if (acPower === "" || isNaN(parseFloat(acPower))){
+        //     displayErrorMessage("errorMessageAcPower", "Please enter the power consumption in numeric value");
+        //     conditionsMet = false;  
+        if (!acPower){
             displayErrorMessage("errorMessageAcPower", "Please check the power consumption you've inputted");
             conditionsMet = false;
-        } else if (hours === "" || isNaN(parseFloat(hours))){
-            displayErrorMessage("errorMessageHours", "Please enter the hours of usage");
-            conditionsMet = false;
-        } else if (hours > 24 || hours < 0){
+        // } else if (hours === "" || isNaN(parseFloat(hours))){
+        //     displayErrorMessage("errorMessageHours", "Please enter the hours of usage");
+        //     conditionsMet = false;
+        } else if (!hours){
             displayErrorMessage("errorMessageHours", "Please check the number of hours you've inputted");
             conditionsMet = false;
-        } else if (charge === "" || isNaN(parseFloat(charge))){
-            displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
-            conditionsMet = false;
-        } else if (charge > 100 || charge < 0){
+        // } else if (charge === "" || isNaN(parseFloat(charge))){
+        //     displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
+        //     conditionsMet = false;
+        } else if (!charge){
             displayErrorMessage("errorMessageAcPower", "Please check the amount you've inputted");
             conditionsMet = false;
         } else if (!acPower || !hours || !charge) {
             displayErrorMessage("errorMessageAllFields", "Please fill in all required fields before clicking 'Calculate'");
             conditionsMet = false;}
     } else {
-        if (power === "" || isNaN(parseFloat(power))){
-            displayErrorMessage("errorMessagePower", "Please enter the power consumption in numeric value");
-            conditionsMet = false;
-        } else if (power > 10 || power < 0){
+        // if (power === "" || isNaN(parseFloat(power))){
+        //     displayErrorMessage("errorMessagePower", "Please enter the power consumption in numeric value");
+        //     conditionsMet = false;
+        if (!power){
             displayErrorMessage("errorMessagePower", "Please check the power consumption you've inputted");
             conditionsMet = false;
-        } else if (charge === "" || isNaN(parseFloat(charge))){
-            displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
-            conditionsMet = false;
-        } else if (charge > 100 || charge < 0){
+        // } else if (charge === "" || isNaN(parseFloat(charge))){
+        //     displayErrorMessage("errorMessageCharge", "Please provide the amount you are being billed by your energy provider.");
+        //     conditionsMet = false;
+        } else if (!charge){
             displayErrorMessage("errorMessageAcPower", "Please check the amount you've inputted");
             conditionsMet = false;
         } else if (!power || !charge) {
@@ -423,7 +430,7 @@ async function Calculate(){
             conditionsMet = false;}
     }
 
-    clearErrorMessages();
+    // clearErrorMessages();
     
     if (conditionsMet && thisAppliance === 'AC'){
         clearErrorMessages();
@@ -433,27 +440,28 @@ async function Calculate(){
         total = parseFloat((power * charge / 100).toFixed(2));
     }
 
-        // console.log(total);
-        let resultText = "";
+    
+    console.log(total);
+    let resultText = "";
 
-        resultText = `<br><br><span class="large-text">Your Result</span><br><br>
-        <span class="med-text">Your total electricity cost per month from this appliance would be $${total}.</span><br><br>`      
-    
-        const hiddenContainer = document.getElementById("hiddenContainer");
+    resultText = `<br><br><span class="large-text">Your Result</span><br><br>
+    <span class="med-text">Your total electricity cost per month from this appliance would be $${total}.</span><br><br>`      
 
-        hiddenContainer.style.backgroundColor = 'black';
+    const hiddenContainer = document.getElementById("hiddenContainer");
+
+    hiddenContainer.style.backgroundColor = 'black';
+
+    const textField = document.getElementById("textField");
+    textField.innerHTML = resultText;
+
+    // Scroll to the "thisDiv" element
+    // const thisDiv = document.getElementById("thisDiv");
+    // thisDiv.scrollIntoView({ behavior: "smooth" });
+
+    const showText2 = document.getElementById("text2");
+    showText2.style.display = 'flex';
     
-        const textField = document.getElementById("textField");
-        textField.innerHTML = resultText;
-    
-        // Scroll to the "thisDiv" element
-        // const thisDiv = document.getElementById("thisDiv");
-        // thisDiv.scrollIntoView({ behavior: "smooth" });
-    
-        const showText2 = document.getElementById("text2");
-        showText2.style.display = 'flex';
-        
-        await compare(total);
+    await compare(total);
 }
 
 function hideTable(){

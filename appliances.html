@@ -264,7 +264,8 @@
             <div class="selection">
                 <label for="power">What is the power consumption of your appliances per month (in kWh)?
                 </label>
-                <input type="text" id="power" name="power">
+                <!-- <input type="text" id="power" name="power"> -->
+                <input type="number" id="power" name="power" min="0">
                 <div id="errorMessagePower" style="color:red; font-size: 16px;"></div>
             </div>
         </div>
@@ -304,14 +305,16 @@
             <div class="selection">
                 <label for="acPower">What is the power consumption of your appliances per hour?
                 </label>
-                <input type="text" id="acPower" name="acPower">
+                <!-- <input type="text" id="acPower" name="acPower"> -->
+                <input type="number" id="acPower" name="acPower" min="0">
                 <div id="errorMessageAcPower" style="color:red; font-size: 16px;"></div>
             </div>
 
             <div class="selection">
                 <label for="hours">How many hours in a day do you use the appliance?
                 </label>
-                <input type="text" id="hours" name="hours">
+                <!-- <input type="text" id="hours" name="hours"> -->
+                <input type="number" id="hours" name="hours" min="0" max="24">
                 <div id="errorMessageHours" style="color:red; font-size: 16px;"></div>
             </div>
         </div>
@@ -381,7 +384,8 @@
                     <button type="button" onclick="closePopup('popup1')">Close</button>
                   </div>
             </label>
-            <input type="text" id="charge" name="charge">
+            <!-- <input type="text" id="charge" name="charge"> -->
+            <input type="number" id="charge" name="charge" min="0">
             <div id="errorMessageCharge" style="color:red; font-size: 16px;"></div>
         </div>
 
