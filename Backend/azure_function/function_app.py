@@ -1,5 +1,5 @@
 import azure.functions as func
-import mysql.connector, json, os, requests
+import mysql.connector, json, os
 
 class DatabaseManager:
     def __init__(self, host, user, password, database):
